@@ -1,0 +1,1155 @@
+{
+  "latestQueries": [
+    {
+      "id": 1,
+      "fullName": "Rüfət Məmmədov",
+      "photo": "https://i.pravatar.cc/150?img=10",
+      "type": "Day off",
+      "date": "06/25/2020",
+      "status": "Ləğv edildi"
+    },
+    {
+      "id": 2,
+      "fullName": "Hüseyn Lətifov İ.",
+      "photo": "https://i.pravatar.cc/150?img=11",
+      "type": "Məzuniyyət",
+      "date": "06/20/2020",
+      "status": "Gözləmədədir"
+    },
+    {
+      "id": 3,
+      "fullName": "Sevda Bıyık C.",
+      "photo": "https://i.pravatar.cc/150?img=12",
+      "type": "Ezamiyyət",
+      "date": "06/19/2020",
+      "status": "Təstiqləndi"
+    }
+  ],
+  "myQueries": [
+    {
+      "id": 1,
+      "type": "Day off",
+      "status": "Gözləmədədir",
+      "date": "06/25/2020"
+    },
+    {
+      "id": 2,
+      "type": "Ezamiyyət",
+      "status": "Ləğv olundu",
+      "date": "06/25/2020"
+    },
+    {
+      "id": 3,
+      "type": "Day off",
+      "status": "Təstiqləndi",
+      "date": "06/25/2020"
+    },
+    {
+      "type": "Day off",
+      "status": "Gözləmədədir",
+      "date": "06/25/2021",
+      "id": 4
+    }
+  ],
+  "latestInfoAboutEmployees": [
+    {
+      "id": 1,
+      "fullName": "Hüseyn Lətifov İ.",
+      "photo": "https://i.pravatar.cc/150?img=10",
+      "position": "Radio rəhbəri",
+      "status": "Yeni əməkdaş"
+    },
+    {
+      "id": 2,
+      "fullName": "Sevda Bıyık C.",
+      "photo": "https://i.pravatar.cc/150?img=11",
+      "position": "Baş mühəndis",
+      "status": "Ayrılmış əməkdaş"
+    },
+    {
+      "id": 3,
+      "fullName": "Əhəd Miriyev S.",
+      "photo": "https://i.pravatar.cc/150?img=12",
+      "position": "Aparıcı",
+      "status": "Yeni əməkdaş"
+    },
+    {
+      "fullName": "Jane Doe",
+      "photo": "https://i.pravatar.cc/150?img=13",
+      "position": "Radio rəhbəri",
+      "status": "Yeni əməkdaş",
+      "id": 4
+    }
+  ],
+  "upcomingAnniversary": [
+    {
+      "id": 1,
+      "fullName": "Hüseyn Lətifov İ.",
+      "photo": "https://i.pravatar.cc/150?img=10",
+      "year": "3",
+      "date": "06/25/2020"
+    },
+    {
+      "id": 2,
+      "fullName": "Sevda Bıyık C.",
+      "photo": "https://i.pravatar.cc/150?img=11",
+      "year": "4",
+      "date": "06/25/2020"
+    },
+    {
+      "id": 3,
+      "fullName": "Əhəd Miriyev S.",
+      "photo": "https://i.pravatar.cc/150?img=12",
+      "year": "2",
+      "date": "06/25/2020"
+    },
+    {
+      "fullName": "Fred Doe",
+      "photo": "https://i.pravatar.cc/150?img=13",
+      "year": "3",
+      "date": "06/25/2021",
+      "id": 4
+    }
+  ],
+  "todaysDayOffs": [
+    {
+      "id": 1,
+      "fullName": "Hüseyn Lətifov İ.",
+      "photo": "https://i.pravatar.cc/150?img=10",
+      "type": "Tam gün"
+    },
+    {
+      "id": 2,
+      "fullName": "Sevda Bıyık C.",
+      "photo": "https://i.pravatar.cc/150?img=11",
+      "type": "Nahardan sonra"
+    },
+    {
+      "id": 3,
+      "fullName": "Əhəd Miriyev S.",
+      "photo": "https://i.pravatar.cc/150?img=12",
+      "type": "Tam gün"
+    },
+    {
+      "fullName": "Farid Mammadov",
+      "photo": "https://i.pravatar.cc/150?img=13",
+      "type": "Tam gün",
+      "id": 4
+    }
+  ],
+  "dayOffs": [
+    {
+      "id": 1,
+      "fullName": "Hüseyn Lətifov İ.",
+      "photo": "https://i.pravatar.cc/150?img=10",
+      "date": "2022-02-13T14:07:18.394Z",
+      "status": "Təstiqləndi",
+      "type": "Tam gün",
+      "result": "Departament rəhbərin göndərməsi"
+    },
+    {
+      "id": 2,
+      "fullName": "Sevda Bıyık C.",
+      "photo": "https://i.pravatar.cc/150?img=11",
+      "date": "2022-02-13T14:07:18.394Z",
+      "status": "Ləğv olundu",
+      "type": "Tam gün",
+      "result": "Departament rəhbərin göndərməsi"
+    },
+    {
+      "id": 3,
+      "fullName": "Əhəd Miriyev S.",
+      "photo": "https://i.pravatar.cc/150?img=12",
+      "date": "2022-02-13T14:07:18.394Z",
+      "status": "Gözləmədədir",
+      "type": "Tam gün",
+      "result": "Departament rəhbərin göndərməsi"
+    }
+  ],
+  "vacationInfo": [
+    {
+      "id": 1,
+      "fullName": "Hüseyn Lətifov İ.",
+      "photo": "https://i.pravatar.cc/150?img=10",
+      "substitutePerson": "Sevda Bıyık C.",
+      "startDate": "2022-03-20T20:00:00.000Z",
+      "expirationDate": "2022-03-24T20:00:00.000Z",
+      "result": "Departament rəhbərin göndərməsi"
+    },
+    {
+      "id": 2,
+      "fullName": "Sevda Bıyık C.",
+      "photo": "https://i.pravatar.cc/150?img=11",
+      "substitutePerson": "Əhəd Miriyev S.",
+      "startDate": "2022-03-20T20:00:00.000Z",
+      "expirationDate": "2022-03-24T20:00:00.000Z",
+      "result": "Departament rəhbərin göndərməsi"
+    },
+    {
+      "id": 3,
+      "fullName": "Əhəd Miriyev S.",
+      "photo": "https://i.pravatar.cc/150?img=12",
+      "substitutePerson": "Hüseyn Lətifov İ.",
+      "startDate": "2022-03-20T20:00:00.000Z",
+      "expirationDate": "2022-03-24T20:00:00.000Z",
+      "result": "Departament rəhbərin göndərməsi"
+    },
+    {
+      "fullName": "Joe Doe",
+      "photo": "https://i.pravatar.cc/150?img=13",
+      "substitutePerson": "Jane Doe",
+      "id": 4,
+      "startDate": "2022-03-20T20:00:00.000Z",
+      "expirationDate": "2022-03-24T20:00:00.000Z",
+      "result": "Departament rəhbərin göndərməsi"
+    }
+  ],
+  "nextBirthdays": [
+    {
+      "id": 1,
+      "fullName": "Hüseyn Lətifov İ.",
+      "photo": "https://i.pravatar.cc/150?img=10",
+      "date": "06/25/2020"
+    },
+    {
+      "id": 2,
+      "fullName": "Sevda Bıyık C.",
+      "photo": "https://i.pravatar.cc/150?img=11",
+      "date": "06/20/2020"
+    },
+    {
+      "id": 3,
+      "fullName": "Əhəd Miriyev S.",
+      "photo": "https://i.pravatar.cc/150?img=12",
+      "date": "06/20/2020"
+    },
+    {
+      "fullName": "Joe Doe",
+      "photo": "https://i.pravatar.cc/150?img=13",
+      "date": "07/25/2020",
+      "id": 4
+    }
+  ],
+  "businessTrip": [
+    {
+      "id": 1,
+      "fullName": "Hüseyn Lətifov İ.",
+      "photo": "https://i.pravatar.cc/150?img=10",
+      "startDate": "2022-05-25T20:00:00.000Z",
+      "expirationDate": "2022-06-25T20:00:00.000Z",
+      "note": "Sadə qeyd",
+      "result": "Departament rəhbərin göndərməsi"
+    },
+    {
+      "id": 2,
+      "fullName": "Sevda Bıyık C.",
+      "photo": "https://i.pravatar.cc/150?img=11",
+      "startDate": "2022-05-25T20:00:00.000Z",
+      "expirationDate": "2022-06-25T20:00:00.000Z",
+      "note": "Sadə qeyd",
+      "result": "Departament rəhbərin göndərməsi"
+    },
+    {
+      "id": 3,
+      "fullName": "Əhəd Miriyev S.",
+      "photo": "https://i.pravatar.cc/150?img=12",
+      "startDate": "2022-05-25T20:00:00.000Z",
+      "expirationDate": "2022-06-25T20:00:00.000Z",
+      "note": "Sadə qeyd",
+      "result": "Departament rəhbərin göndərməsi"
+    },
+    {
+      "id": 4,
+      "fullName": "Jane Doe",
+      "photo": "https://i.pravatar.cc/150?img=13",
+      "startDate": "2022-05-25T20:00:00.000Z",
+      "expirationDate": "2022-06-25T20:00:00.000Z",
+      "note": "Sadə qeyd",
+      "result": "Departament rəhbərin göndərməsi"
+    }
+  ],
+  "announcements": [
+    {
+      "id": 1,
+      "name": "Bayram",
+      "description": "Qurban bayramı dövlət qaydasına esasən 2 gun sonraya çekildi",
+      "createdBy": "Rüfət Məmmədov",
+      "createdDate": "2022-02-13T14:07:18.394Z",
+      "operation": "Əməliyyat 1"
+    },
+    {
+      "id": 2,
+      "name": "Bayram",
+      "description": "Qurban bayramı dövlət qaydasına esasən 2 gun sonraya çekildi.Qurban bayramı dövlət qaydasına esasən 2 gun sonraya çekildi. qaydasına esasən 2 gun sonraya çekildi",
+      "createdBy": "Rüfət Məmmədov",
+      "createdDate": "2022-03-13T14:07:18.394Z",
+      "operation": "Əməliyyat 2"
+    },
+    {
+      "id": 3,
+      "name": "Bayram",
+      "description": "Qurban bayramı dövlət qaydasına esasən 2 gun sonraya çekildi. Qurban bayramı dövlət qaydasına esasən 2 gun sonraya çekildi. qaydasına esasən 2 gun sonraya çekildi.Qurban bayramı dövlət qayd asına esasən 2 gun sonraya çekildi.Qurban bayramı dövlət qaydasına esasən 2 gun sonraya çekildi.qaydasına esasən 2 gun sonraya çekildi",
+      "createdBy": "Rüfət Məmmədov",
+      "createdDate": "2022-04-13T14:07:18.394Z",
+      "operation": "Əməliyyat 3"
+    },
+    {
+      "name": "Bayram",
+      "description": "Bayramdı kef eliyin ;)",
+      "createdBy": "Joe Doe",
+      "createdDate": "2022-05-13T14:07:18.394Z",
+      "operation": "Əməliyyat 2",
+      "id": 4
+    },
+    {
+      "name": "Mohteshem bir elan adi",
+      "description": "Super elan tesvir",
+      "createdBy": "Fred Doe",
+      "createdDate": "2022-06-13T14:07:18.394Z",
+      "operation": "Əməliyyat 3",
+      "id": 5
+    },
+    {
+      "name": "Elan test",
+      "description": "Elan tesvir",
+      "createdBy": "Fred Doe",
+      "createdDate": "2022-06-13T14:14:51.030Z",
+      "operation": "Paylaş",
+      "id": 6
+    }
+  ],
+  "vacationBalances": [
+    {
+      "id": 1,
+      "yearOfWork": "2022-06-24T20:00:00.000Z",
+      "main": "30",
+      "addition": "5",
+      "used": "2",
+      "remainder": "33",
+      "employeeId": 1
+    },
+    {
+      "id": 2,
+      "yearOfWork": "2022-06-24T20:00:00.000Z",
+      "main": "30",
+      "addition": "5",
+      "used": "10",
+      "remainder": "25",
+      "employeeId": 1
+    },
+    {
+      "id": 3,
+      "yearOfWork": "2022-06-24T20:00:00.000Z",
+      "main": "30",
+      "addition": "5",
+      "used": "10",
+      "remainder": "25",
+      "employeeId": 1
+    },
+    {
+      "id": 4,
+      "yearOfWork": "2022-06-24T20:00:00.000Z",
+      "main": "30",
+      "addition": "5",
+      "used": "10",
+      "remainder": "25",
+      "employeeId": 2
+    },
+    {
+      "id": 5,
+      "yearOfWork": "2022-06-24T20:00:00.000Z",
+      "main": "30",
+      "addition": "5",
+      "used": "10",
+      "remainder": "25",
+      "employeeId": 2
+    },
+    {
+      "id": 6,
+      "yearOfWork": "2022-06-24T20:00:00.000Z",
+      "main": "60",
+      "addition": "10",
+      "used": "0",
+      "remainder": "70",
+      "employeeId": 3
+    },
+    {
+      "yearOfWork": "2022-06-24T20:00:00.000Z",
+      "main": "20",
+      "addition": "30",
+      "used": "40",
+      "remainder": "50",
+      "employeeId": 3,
+      "id": 7
+    },
+    {
+      "yearOfWork": "2022-06-07T20:00:00.000Z",
+      "main": "1",
+      "addition": "2",
+      "used": "3",
+      "remainder": "4",
+      "employeeId": 9,
+      "id": 8
+    },
+    {
+      "yearOfWork": "2022-06-16T20:00:00.000Z",
+      "main": "150",
+      "addition": "50",
+      "used": "50",
+      "remainder": "100",
+      "employeeId": 1,
+      "id": 9
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "fullName": "Farid Mammadov",
+      "photo": "https://i.pravatar.cc/150?img=12",
+      "userName": "faridmammadov",
+      "email": "fareed@xezertv.az",
+      "position": "CEO",
+      "contactNumber": "+994559990909",
+      "isActive": true,
+      "roles": [
+        "Admin"
+      ],
+      "password": "$2a$10$BSGPxaGBtk4BcXVcL0eENuu.2wWDPeAuTGRho6/qy5psLE7NMsLtO"
+    },
+    {
+      "id": 2,
+      "fullName": "Kazim Mammadov",
+      "photo": "https://i.pravatar.cc/150?img=11",
+      "userName": "mammadkazim",
+      "email": "mammadkazim@xezertv.az",
+      "position": "COO",
+      "contactNumber": "+994505550505",
+      "isActive": true,
+      "roles": [
+        "Editor"
+      ],
+      "password": "$2a$10$LAFs./wlZ5L4CSbhfvBI1u8KclM3ytI6cwQFBhkKDP/TaHRGJXlfe"
+    },
+    {
+      "id": 3,
+      "fullName": "Parviz Isa",
+      "photo": "https://i.pravatar.cc/150?img=14",
+      "userName": "parvizisa",
+      "email": "parviz.isa@xezertv.az",
+      "position": "CFO",
+      "contactNumber": "+994503330303",
+      "isActive": true,
+      "roles": [
+        "User"
+      ],
+      "password": "$2a$10$LAFs./wlZ5L4CSbhfvBI1u8KclM3ytI6cwQFBhkKDP/TaHRGJXlfe"
+    },
+    {
+      "email": "sofuyev.rauf@xezertv.az",
+      "password": "$2a$10$LAFs./wlZ5L4CSbhfvBI1u8KclM3ytI6cwQFBhkKDP/TaHRGJXlfe",
+      "fullName": "Sofuyev Rauf",
+      "photo": "https://i.pravatar.cc/150?img=13",
+      "userName": "sofuyevrauf",
+      "position": "Aparıcı",
+      "contactNumber": "+994556660606",
+      "isActive": true,
+      "roles": [
+        "Editor"
+      ],
+      "id": 4
+    },
+    {
+      "email": "azerin@xezertv.az",
+      "password": "$2a$10$fSUW1yM24szBZY/qsYFdb.h73NVFuTJNXMmlIDTO/rRh1aQKtSKZm",
+      "fullName": "Azərin Məmmədli A.",
+      "photo": null,
+      "userName": "azerin",
+      "position": null,
+      "contactNumber": null,
+      "isActive": true,
+      "roles": [
+        "User"
+      ],
+      "id": 5
+    },
+    {
+      "email": "sevda@xezertv.az",
+      "password": "$2a$10$lFAkCLUaHkSj9/EhzqpVoO1DcmvfNZx4YtpJOpykF.80r1SrW8rrW",
+      "fullName": "Sevda Bıyık",
+      "photo": null,
+      "userName": "sevda",
+      "position": null,
+      "contactNumber": null,
+      "isActive": true,
+      "roles": [
+        "Supervisor"
+      ],
+      "id": 6
+    }
+  ],
+  "userRoles": [
+    {
+      "id": 1,
+      "name": "Admin",
+      "isStatic": true,
+      "description": "Lorem ipsum dolor lorem ipsum dolor",
+      "distinctiveName": "",
+      "authorities": [
+        "APP_DELETE",
+        "EDIT"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Supervisor",
+      "isStatic": false,
+      "description": "Lorem ipsum dolor lorem ipsum dolor",
+      "distinctiveName": "",
+      "authorities": [
+        "EDIT"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "azernerji_admin",
+      "isStatic": true,
+      "description": "any",
+      "distinctiveName": "",
+      "authorities": []
+    },
+    {
+      "id": 4,
+      "name": "azerenerji-admin1",
+      "isStatic": true,
+      "description": "inzibatci",
+      "distinctiveName": "",
+      "authorities": []
+    },
+    {
+      "id": 5,
+      "name": "azerenerji-admin4",
+      "isStatic": false,
+      "description": "test-role",
+      "distinctiveName": "",
+      "authorities": []
+    },
+    {
+      "id": 6,
+      "name": "User",
+      "isStatic": false,
+      "description": "user-role",
+      "distinctiveName": "",
+      "authorities": []
+    },
+    {
+      "id": 7,
+      "name": "Reporter",
+      "isStatic": false,
+      "description": "reporter-role",
+      "distinctiveName": "",
+      "authorities": []
+    },
+    {
+      "name": "Editor",
+      "isStatic": false,
+      "description": "Bla bla bla",
+      "distinctiveName": "editor",
+      "authorities": [
+        "EDIT"
+      ],
+      "id": 8
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "photo": "https://i.pravatar.cc/150?img=20",
+      "fullName": "Denis Mayorov Y.",
+      "maritalStatus": "Evli",
+      "gender": "Kişi",
+      "pin": "1QVRNU3",
+      "serialNumber": "AZE14149832",
+      "dateOfBirth": "21/06/1985",
+      "citizenship": "Azərbaycan",
+      "nationality": "Azərbaycanlı",
+      "education": "Ali",
+      "email": "denis@gmail.com",
+      "mobileNumber": "+994 55 342 32 23",
+      "corporateNumber": null,
+      "internalNumber": null,
+      "homePhoneNumber": null,
+      "closeRelative": "Həyat yoldaşı",
+      "closeRelativePhoneNumber": null,
+      "company": "Xəzər TV",
+      "department": "Xəzər FM",
+      "positionClassification": "Fəhlə",
+      "position": "Radio rəhbəri",
+      "workingTime": null,
+      "weeklyWorkingHours": 40,
+      "staffCapacity": "Tam",
+      "workPlace": "Əsas",
+      "isArchived": true
+    },
+    {
+      "id": 2,
+      "photo": "https://i.pravatar.cc/150?img=21",
+      "fullName": "Roman Məmmədov D.",
+      "maritalStatus": "Subay",
+      "gender": "Qadın",
+      "pin": "1QVRNU3",
+      "serialNumber": "AZE14149832",
+      "dateOfBirth": "21/06/1985",
+      "citizenship": "Azərbaycan",
+      "nationality": "Azərbaycanlı",
+      "education": "Ali",
+      "email": "roman@gmail.com",
+      "mobileNumber": "+994 55 342 32 23",
+      "corporateNumber": null,
+      "internalNumber": null,
+      "homePhoneNumber": null,
+      "closeRelative": "Həyat yoldaşı",
+      "closeRelativePhoneNumber": null,
+      "company": "Xəzər TV",
+      "department": "Xəzər FM",
+      "positionClassification": "Fəhlə",
+      "position": "Baş mühəndis",
+      "workingTime": null,
+      "weeklyWorkingHours": 40,
+      "staffCapacity": "Tam",
+      "workPlace": "Əsas",
+      "isArchived": false
+    },
+    {
+      "id": 3,
+      "photo": "https://i.pravatar.cc/150?img=22",
+      "fullName": "Xəyalə Aslanova Ə.",
+      "maritalStatus": "Evli",
+      "gender": "Kişi",
+      "pin": "1QVRNU3",
+      "serialNumber": "AZE14149832",
+      "dateOfBirth": "21/06/1985",
+      "citizenship": "Azərbaycan",
+      "nationality": "Azərbaycanlı",
+      "education": "Ali",
+      "email": "xeyale@gmail.com",
+      "mobileNumber": "+994 55 342 32 23",
+      "corporateNumber": null,
+      "internalNumber": null,
+      "homePhoneNumber": null,
+      "closeRelative": "Həyat yoldaşı",
+      "closeRelativePhoneNumber": null,
+      "company": "Xəzər TV",
+      "department": "Xəzər FM",
+      "positionClassification": "Fəhlə",
+      "position": "Aparıcı",
+      "workingTime": null,
+      "weeklyWorkingHours": 40,
+      "staffCapacity": "Tam",
+      "workPlace": "Əsas",
+      "isArchived": false
+    },
+    {
+      "id": 4,
+      "photo": "https://i.pravatar.cc/150?img=23",
+      "fullName": "İskəndər İbrahimov R.",
+      "maritalStatus": "Subay",
+      "gender": "Qadın",
+      "pin": "1QVRNU3",
+      "serialNumber": "AZE14149832",
+      "dateOfBirth": "21/06/1985",
+      "citizenship": "Azərbaycan",
+      "nationality": "Azərbaycanlı",
+      "education": "Ali",
+      "email": "iskandar@gmail.com",
+      "mobileNumber": "+994 55 342 32 23",
+      "corporateNumber": "+994 55 234 43 23",
+      "internalNumber": null,
+      "homePhoneNumber": null,
+      "closeRelative": "Həyat yoldaşı",
+      "closeRelativePhoneNumber": null,
+      "company": "Xəzər TV",
+      "department": null,
+      "positionClassification": "Fəhlə",
+      "position": "Aparıcı",
+      "workingTime": null,
+      "weeklyWorkingHours": 40,
+      "staffCapacity": "Tam",
+      "workPlace": "Əsas",
+      "isArchived": false
+    },
+    {
+      "id": 5,
+      "photo": "https://i.pravatar.cc/150?img=24",
+      "fullName": "Azərin Məmmədli A.",
+      "maritalStatus": "Evli",
+      "gender": "Kişi",
+      "pin": "1QVRNU3",
+      "serialNumber": "AZE14149832",
+      "dateOfBirth": "21/06/1985",
+      "citizenship": "Azərbaycan",
+      "nationality": "Azərbaycanlı",
+      "education": "Ali",
+      "email": "azerin@gmail.com",
+      "mobileNumber": "+994 55 342 32 23",
+      "corporateNumber": null,
+      "internalNumber": null,
+      "homePhoneNumber": null,
+      "closeRelative": "Həyat yoldaşı",
+      "closeRelativePhoneNumber": null,
+      "company": "Xəzər TV",
+      "department": "Xəzər TV",
+      "positionClassification": "Fəhlə",
+      "position": "Aparıcı",
+      "workingTime": null,
+      "weeklyWorkingHours": 40,
+      "staffCapacity": "Tam",
+      "workPlace": "Əsas",
+      "isArchived": false
+    },
+    {
+      "id": 6,
+      "photo": "https://i.pravatar.cc/150?img=25",
+      "fullName": "Əhəd Miriyev S.",
+      "maritalStatus": "Subay",
+      "gender": "Qadın",
+      "pin": "1QVRNU3",
+      "serialNumber": "AZE14149832",
+      "dateOfBirth": "21/06/1985",
+      "citizenship": "Azərbaycan",
+      "nationality": "Azərbaycanlı",
+      "education": "Ali",
+      "email": null,
+      "mobileNumber": "+994 55 342 32 23",
+      "corporateNumber": "+994 55 234 43 23",
+      "internalNumber": null,
+      "homePhoneNumber": null,
+      "closeRelative": "Həyat yoldaşı",
+      "closeRelativePhoneNumber": null,
+      "company": "Xəzər TV",
+      "department": null,
+      "positionClassification": "Fəhlə",
+      "position": "Aparıcı",
+      "workingTime": null,
+      "weeklyWorkingHours": 40,
+      "staffCapacity": "Tam",
+      "workPlace": "Əsas",
+      "isArchived": false
+    },
+    {
+      "id": 7,
+      "photo": "https://i.pravatar.cc/150?img=26",
+      "fullName": "Gülnar Şamidzadə Y.",
+      "maritalStatus": "Evli",
+      "gender": "Kişi",
+      "pin": "1QVRNU3",
+      "serialNumber": "AZE14149832",
+      "dateOfBirth": "21/06/1985",
+      "citizenship": "Azərbaycan",
+      "nationality": "Azərbaycanlı",
+      "education": "Ali",
+      "email": "gulnar@gmaiı.com",
+      "mobileNumber": "+994 55 342 32 23",
+      "corporateNumber": "+994 55 234 43 23",
+      "internalNumber": null,
+      "homePhoneNumber": null,
+      "closeRelative": "Həyat yoldaşı",
+      "closeRelativePhoneNumber": null,
+      "company": "Xəzər TV",
+      "department": "Xəzər TV",
+      "positionClassification": "Fəhlə",
+      "position": "Aparıcı",
+      "workingTime": null,
+      "weeklyWorkingHours": 40,
+      "staffCapacity": "Tam",
+      "workPlace": "Əsas",
+      "isArchived": false
+    },
+    {
+      "id": 8,
+      "photo": "https://i.pravatar.cc/150?img=27",
+      "fullName": "Hüseyn Lətifov İ.",
+      "maritalStatus": "Subay",
+      "gender": "Qadın",
+      "pin": "1QVRNU3",
+      "serialNumber": "AZE14149832",
+      "dateOfBirth": "21/06/1985",
+      "citizenship": "Azərbaycan",
+      "nationality": "Azərbaycanlı",
+      "education": "Ali",
+      "email": "huseyn@gmail.com",
+      "mobileNumber": "+994 55 342 32 23",
+      "corporateNumber": "+994 55 234 43 23",
+      "internalNumber": null,
+      "homePhoneNumber": null,
+      "closeRelative": "Həyat yoldaşı",
+      "closeRelativePhoneNumber": null,
+      "company": "Xəzər TV",
+      "department": "Xəzər FM",
+      "positionClassification": "Fəhlə",
+      "position": "Texnik",
+      "workingTime": null,
+      "weeklyWorkingHours": 40,
+      "staffCapacity": "Tam",
+      "workPlace": "Əsas",
+      "isArchived": false
+    },
+    {
+      "id": 9,
+      "photo": "https://i.pravatar.cc/150?img=28",
+      "fullName": "Rüfət Məmmədov",
+      "maritalStatus": "Evli",
+      "gender": "Kişi",
+      "pin": "1QVRNU3",
+      "serialNumber": "AZE14149832",
+      "dateOfBirth": "21/06/1985",
+      "citizenship": "Azərbaycan",
+      "nationality": "Azərbaycanlı",
+      "education": "Ali",
+      "email": null,
+      "mobileNumber": "+994 55 342 32 23",
+      "corporateNumber": "+994 55 234 43 23",
+      "internalNumber": null,
+      "homePhoneNumber": null,
+      "closeRelative": "Həyat yoldaşı",
+      "closeRelativePhoneNumber": null,
+      "company": "Xəzər TV",
+      "department": null,
+      "positionClassification": "Fəhlə",
+      "position": "Aparıcı",
+      "workingTime": null,
+      "weeklyWorkingHours": 40,
+      "staffCapacity": "Tam",
+      "workPlace": "Əsas",
+      "isArchived": false
+    },
+    {
+      "id": 10,
+      "photo": "https://i.pravatar.cc/150?img=29",
+      "fullName": "Sevda Bıyık",
+      "maritalStatus": "Subay",
+      "gender": "Qadın",
+      "pin": "1QVRNU3",
+      "serialNumber": "AZE14149832",
+      "dateOfBirth": "21/06/1985",
+      "citizenship": "Azərbaycan",
+      "nationality": "Azərbaycanlı",
+      "education": "Ali",
+      "email": "sevda@gmail.com",
+      "mobileNumber": "+994 55 342 32 23",
+      "corporateNumber": null,
+      "internalNumber": null,
+      "homePhoneNumber": null,
+      "closeRelative": "Həyat yoldaşı",
+      "closeRelativePhoneNumber": null,
+      "company": "Xəzər TV",
+      "department": "Xəzər FM",
+      "positionClassification": "Fəhlə",
+      "position": "İcraçı prodüser",
+      "workingTime": null,
+      "weeklyWorkingHours": 40,
+      "staffCapacity": "Tam",
+      "workPlace": "Əsas",
+      "isArchived": false
+    }
+  ],
+  "contracts": [
+    {
+      "id": 1,
+      "conclusionDate": "2012-12-18T20:00:00.000Z",
+      "expirationDate": "2012-12-18T20:00:00.000Z",
+      "type": "Əmək",
+      "number": "12345",
+      "employmentRecordBookNumber": "54321",
+      "duration": "Müddətsiz",
+      "employeeId": 1
+    },
+    {
+      "id": 2,
+      "conclusionDate": "2012-12-11T20:00:00.000Z",
+      "expirationDate": "2012-12-11T20:00:00.000Z",
+      "type": "Type 1",
+      "number": "1234567891",
+      "employmentRecordBookNumber": "1234567",
+      "duration": "Müddətsiz",
+      "employeeId": 1
+    },
+    {
+      "id": 3,
+      "conclusionDate": "2012-12-11T20:00:00.000Z",
+      "expirationDate": "2012-12-11T20:00:00.000Z",
+      "type": "Əmək",
+      "number": "9876543210",
+      "employmentRecordBookNumber": "7654321",
+      "duration": "Müddətli",
+      "employeeId": 2
+    },
+    {
+      "conclusionDate": "2012-12-11T20:00:00.000Z",
+      "expirationDate": "2012-12-11T20:00:00.000Z",
+      "type": "Type 1",
+      "number": "13123",
+      "employmentRecordBookNumber": "123",
+      "duration": "Müddətsiz",
+      "employeeId": 1,
+      "id": 4
+    },
+    {
+      "conclusionDate": "2022-06-11T20:00:00.000Z",
+      "expirationDate": "2022-06-11T20:00:00.000Z",
+      "type": "Type 2",
+      "number": "123",
+      "employmentRecordBookNumber": "123",
+      "duration": "Müddətli",
+      "employeeId": 1,
+      "id": 5
+    },
+    {
+      "conclusionDate": "2022-06-27T20:00:00.000Z",
+      "expirationDate": "2022-06-27T20:00:00.000Z",
+      "type": "Type 3",
+      "number": "123",
+      "employmentRecordBookNumber": "1231231",
+      "duration": "Müddətsiz",
+      "employeeId": 2,
+      "id": 6
+    },
+    {
+      "conclusionDate": "2022-06-23T20:00:00.000Z",
+      "expirationDate": "2022-06-23T20:00:00.000Z",
+      "type": "Əmək",
+      "number": "131231",
+      "employmentRecordBookNumber": "213131",
+      "duration": "Müddətsiz",
+      "employeeId": 2,
+      "id": 11
+    },
+    {
+      "conclusionDate": "2022-06-14T20:00:00.000Z",
+      "expirationDate": "2022-06-14T20:00:00.000Z",
+      "type": "Type 1",
+      "number": "111",
+      "employmentRecordBookNumber": "11111111",
+      "duration": "Müddətli",
+      "employeeId": 6,
+      "id": 12
+    },
+    {
+      "conclusionDate": "2022-06-20T20:00:00.000Z",
+      "expirationDate": "2022-06-20T20:00:00.000Z",
+      "type": "Type 2",
+      "number": "123213",
+      "employmentRecordBookNumber": "123123121",
+      "duration": "Müddətsiz",
+      "employeeId": 6,
+      "id": 13
+    },
+    {
+      "conclusionDate": "2022-06-25T20:00:00.000Z",
+      "expirationDate": "2022-06-25T20:00:00.000Z",
+      "type": "Type 3",
+      "number": "1231",
+      "employmentRecordBookNumber": "1232131312",
+      "duration": "Müddətli",
+      "employeeId": 6,
+      "id": 14
+    },
+    {
+      "conclusionDate": "2022-06-28T20:00:00.000Z",
+      "expirationDate": "2022-06-28T20:00:00.000Z",
+      "type": "Əmək",
+      "number": "12",
+      "employmentRecordBookNumber": "123",
+      "duration": "Müddətli",
+      "employeeId": 6,
+      "id": 15
+    },
+    {
+      "conclusionDate": "2022-06-27T20:00:00.000Z",
+      "expirationDate": "2022-06-27T20:00:00.000Z",
+      "type": "Type 1",
+      "number": "3334",
+      "employmentRecordBookNumber": "3334",
+      "duration": "Müddətli",
+      "employeeId": 6,
+      "id": 16
+    },
+    {
+      "conclusionDate": "2022-05-31T20:00:00.000Z",
+      "expirationDate": "2022-05-31T20:00:00.000Z",
+      "type": "Type 1",
+      "number": "777",
+      "employmentRecordBookNumber": "777",
+      "duration": "Müddətli",
+      "employeeId": 7,
+      "id": 17
+    },
+    {
+      "conclusionDate": "2022-06-20T20:00:00.000Z",
+      "expirationDate": "2022-06-20T20:00:00.000Z",
+      "type": "Type 1",
+      "number": "888",
+      "employmentRecordBookNumber": "8888888",
+      "duration": "Müddətli",
+      "employeeId": 10,
+      "id": 18
+    }
+  ],
+  "commands": [
+    {
+      "id": 3,
+      "type": "İşə qəbul edilməsi barədə",
+      "number": "1357913",
+      "date": "2022-06-11T20:00:00.000Z",
+      "responsiblePerson": "Michael Doe",
+      "employeeId": 2
+    },
+    {
+      "type": "Sosial məzuniyyət",
+      "number": "12345",
+      "date": "2022-06-11T20:00:00.000Z",
+      "responsiblePerson": "Joe Doe",
+      "employeeId": "10",
+      "id": 4
+    },
+    {
+      "type": "Ezamiyyə əmri",
+      "number": "43434",
+      "date": "2022-06-11T20:00:00.000Z",
+      "responsiblePerson": "Joe Doe",
+      "employeeId": "10",
+      "id": 5
+    },
+    {
+      "type": "İnzibati tənbeh əmri",
+      "number": "123123",
+      "date": "2022-06-20T20:00:00.000Z",
+      "responsiblePerson": "Joe Doe",
+      "employeeId": "6",
+      "id": 6
+    },
+    {
+      "type": "İşə qəbul edilməsi barədə",
+      "number": "123",
+      "date": "2022-06-16T20:00:00.000Z",
+      "responsiblePerson": "Joe Doe",
+      "employeeId": "1",
+      "id": 7
+    }
+  ],
+  "salaries": [
+    {
+      "previousWorkExperience": "10 il",
+      "startDate": "2022-06-16T20:00:00.000Z",
+      "generalWorkExperience": "15 il",
+      "salaryGross": 2000,
+      "salaryNet": 1500,
+      "id": 1
+    },
+    {
+      "previousWorkExperience": "20 il",
+      "startDate": "2022-06-29T20:00:00.000Z",
+      "generalWorkExperience": "35 il",
+      "salaryGross": 5000,
+      "salaryNet": 4500,
+      "id": 2
+    },
+    {
+      "previousWorkExperience": "50 il",
+      "startDate": "2022-06-27T20:00:00.000Z",
+      "generalWorkExperience": "100 il",
+      "salaryGross": 10000,
+      "salaryNet": 5000,
+      "id": 3
+    }
+  ],
+  "documents": [
+    {
+      "id": 1,
+      "type": "CV",
+      "name": "İlgar Abbasov.pdf",
+      "uploadDocument": [
+        "Sənəd 1"
+      ],
+      "description": "Əla!!!",
+      "employeeId": 1
+    },
+    {
+      "id": 2,
+      "type": "Sertifikat",
+      "name": "İlgar Abbasov’s sertificat.pdf",
+      "uploadDocument": [
+        "Sənəd 2"
+      ],
+      "description": "Super!!",
+      "employeeId": 1
+    },
+    {
+      "id": 3,
+      "type": "Foto şəkil",
+      "name": "İlgar Abbasov’s image.png",
+      "uploadDocument": [
+        "Sənəd 3"
+      ],
+      "description": "Əla!!!",
+      "employeeId": 1
+    },
+    {
+      "id": 4,
+      "type": "Şəxsi sənəd",
+      "name": "İlgar Abbasov’s sürücülük vəsiqəsi.png",
+      "uploadDocument": [
+        "Sənəd 1"
+      ],
+      "description": "Əla!!!",
+      "employeeId": 1
+    },
+    {
+      "type": "Foto şəkil",
+      "name": "Foto şəkil",
+      "uploadDocument": [
+        "Sənəd 1"
+      ],
+      "description": "Lorem ipsum",
+      "employeeId": 10,
+      "id": 5
+    }
+  ],
+  "itSupplies": [
+    {
+      "id": 1,
+      "fullName": "Joe Doe",
+      "descriptionProblem": "Mouse işləmir",
+      "result": "Departament rəhbərin göndərməsi",
+      "note": "Sadə qeyd",
+      "resultText": "Lorem ipsum"
+    }
+  ],
+  "purchases": [
+    {
+      "id": 1,
+      "fullName": "Joe Doe",
+      "note": "Sadə bir qeyd",
+      "result": "Departament rəhbərin göndərməsi",
+      "resultText": "Lorem ipsum"
+    }
+  ],
+  "guests": [
+    {
+      "id": 1,
+      "fullName": "Joe Doe",
+      "comingPeople": [
+        "İlqar Abbasov",
+        "Orxan Axnazarov"
+      ],
+      "transportationNotes": [
+        "00-AS-000",
+        "00-AS-001"
+      ],
+      "arrivalDate": "2022-06-27T20:00:00.000Z",
+      "meetingPerson": "Michael Doe",
+      "reasonForComing": "Marketinq şöbə rəisilə iş görüşməsi",
+      "note": "Sadə bir qeyd",
+      "result": "Departament rəhbərin göndərməsi"
+    }
+  ]
+}

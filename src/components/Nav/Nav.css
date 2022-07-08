@@ -1,0 +1,7 @@
+.nav .active > div {
+  background-color: #a66ce4;
+}
+
+.nav ::-webkit-scrollbar {
+  display: none;
+}
