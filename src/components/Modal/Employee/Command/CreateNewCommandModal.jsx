@@ -1,6 +1,6 @@
-import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Grid, TextField } from "@mui/material";
+import { useFormik } from "formik";
 import API from "../../../../api";
 import Button from "../../../Button/Button";
 import InputDate from "../../../Input/InputDate";
@@ -23,40 +23,39 @@ const commandTypes = [
 
 const CreateNewCommandModal = ({ open, onClose, onFetchEmployeeCommands }) => {
   const { employeeId } = useParams();
-  const [commandType, setCommandType] = useState("");
-  const [commandNumber, setCommandNumber] = useState("");
-  const [commandDate, setCommandDate] = useState("");
 
-  const clearInputs = () => {
-    setCommandType("");
-    setCommandNumber("");
-    setCommandDate("");
-  };
+  const formik = useFormik({
+    initialValues: {
+      commandType: "",
+      commandNumber: "",
+      commandDate: "",
+    },
+    onSubmit: (values) => {
+      console.log(values);
+      const { commandType, commandNumber, commandDate } = values;
 
-  const handleCreateNewCommand = (e) => {
-    e.preventDefault();
+      const newCommand = {
+        type: commandType,
+        number: commandNumber,
+        date: commandDate,
+        responsiblePerson: "Joe Doe",
+        employeeId,
+      };
 
-    const newCommand = {
-      type: commandType,
-      number: commandNumber,
-      date: commandDate,
-      responsiblePerson: "Joe Doe",
-      employeeId,
-    };
-
-    API.post("commands", newCommand).then(() => {
-      onFetchEmployeeCommands();
-      onClose();
-      clearInputs();
-    });
-  };
+      API.post("commands", newCommand).then(() => {
+        onFetchEmployeeCommands();
+        onClose();
+        formik.resetForm();
+      });
+    },
+  });
 
   return (
     <Modal
       title="Yeni əmr"
       open={open}
       onClose={onClose}
-      onSubmit={handleCreateNewCommand}
+      onSubmit={formik.handleSubmit}
       actionButtons={
         <>
           <Button onClick={onClose}>Bağla</Button>
@@ -69,22 +68,24 @@ const CreateNewCommandModal = ({ open, onClose, onFetchEmployeeCommands }) => {
       <Grid container spacing="12px">
         <Grid item xs={12}>
           <Select
-            label="Tipi"
-            value={commandType}
-            onChange={(value) => setCommandType(value)}
-            options={commandTypes}
             required
+            label="Tipi"
+            name="commandType"
+            value={formik.values.commandType}
+            onChange={formik.handleChange}
+            options={commandTypes}
           />
         </Grid>
 
         <Grid item xs={6}>
           <TextField
-            type="number"
-            label="Nömrəsi"
             required
             fullWidth
-            value={commandNumber}
-            onChange={(e) => setCommandNumber(e.target.value)}
+            type="number"
+            label="Nömrəsi"
+            name="commandNumber"
+            value={formik.values.commandNumber}
+            onChange={formik.handleChange}
           ></TextField>
         </Grid>
 
@@ -92,8 +93,11 @@ const CreateNewCommandModal = ({ open, onClose, onFetchEmployeeCommands }) => {
           <InputDate
             required
             label="Tarixi"
-            value={commandDate}
-            onChange={(newValue) => setCommandDate(newValue)}
+            name="commandDate"
+            value={formik.values.commandDate}
+            onChange={(newValue) =>
+              formik.setFieldValue("commandDate", newValue)
+            }
           />
         </Grid>
       </Grid>

@@ -1,6 +1,6 @@
-import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Grid, TextField } from "@mui/material";
+import { useFormik } from "formik";
 import API from "../../../../api";
 import Button from "../../../Button/Button";
 import Modal from "../../Modal";
@@ -9,40 +9,39 @@ import Autocomplete from "../../../Input/Autocomplete";
 
 const CreateNewDocumentModal = ({ open, onClose, getDocuments }) => {
   const { employeeId } = useParams();
-  const [type, setType] = useState("");
-  const [uploadDocument, setUploadDocument] = useState([]);
-  const [note, setNote] = useState("");
 
-  const clearInputs = () => {
-    setType("");
-    setUploadDocument([]);
-    setNote("");
-  };
+  const formik = useFormik({
+    initialValues: {
+      type: "",
+      uploadDocument: [],
+      note: "",
+    },
+    onSubmit: (values) => {
+      console.log(values);
+      const { type, uploadDocument, note } = values;
 
-  const handleCreateNewDocument = (e) => {
-    e.preventDefault();
+      const newDocument = {
+        type,
+        name: type,
+        uploadDocument,
+        description: note,
+        employeeId: +employeeId,
+      };
 
-    const newDocument = {
-      type,
-      name: type,
-      uploadDocument,
-      description: note,
-      employeeId: +employeeId,
-    };
-
-    API.post("documents", newDocument).then(() => {
-      onClose();
-      getDocuments();
-      clearInputs();
-    });
-  };
+      API.post("documents", newDocument).then(() => {
+        onClose();
+        getDocuments();
+        formik.resetForm();
+      });
+    },
+  });
 
   return (
     <Modal
       title="Yeni sənəd"
       open={open}
       onClose={onClose}
-      onSubmit={handleCreateNewDocument}
+      onSubmit={formik.handleSubmit}
       actionButtons={
         <>
           <Button onClick={onClose}>Bağla</Button>
@@ -57,8 +56,9 @@ const CreateNewDocumentModal = ({ open, onClose, getDocuments }) => {
           <Select
             required
             label="Tipi"
-            value={type}
-            onChange={(newValue) => setType(newValue)}
+            name="type"
+            value={formik.values.type}
+            onChange={formik.handleChange}
             options={["CV", "Sertifikat", "Foto şəkil", "Şəxsi sənəd"]}
           />
         </Grid>
@@ -66,19 +66,23 @@ const CreateNewDocumentModal = ({ open, onClose, getDocuments }) => {
         <Grid item xs={6}>
           <Autocomplete
             label="Sənəd yüklə"
-            value={uploadDocument}
-            onChange={(event, newValue) => setUploadDocument(newValue)}
+            name="uploadDocument"
+            value={formik.values.uploadDocument}
+            onChange={(event, newValue) =>
+              formik.setFieldValue("uploadDocument", newValue)
+            }
             options={["Sənəd 1", "Sənəd 2", "Sənəd 3"]}
           />
         </Grid>
 
         <Grid item xs={12}>
           <TextField
-            label="Qeyd"
             required
             fullWidth
-            value={note}
-            onChange={(e) => setNote(e.target.value)}
+            label="Qeyd"
+            name="note"
+            value={formik.values.note}
+            onChange={formik.handleChange}
           ></TextField>
         </Grid>
       </Grid>

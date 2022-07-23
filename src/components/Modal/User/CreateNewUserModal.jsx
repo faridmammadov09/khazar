@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Grid, TextField } from "@mui/material";
+import { useFormik } from "formik";
 import API from "../../../api";
 import InputPassword from "../../Input/InputPassword";
 import Select from "../../Select/Select";
@@ -8,49 +9,57 @@ import Button from "../../Button/Button";
 import Modal from "../Modal";
 
 const CreateNewUserModal = ({ open, onClose, getUsers }) => {
-  const [employee, setEmployee] = useState("");
   const [employeeOptions, setEmployeeOptions] = useState([]);
-  const [userName, setUserName] = useState("");
-  const [roles, setRoles] = useState([]);
-  const [password, setPassword] = useState("");
-  const [passwordRepeat, setPasswordRepeat] = useState("");
-  const [error, setError] = useState({
-    password: false,
-    passwordRepeat: false,
-  });
   const [roleOptions, setRoleOptions] = useState([]);
 
-  const clearInputs = () => {
-    setEmployee("");
-    setUserName("");
-    setRoles([]);
-    setPassword("");
-    setPasswordRepeat("");
-  };
+  const formik = useFormik({
+    initialValues: {
+      employee: "",
+      userName: "",
+      roles: [],
+      password: "",
+      passwordRepeat: "",
+    },
+    onSubmit: (values) => {
+      if (values.password !== values.passwordRepeat) {
+        alert("Password not match");
+        return;
+      }
 
-  const handleCreateNewUser = (e) => {
-    e.preventDefault();
+      const { employee, userName, roles, password } = values;
 
-    if (password !== passwordRepeat) {
-      alert("Password not match");
-      return;
-    }
+      API.post("users", {
+        fullName: employee,
+        photo: null,
+        userName,
+        email: userName + "@xezertv.az",
+        position: null,
+        contactNumber: null,
+        isActive: true,
+        password,
+        roles,
+      }).then(() => {
+        getUsers();
+        onClose();
+        formik.resetForm();
+      });
+    },
+    // validate: (values) => {
+    //   const errors = {};
 
-    API.post("users", {
-      fullName: employee,
-      photo: null,
-      userName,
-      email: userName + "@xezertv.az",
-      position: null,
-      contactNumber: null,
-      isActive: true,
-      password,
-      roles,
-    }).then(() => {
-      getUsers();
-      onClose();
-      clearInputs();
-    });
+    //   if (values.password !== values.passwordRepeat) {
+    //     errors.password = "Passwords not matching";
+    //     errors.passwordRepeat = "Passwords not matching";
+    //   }
+
+    //   return errors;
+    // },
+  });
+
+  const fetchEmployees = async () => {
+    const { data } = await API.get("employees");
+    const employees = data.map((employee) => employee.fullName);
+    setEmployeeOptions(employees);
   };
 
   const fetchUserRoles = async () => {
@@ -59,15 +68,9 @@ const CreateNewUserModal = ({ open, onClose, getUsers }) => {
     setRoleOptions(roles);
   };
 
-  const fetchEmployees = async () => {
-    const { data } = await API.get("employees");
-    const employees = data.map((employee) => employee.fullName);
-    setEmployeeOptions(employees);
-  };
-
   useEffect(() => {
-    fetchUserRoles();
     fetchEmployees();
+    fetchUserRoles();
   }, []);
 
   return (
@@ -75,7 +78,7 @@ const CreateNewUserModal = ({ open, onClose, getUsers }) => {
       title="Yeni istifadəçi"
       open={open}
       onClose={onClose}
-      onSubmit={handleCreateNewUser}
+      onSubmit={formik.handleSubmit}
       actionButtons={
         <>
           <Button onClick={onClose}>Bağla</Button>
@@ -88,49 +91,52 @@ const CreateNewUserModal = ({ open, onClose, getUsers }) => {
       <Grid container spacing="12px" p={2}>
         <Grid item xs={12} md={6}>
           <Select
-            label="Əməkdaş"
-            value={employee}
-            onChange={(value) => setEmployee(value)}
-            options={employeeOptions}
             required
+            label="Əməkdaş"
+            options={employeeOptions}
+            name="employee"
+            value={formik.values.employee}
+            onChange={formik.handleChange}
           />
         </Grid>
         <Grid item xs={12} md={6}>
           <TextField
-            label="Istifadəçi adı"
             required
             fullWidth
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
+            label="Istifadəçi adı"
+            name="userName"
+            value={formik.values.userName}
+            onChange={formik.handleChange}
           ></TextField>
         </Grid>
         <Grid item xs={12}>
           <Autocomplete
             label="Rollar"
-            value={roles}
             options={roleOptions}
-            onChange={(event, newValue) => {
-              setRoles(newValue);
-            }}
+            name="roles"
+            value={formik.values.roles}
+            onChange={(event, newValue) =>
+              formik.setFieldValue("roles", newValue)
+            }
           />
         </Grid>
         <Grid item xs={12} md={6}>
           <InputPassword
-            password={password}
-            onChangePassword={(e) => setPassword(e.target.value)}
-            error={error.password}
-            fullWidth
             required
+            fullWidth
+            name="password"
+            value={formik.values.password}
+            onChange={formik.handleChange}
           />
         </Grid>
         <Grid item xs={12} md={6}>
           <InputPassword
+            required
+            fullWidth
             label="Şifrənin təkrarı"
-            password={passwordRepeat}
-            onChangePassword={(e) => setPasswordRepeat(e.target.value)}
-            error={error.passwordRepeat}
-            fullWidth
-            required
+            name="passwordRepeat"
+            value={formik.values.passwordRepeat}
+            onChange={formik.handleChange}
           />
         </Grid>
       </Grid>

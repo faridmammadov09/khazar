@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   FormControl,
   Grid,
@@ -7,55 +6,55 @@ import {
   Select,
   TextField,
 } from "@mui/material";
+import { useFormik } from "formik";
 import SearchPanelContainer from "./SearchPanelContainer";
 
 const SearchPanelUser = ({ onSearchUser }) => {
-  const [fullName, setFullname] = useState("");
-  const [userName, setUserName] = useState("");
-  const [position, setPosition] = useState("");
-  const [roles, setRoles] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (fullName === "" && userName === "" && position === "" && roles === "") {
-    }
-
-    onSearchUser(fullName, userName, position, roles);
-  };
+  const formik = useFormik({
+    initialValues: {
+      fullName: "",
+      userName: "",
+      position: "",
+      roles: "",
+    },
+    onSubmit: (values) => {
+      console.log(values);
+      onSearchUser();
+    },
+  });
 
   const handleClear = () => {
-    setFullname("");
-    setUserName("");
-    setPosition("");
-    setRoles("");
+    formik.handleReset();
   };
 
   return (
-    <SearchPanelContainer onSubmit={handleSubmit} onClear={handleClear}>
+    <SearchPanelContainer onSubmit={formik.handleSubmit} onClear={handleClear}>
       <Grid container spacing={2} sx={{ p: 2 }}>
         <Grid item xs={12} sm={6} md={3}>
           <TextField
             label="Ad Soyad"
             fullWidth
-            value={fullName}
-            onChange={(e) => setFullname(e.target.value)}
+            name="fullName"
+            value={formik.values.fullName}
+            onChange={formik.handleChange}
           ></TextField>
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
           <TextField
             label="İstifadəçi adı"
             fullWidth
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
+            name="userName"
+            value={formik.values.userName}
+            onChange={formik.handleChange}
           ></TextField>
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
           <TextField
             label="Vəzifə"
             fullWidth
-            value={position}
-            onChange={(e) => setPosition(e.target.value)}
+            name="position"
+            value={formik.values.position}
+            onChange={formik.handleChange}
           ></TextField>
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
@@ -66,9 +65,9 @@ const SearchPanelUser = ({ onSearchUser }) => {
               label="Rollar"
               fullWidth
               labelId="role-select-label"
-              id="role-select"
-              value={roles}
-              onChange={(e) => setRoles(e.target.value)}
+              name="roles"
+              value={formik.values.roles}
+              onChange={formik.handleChange}
             >
               <MenuItem value="Role 1">Role 1</MenuItem>
               <MenuItem value="Role 2">Role 2</MenuItem>

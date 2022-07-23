@@ -47,18 +47,6 @@ const EmployeesTableContainer = () => {
     setIsShowArchiveAlert(false);
   };
 
-  const handleSearchEmployees = ({ fullName }) => {
-    let filteredEmployees = employees;
-
-    if (fullName) {
-      filteredEmployees = employees.filter((item) =>
-        item.fullName.toLowerCase().includes(fullName.toLowerCase())
-      );
-
-      setFiltered(filteredEmployees);
-    }
-  };
-
   useEffect(() => {
     fetchEmployees();
   }, []);
@@ -81,9 +69,7 @@ const EmployeesTableContainer = () => {
         onArchive={handleOpenArchiveAlert}
       />
 
-      {isShowEmployeeSearchPanel && (
-        <SearchPanelEmployee onSearchEmployees={handleSearchEmployees} />
-      )}
+      {isShowEmployeeSearchPanel && <SearchPanelEmployee />}
 
       <EmployeesTable
         headerData={["A.S.A.", "Vəzifə", "Şöbə", "E-ünvan", "Korporativ nömrə"]}

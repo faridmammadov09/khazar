@@ -33,6 +33,28 @@ const TableRow = ({ item }) => {
           );
         }
 
+        if (i === "date" || i === "yearOfWork" || i === "createdDate") {
+          const date = new Date(item[i]);
+
+          return (
+            <TableCell
+              component="th"
+              scope="row"
+              key={index}
+              sx={{
+                maxWidth: 350,
+                verticalAlign: "top",
+              }}
+            >
+              {date.toLocaleDateString("en-US", {
+                month: "2-digit",
+                day: "2-digit",
+                year: "numeric",
+              })}
+            </TableCell>
+          );
+        }
+
         return (
           <TableCell
             component="th"

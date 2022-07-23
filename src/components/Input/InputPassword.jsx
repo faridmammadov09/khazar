@@ -1,24 +1,26 @@
+import { useState } from "react";
+import { IconButton, InputAdornment, TextField } from "@mui/material";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import { IconButton, InputAdornment, TextField } from "@mui/material";
-import { useState } from "react";
 
 const InputPassword = ({
   label,
-  password,
-  onChangePassword,
+  value,
+  onChange,
   error,
   fullWidth,
   required,
+  name,
 }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
     <TextField
+      name={name}
       label={label || "Şifrə"}
       type={showPassword ? "text" : "password"}
-      value={password}
-      onChange={onChangePassword}
+      value={value}
+      onChange={onChange}
       error={error}
       fullWidth={fullWidth}
       required={required}

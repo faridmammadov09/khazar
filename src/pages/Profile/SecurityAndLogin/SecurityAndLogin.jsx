@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import {
   Typography,
@@ -11,43 +11,49 @@ import {
 } from "@mui/material";
 import KeyIcon from "@mui/icons-material/Key";
 import EditIcon from "@mui/icons-material/Edit";
+import bcrypt from "bcryptjs";
+import { useFormik } from "formik";
+import API from "../../../api";
 import InputPassword from "../../../components/Input/InputPassword";
 import Button from "../../../components/Button/Button";
-import API from "../../../api";
-import { useEffect } from "react";
-import bcrypt from "bcryptjs";
 
 const SecurityAndLogin = () => {
   const [isExpandedPasswordPanel, setIsExpandedPasswordPanel] = useState(false);
-  const [currentPassword, setCurrentPassword] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [newPasswordRepeat, setNewPasswordRepeat] = useState("");
+  const [hashedUserPassword, setHashedUserPassword] = useState("");
+
   const loggedUser = useSelector((state) => state.app.loggedUser);
 
-  const [hashedUserPassword, setHashedUserPassword] = useState("");
+  const formik = useFormik({
+    initialValues: {
+      currentPassword: "",
+      newPassword: "",
+      newPasswordRepeat: "",
+    },
+    onSubmit: (values) => {
+      const { currentPassword, newPassword, newPasswordRepeat } = values;
+
+      const isCurrentPasswordValid = bcrypt.compareSync(
+        currentPassword,
+        hashedUserPassword
+      );
+
+      if (!isCurrentPasswordValid || newPassword !== newPasswordRepeat) {
+        alert("Düzgün daxil etmədiniz");
+        return;
+      }
+
+      console.log(values);
+
+      API.patch(`users/${loggedUser.id}`, {
+        password: newPassword,
+      }).then(() => {
+        console.log("Password saved");
+      });
+    },
+  });
 
   const handleToggleShowPanel = () => {
     setIsExpandedPasswordPanel((prevState) => !prevState);
-  };
-
-  const handleSavePassword = () => {
-    const isCurrentPasswordValid = bcrypt.compareSync(
-      currentPassword,
-      hashedUserPassword
-    );
-
-    if (!isCurrentPasswordValid || newPassword !== newPasswordRepeat) {
-      alert("Düzgün daxil etmədiniz");
-      return;
-    }
-
-    console.log(currentPassword, newPassword, newPasswordRepeat);
-
-    API.patch(`users/${loggedUser.id}`, {
-      password: newPassword,
-    }).then(() => {
-      console.log("Password saved");
-    });
   };
 
   const getUserPassword = async () => {
@@ -106,25 +112,33 @@ const SecurityAndLogin = () => {
             p: 2,
           }}
         >
-          <Stack width="542px" spacing="12px">
+          <Stack
+            width="542px"
+            spacing="12px"
+            component="form"
+            onSubmit={formik.handleSubmit}
+          >
             <InputPassword
               label="Cari şifrə"
-              password={currentPassword}
-              onChangePassword={(e) => setCurrentPassword(e.target.value)}
+              name="currentPassword"
+              value={formik.values.currentPassword}
+              onChange={formik.handleChange}
             />
             <InputPassword
               label="Yeni şifrə"
-              password={newPassword}
-              onChangePassword={(e) => setNewPassword(e.target.value)}
+              name="newPassword"
+              value={formik.values.newPassword}
+              onChange={formik.handleChange}
             />
             <InputPassword
               label="Yeni şifrənin təkrarı"
-              password={newPasswordRepeat}
-              onChangePassword={(e) => setNewPasswordRepeat(e.target.value)}
+              name="newPasswordRepeat"
+              value={formik.values.newPasswordRepeat}
+              onChange={formik.handleChange}
             />
 
             <Stack direction="row" spacing="12px">
-              <Button primary onClick={handleSavePassword}>
+              <Button type="submit" primary>
                 Yadda saxla
               </Button>
               <Button onClick={handleToggleShowPanel}>Bağla</Button>

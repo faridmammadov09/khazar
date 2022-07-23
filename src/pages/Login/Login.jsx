@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { TextField, Stack, Box, Grid } from "@mui/material";
+import { useFormik } from "formik";
 import axios from "axios";
 import logo from "../../assets/logo-xezertv.svg";
 import { setLoggedUser, setToken } from "../../features/app/appSlice";
@@ -13,30 +14,46 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState({ userName: false, password: false });
   const [isShowAlert, setIsShowAlert] = useState(false);
+  // const [error, setError] = useState({ userName: false, password: false });
 
   const loggedUser = useSelector((state) => state.app.loggedUser);
+
+  const formik = useFormik({
+    initialValues: {
+      userName: "",
+      password: "",
+    },
+    onSubmit: (values) => {
+      console.log(values);
+      const { userName, password } = values;
+
+      axios
+        .post("http://localhost:4000/login", {
+          email: userName,
+          password,
+        })
+        .then((res) => {
+          const { user, accessToken } = res.data;
+
+          dispatch(setLoggedUser(user));
+          dispatch(setToken(accessToken));
+          navigate("/", { replace: true });
+        })
+        .catch((err) => {
+          if (err) {
+            setIsShowAlert(true);
+            // setError({ userName: true, password: true });
+          }
+        });
+    },
+  });
 
   useEffect(() => {
     if (loggedUser.fullName) {
       navigate("/");
     }
   }, []);
-
-  useEffect(() => {
-    setError((state) => {
-      return { ...state, userName: false };
-    });
-  }, [userName]);
-
-  useEffect(() => {
-    setError((state) => {
-      return { ...state, password: false };
-    });
-  }, [password]);
 
   const handleCloseAlert = (event, reason) => {
     if (reason === "clickaway") {
@@ -46,28 +63,17 @@ const Login = () => {
     setIsShowAlert(false);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // useEffect(() => {
+  //   setError((state) => {
+  //     return { ...state, userName: false };
+  //   });
+  // }, [userName]);
 
-    axios
-      .post("http://localhost:4000/login", {
-        email: userName,
-        password,
-      })
-      .then((res) => {
-        const { user, accessToken } = res.data;
-
-        dispatch(setLoggedUser(user));
-        dispatch(setToken(accessToken));
-        navigate("/", { replace: true });
-      })
-      .catch((err) => {
-        if (err) {
-          setIsShowAlert(true);
-          setError({ userName: true, password: true });
-        }
-      });
-  };
+  // useEffect(() => {
+  //   setError((state) => {
+  //     return { ...state, password: false };
+  //   });
+  // }, [password]);
 
   return (
     <>
@@ -123,18 +129,20 @@ const Login = () => {
               justifyContent: "center",
             }}
           >
-            <Stack spacing={2} component="form" onSubmit={handleSubmit}>
+            <Stack spacing={2} component="form" onSubmit={formik.handleSubmit}>
               <TextField
                 label="İstifadəçi adı"
-                value={userName}
-                onChange={(e) => setUserName(e.target.value)}
-                error={error.userName}
+                name="userName"
+                value={formik.values.userName}
+                onChange={formik.handleChange}
+                // error={error.userName}
               ></TextField>
 
               <InputPassword
-                password={password}
-                onChangePassword={(e) => setPassword(e.target.value)}
-                error={error.password}
+                name="password"
+                value={formik.values.password}
+                onChange={formik.handleChange}
+                // error={error.password}
               />
 
               <Button type="submit" primary>

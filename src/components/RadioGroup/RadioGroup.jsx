@@ -7,21 +7,21 @@ import {
 } from "@mui/material";
 
 const RadioGroup = ({
-  id,
   title,
   value,
   onChange,
   options,
   disabled,
   required,
+  name,
 }) => {
   return (
     <FormControl disabled={disabled} required={required} color="secondary">
-      <FormLabel id={`${id}-radio-buttons-group-label`}>{title}</FormLabel>
+      <FormLabel id={name}>{title}</FormLabel>
       <RadioGroupMui
         row
-        aria-labelledby={`${id}-radio-buttons-group-label`}
-        name={`${id}-radio-buttons-group`}
+        aria-labelledby={name}
+        name={name}
         value={value}
         onChange={onChange}
       >
@@ -30,7 +30,7 @@ const RadioGroup = ({
             key={index}
             label={option.label}
             value={option.value}
-            control={<Radio color="secondary" required />}
+            control={<Radio color="secondary" required={required} />}
           />
         ))}
       </RadioGroupMui>

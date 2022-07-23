@@ -1,42 +1,44 @@
-import { useState } from "react";
 import { Grid, TextField } from "@mui/material";
+import { useFormik } from "formik";
 import SearchPanelContainer from "./SearchPanelContainer";
 import Select from "../Select/Select";
 
 const SearchPanelDayOff = () => {
-  const [fullName, setFullName] = useState("");
-  const [department, setDepartment] = useState("");
-  const [position, setPosition] = useState("");
-  const [status, setStatus] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
+  const formik = useFormik({
+    initialValues: {
+      fullName: "",
+      department: "",
+      position: "",
+      status: "",
+    },
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
 
   const handleClear = () => {
-    setFullName("");
-    setDepartment("");
-    setPosition("");
-    setStatus("");
+    formik.resetForm();
   };
 
   return (
-    <SearchPanelContainer onSubmit={handleSubmit} onClear={handleClear}>
+    <SearchPanelContainer onSubmit={formik.handleSubmit} onClear={handleClear}>
       <Grid container spacing={2} sx={{ p: 2 }}>
         <Grid item xs={12} sm={4}>
           <TextField
-            label="Ad Soyad"
             fullWidth
-            value={fullName}
-            onChange={(e) => setFullName(e.target.value)}
+            label="Ad Soyad"
+            name="fullName"
+            value={formik.values.fullName}
+            onChange={formik.handleChange}
           ></TextField>
         </Grid>
 
         <Grid item xs={12} sm={4}>
           <Select
             label="Departament"
-            value={department}
-            onChange={setDepartment}
+            name="department"
+            value={formik.values.department}
+            onChange={formik.handleChange}
             options={[
               "Rəqəmsal idarəetmə",
               "HR",
@@ -50,8 +52,9 @@ const SearchPanelDayOff = () => {
         <Grid item xs={12} sm={4}>
           <Select
             label="Vəzifə"
-            value={position}
-            onChange={setPosition}
+            name="position"
+            value={formik.values.position}
+            onChange={formik.handleChange}
             options={[
               "Vəzifə 1",
               "Vəzifə 2",
@@ -65,8 +68,9 @@ const SearchPanelDayOff = () => {
         <Grid item xs={12} sm={4}>
           <Select
             label="Sorğunun statusu"
-            value={status}
-            onChange={setStatus}
+            name="status"
+            value={formik.values.status}
+            onChange={formik.handleChange}
             options={["Təstiqləndi", "Ləğv olundu", "Gözləmədədir"]}
           />
         </Grid>

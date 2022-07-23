@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Grid, Stack } from "@mui/material";
+import { useFormik } from "formik";
 import Button from "../../../components/Button/Button";
 import FormWrapper from "../../../components/Form/FormWrapper";
 import InputDate from "../../../components/Input/InputDate";
@@ -10,21 +11,17 @@ const TABS = [{ label: "Sorğunun formalaşdırılması", path: "" }];
 
 const DayOffNew = () => {
   const [currentTab, setCurrentTab] = useState("");
-  const [dayOffDate, setDayOffDate] = useState("");
-  const [type, setType] = useState("");
-  const [result, setResult] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const newInquiry = {
-      dayOffDate,
-      type,
-      result,
-    };
-
-    console.log(newInquiry);
-  };
+  const formik = useFormik({
+    initialValues: {
+      dayOffDate: null,
+      type: "",
+      result: "",
+    },
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
 
   return (
     <Stack spacing={3}>
@@ -36,27 +33,31 @@ const DayOffNew = () => {
 
       <Grid container sx={{ justifyContent: "center" }}>
         <Grid item xs={10}>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={formik.handleSubmit}>
             <FormWrapper title="Sorğunun formalaşdırılması">
               <Stack spacing={2}>
                 <InputDate
-                  required
                   label="Day off tarixi"
-                  value={dayOffDate}
-                  onChange={(newValue) => setDayOffDate(newValue)}
+                  name="dayOffDate"
+                  value={formik.values.dayOffDate}
+                  onChange={(newValue) =>
+                    formik.setFieldValue("dayOffDate", newValue)
+                  }
                 />
 
                 <Select
                   label="Növü"
-                  value={type}
-                  onChange={(value) => setType(value)}
+                  name="type"
+                  value={formik.values.type}
+                  onChange={formik.handleChange}
                   options={["Tam gün"]}
                 />
 
                 <Select
                   label="Nəticə"
-                  value={result}
-                  onChange={(value) => setResult(value)}
+                  name="result"
+                  value={formik.values.result}
+                  onChange={formik.handleChange}
                   options={["Departament rəhbərin göndərməsi"]}
                 />
               </Stack>

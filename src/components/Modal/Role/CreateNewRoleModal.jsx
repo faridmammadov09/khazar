@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { Grid, TextField } from "@mui/material";
+import { useFormik } from "formik";
 import API from "../../../api";
 import Autocomplete from "../../Input/Autocomplete";
 import Button from "../../Button/Button";
@@ -7,42 +7,39 @@ import RadioGroup from "../../RadioGroup/RadioGroup";
 import Modal from "../Modal";
 
 const CreateNewRoleModal = ({ open, onClose, getUserRoles }) => {
-  const [isStatic, setIsStatic] = useState(false);
-  const [name, setName] = useState("");
-  const [distinctiveName, setDistinctiveName] = useState("");
-  const [authorities, setAuthorities] = useState([]);
-  const [description, setDescription] = useState("");
+  const formik = useFormik({
+    initialValues: {
+      isRoleStatic: false,
+      name: "",
+      distinctiveName: "",
+      authorities: [],
+      description: "",
+    },
+    onSubmit: (values) => {
+      console.log(values);
+      const { name, isRoleStatic, description, distinctiveName, authorities } =
+        values;
 
-  const clearInputs = () => {
-    setIsStatic(false);
-    setName("");
-    setDistinctiveName("");
-    setAuthorities([]);
-    setDescription("");
-  };
-
-  const handleCreateNewUser = (e) => {
-    e.preventDefault();
-
-    API.post("userRoles", {
-      name,
-      isStatic: Boolean(isStatic),
-      description,
-      distinctiveName,
-      authorities,
-    }).then(() => {
-      onClose();
-      clearInputs();
-      getUserRoles();
-    });
-  };
+      API.post("userRoles", {
+        name,
+        isStatic: Boolean(isRoleStatic),
+        description,
+        distinctiveName,
+        authorities,
+      }).then(() => {
+        onClose();
+        getUserRoles();
+        formik.resetForm();
+      });
+    },
+  });
 
   return (
     <Modal
       title="Yeni rol"
       open={open}
       onClose={onClose}
-      onSubmit={handleCreateNewUser}
+      onSubmit={formik.handleSubmit}
       actionButtons={
         <>
           <Button onClick={onClose}>Bağla</Button>
@@ -56,10 +53,10 @@ const CreateNewRoleModal = ({ open, onClose, getUserRoles }) => {
         <Grid item xs={12}>
           <RadioGroup
             required
-            id="role"
             title="Rol statikdir?"
-            value={isStatic}
-            onChange={(e) => setIsStatic(e.target.value)}
+            name="isRoleStatic"
+            value={formik.values.isRoleStatic}
+            onChange={formik.handleChange}
             options={[
               { label: "Hə", value: true },
               { label: "Yox", value: false },
@@ -70,41 +67,45 @@ const CreateNewRoleModal = ({ open, onClose, getUserRoles }) => {
         <Grid item xs={12}>
           <TextField
             required
-            label="Adı"
             fullWidth
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            label="Adı"
+            name="name"
+            value={formik.values.name}
+            onChange={formik.handleChange}
           ></TextField>
         </Grid>
 
         <Grid item xs={12}>
           <TextField
             required
-            label="Fərqləndirici ad"
             fullWidth
-            value={distinctiveName}
-            onChange={(e) => setDistinctiveName(e.target.value)}
+            label="Fərqləndirici ad"
+            name="distinctiveName"
+            value={formik.values.distinctiveName}
+            onChange={formik.handleChange}
           ></TextField>
         </Grid>
 
         <Grid item xs={12}>
           <Autocomplete
             label="Səlahiyyətlər"
-            value={authorities}
+            name="authorities"
+            value={formik.values.authorities}
+            onChange={(event, newValue) =>
+              formik.setFieldValue("authorities", newValue)
+            }
             options={["APP_DELETE", "EDIT"]}
-            onChange={(event, newValue) => {
-              setAuthorities(newValue);
-            }}
           />
         </Grid>
 
         <Grid item xs={12}>
           <TextField
             required
-            label="Təsviri"
             fullWidth
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            label="Təsviri"
+            name="description"
+            value={formik.values.description}
+            onChange={formik.handleChange}
           ></TextField>
         </Grid>
       </Grid>

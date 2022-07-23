@@ -5,7 +5,15 @@ import {
   Select as SelectMui,
 } from "@mui/material";
 
-const Select = ({ label, value, onChange, options, required, disabled }) => {
+const Select = ({
+  label,
+  value,
+  onChange,
+  options,
+  required,
+  disabled,
+  name,
+}) => {
   return (
     <FormControl fullWidth required={required} disabled={disabled}>
       <InputLabel>{label}</InputLabel>
@@ -13,8 +21,9 @@ const Select = ({ label, value, onChange, options, required, disabled }) => {
       <SelectMui
         label={label}
         fullWidth
+        name={name}
         value={value}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={onChange}
         disabled={disabled}
       >
         {options.map((option, index) => (

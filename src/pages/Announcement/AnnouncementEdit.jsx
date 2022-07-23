@@ -1,12 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Grid, Stack, TextField } from "@mui/material";
+import API from "../../api";
 import Button from "../../components/Button/Button";
 import FormWrapper from "../../components/Form/FormWrapper";
 import Select from "../../components/Select/Select";
 import Tabs from "../../components/Tabs/Tabs";
-import API from "../../api";
-import { useEffect } from "react";
 
 const tabs = [{ label: "Elanın redaktəsi", path: "" }];
 

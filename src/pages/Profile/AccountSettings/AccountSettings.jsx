@@ -1,17 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Box, Divider, Grid, Paper, Stack, Typography } from "@mui/material";
+import { logout } from "../../../features/app/appSlice";
 import StringAvatar from "../../../components/Avatar/StringAvatar";
 import Button from "../../../components/Button/Button";
-import { logout } from "../../../features/app/appSlice";
-
-const user = {
-  fullName: "Xəyalə Aslanova Əliağa",
-  position: "Aparıcı",
-  userName: "xeyalea",
-  email: "xeyalea@xezertv.az",
-  contactNumber: "994505005050",
-  roles: ["Admin", "Reporter"],
-};
 
 const AccountSettings = () => {
   const loggedUser = useSelector((state) => state.app.loggedUser);
@@ -24,7 +15,6 @@ const AccountSettings = () => {
           variant="outlined"
           sx={{
             height: "100%",
-            // width: "252px",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",

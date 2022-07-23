@@ -5,7 +5,7 @@
       "fullName": "Rüfət Məmmədov",
       "photo": "https://i.pravatar.cc/150?img=10",
       "type": "Day off",
-      "date": "06/25/2020",
+      "date": "2022-02-13T14:07:18.394Z",
       "status": "Ləğv edildi"
     },
     {
@@ -13,7 +13,7 @@
       "fullName": "Hüseyn Lətifov İ.",
       "photo": "https://i.pravatar.cc/150?img=11",
       "type": "Məzuniyyət",
-      "date": "06/20/2020",
+      "date": "2022-02-13T14:07:18.394Z",
       "status": "Gözləmədədir"
     },
     {
@@ -21,7 +21,7 @@
       "fullName": "Sevda Bıyık C.",
       "photo": "https://i.pravatar.cc/150?img=12",
       "type": "Ezamiyyət",
-      "date": "06/19/2020",
+      "date": "2022-02-13T14:07:18.394Z",
       "status": "Təstiqləndi"
     }
   ],
@@ -30,24 +30,24 @@
       "id": 1,
       "type": "Day off",
       "status": "Gözləmədədir",
-      "date": "06/25/2020"
+      "date": "2022-02-13T14:07:18.394Z"
     },
     {
       "id": 2,
       "type": "Ezamiyyət",
       "status": "Ləğv olundu",
-      "date": "06/25/2020"
+      "date": "2022-02-13T14:07:18.394Z"
     },
     {
       "id": 3,
       "type": "Day off",
       "status": "Təstiqləndi",
-      "date": "06/25/2020"
+      "date": "2022-02-13T14:07:18.394Z"
     },
     {
       "type": "Day off",
       "status": "Gözləmədədir",
-      "date": "06/25/2021",
+      "date": "2022-02-13T14:07:18.394Z",
       "id": 4
     }
   ],
@@ -87,27 +87,27 @@
       "fullName": "Hüseyn Lətifov İ.",
       "photo": "https://i.pravatar.cc/150?img=10",
       "year": "3",
-      "date": "06/25/2020"
+      "date": "2022-02-13T14:07:18.394Z"
     },
     {
       "id": 2,
       "fullName": "Sevda Bıyık C.",
       "photo": "https://i.pravatar.cc/150?img=11",
       "year": "4",
-      "date": "06/25/2020"
+      "date": "2022-02-13T14:07:18.394Z"
     },
     {
       "id": 3,
       "fullName": "Əhəd Miriyev S.",
       "photo": "https://i.pravatar.cc/150?img=12",
       "year": "2",
-      "date": "06/25/2020"
+      "date": "2022-02-13T14:07:18.394Z"
     },
     {
       "fullName": "Fred Doe",
       "photo": "https://i.pravatar.cc/150?img=13",
       "year": "3",
-      "date": "06/25/2021",
+      "date": "2022-02-13T14:07:18.394Z",
       "id": 4
     }
   ],
@@ -209,24 +209,24 @@
       "id": 1,
       "fullName": "Hüseyn Lətifov İ.",
       "photo": "https://i.pravatar.cc/150?img=10",
-      "date": "06/25/2020"
+      "date": "2022-02-13T14:07:18.394Z"
     },
     {
       "id": 2,
       "fullName": "Sevda Bıyık C.",
       "photo": "https://i.pravatar.cc/150?img=11",
-      "date": "06/20/2020"
+      "date": "2022-02-13T14:07:18.394Z"
     },
     {
       "id": 3,
       "fullName": "Əhəd Miriyev S.",
       "photo": "https://i.pravatar.cc/150?img=12",
-      "date": "06/20/2020"
+      "date": "2022-02-13T14:07:18.394Z"
     },
     {
       "fullName": "Joe Doe",
       "photo": "https://i.pravatar.cc/150?img=13",
-      "date": "07/25/2020",
+      "date": "2022-02-13T14:07:18.394Z",
       "id": 4
     }
   ],
@@ -316,6 +316,14 @@
       "createdDate": "2022-06-13T14:14:51.030Z",
       "operation": "Paylaş",
       "id": 6
+    },
+    {
+      "name": "New Anno",
+      "description": "new desc",
+      "createdBy": "Fred Doe",
+      "createdDate": "2022-07-23T01:52:47.716Z",
+      "operation": "Əməliyyat 2",
+      "id": 7
     }
   ],
   "vacationBalances": [
@@ -399,6 +407,15 @@
       "remainder": "100",
       "employeeId": 1,
       "id": 9
+    },
+    {
+      "yearOfWork": "2022-07-11T20:00:00.000Z",
+      "main": "10",
+      "addition": "20",
+      "used": "30",
+      "remainder": "40",
+      "employeeId": 2,
+      "id": 10
     }
   ],
   "users": [
@@ -414,7 +431,7 @@
       "roles": [
         "Admin"
       ],
-      "password": "$2a$10$BSGPxaGBtk4BcXVcL0eENuu.2wWDPeAuTGRho6/qy5psLE7NMsLtO"
+      "password": "$2a$10$Lghm51EoCr.sTVaUsnCP7e1MqpYJbRpOnypmrvbnu1kizsB/JqbGS"
     },
     {
       "id": 2,
@@ -485,6 +502,20 @@
         "Supervisor"
       ],
       "id": 6
+    },
+    {
+      "email": "isi@xezertv.az",
+      "password": "$2a$10$kH0d8fkTvCSVYmhJBqY8HeF.Ukg2eF/vBzUaI66zzy/1B6nEzZ0j6",
+      "fullName": "İskəndər İbrahimov R.",
+      "photo": null,
+      "userName": "isi",
+      "position": null,
+      "contactNumber": null,
+      "isActive": true,
+      "roles": [
+        "azernerji_admin"
+      ],
+      "id": 7
     }
   ],
   "userRoles": [
@@ -558,6 +589,16 @@
         "EDIT"
       ],
       "id": 8
+    },
+    {
+      "name": "NEW_ROLE",
+      "isStatic": true,
+      "description": "new desc",
+      "distinctiveName": "new_role",
+      "authorities": [
+        "APP_DELETE"
+      ],
+      "id": 9
     }
   ],
   "employees": [
@@ -992,6 +1033,16 @@
       "duration": "Müddətli",
       "employeeId": 10,
       "id": 18
+    },
+    {
+      "conclusionDate": "",
+      "expirationDate": "",
+      "type": "Əmək",
+      "number": 111,
+      "employmentRecordBookNumber": 123,
+      "duration": "Müddətsiz",
+      "employeeId": 2,
+      "id": 19
     }
   ],
   "commands": [
@@ -1112,6 +1163,16 @@
       "description": "Lorem ipsum",
       "employeeId": 10,
       "id": 5
+    },
+    {
+      "type": "CV",
+      "name": "CV",
+      "uploadDocument": [
+        "Sənəd 1"
+      ],
+      "description": "Qeyd",
+      "employeeId": 2,
+      "id": 6
     }
   ],
   "itSupplies": [

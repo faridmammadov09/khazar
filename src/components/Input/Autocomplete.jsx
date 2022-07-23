@@ -7,9 +7,11 @@ const Autocomplete = ({
   onChange,
   required,
   disabled,
+  name,
 }) => {
   return (
     <AutocompleteMui
+      name={name}
       multiple
       value={value}
       options={options}

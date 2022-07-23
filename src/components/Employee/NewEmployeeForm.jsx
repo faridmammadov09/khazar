@@ -1,158 +1,202 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Grid, Paper, Stack, TextField } from "@mui/material";
-import { format } from "date-fns";
+import { useFormik } from "formik";
+import API from "../../api";
 import Select from "../../components/Select/Select";
 import Button from "../../components/Button/Button";
 import InputDate from "../Input/InputDate";
 import RadioGroup from "../RadioGroup/RadioGroup";
-import API from "../../api";
 
 const NewEmployeeForm = () => {
   const navigate = useNavigate();
 
-  const [name, setName] = useState("");
-  const [surname, setSurname] = useState("");
-  const [fatherName, setFatherName] = useState("");
-  const [gender, setGender] = useState("");
-  const [dateOfBirth, setDateOfBirth] = useState("");
-  const [age, setAge] = useState("");
-  const [maritalStatus, setMaritalStatus] = useState("");
-  const [pin, setPin] = useState("");
-  const [serialNumber, setSerialNumber] = useState("");
-  const [company, setCompany] = useState("");
-  const [department, setDepartment] = useState("");
-  const [positionClassification, setPositionClassification] = useState("");
-  const [position, setPosition] = useState("");
-  const [citizenship, setCitizenship] = useState("");
-  const [nationality, setNationality] = useState("");
-  const [education, setEducation] = useState("");
-  const [email, setEmail] = useState("");
-  const [staffCapacity, setStaffCapacity] = useState("");
-  const [workPlace, setWorkPlace] = useState("");
-  const [mobileNumber, setMobileNumber] = useState("");
-  const [corporateNumber, setCorporateNumber] = useState("");
-  const [internalNumber, setInternalNumber] = useState("");
-  const [homePhoneNumber, setHomePhoneNumber] = useState("");
-  const [closeRelative, setCloseRelative] = useState("");
-  const [closeRelativePhoneNumber, setCloseRelativePhoneNumber] = useState("");
-  const [workingTime, setWorkingTime] = useState("");
-  const [weeklyWorkingHours, setWeeklyWorkingHours] = useState("");
-  const [disability, setDisability] = useState("");
-  const [socialInsuranceNumber, setSocialInsuranceNumber] = useState("");
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      surname: "",
+      fatherName: "",
+      gender: "",
+      dateOfBirth: "",
+      age: "",
+      maritalStatus: "",
+      pin: "",
+      serialNumber: "",
+      company: "",
+      department: "",
+      positionClassification: "",
+      position: "",
+      citizenship: "",
+      nationality: "",
+      education: "",
+      email: "",
+      staffCapacity: "",
+      workPlace: "",
+      mobileNumber: "",
+      corporateNumber: "",
+      internalNumber: "",
+      homePhoneNumber: "",
+      closeRelative: "",
+      closeRelativePhoneNumber: "",
+      workingTime: "",
+      weeklyWorkingHours: "",
+      disability: "",
+      socialInsuranceNumber: "",
+    },
+    onSubmit: (values) => {
+      console.log(values);
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
+      const {
+        name,
+        surname,
+        fatherName,
+        gender,
+        dateOfBirth,
+        maritalStatus,
+        pin,
+        serialNumber,
+        company,
+        department,
+        positionClassification,
+        position,
+        citizenship,
+        nationality,
+        education,
+        email,
+        staffCapacity,
+        workPlace,
+        mobileNumber,
+        corporateNumber,
+        internalNumber,
+        homePhoneNumber,
+        closeRelative,
+        closeRelativePhoneNumber,
+        workingTime,
+        weeklyWorkingHours,
+        disability,
+        socialInsuranceNumber,
+      } = values;
 
-    const currentYear = new Date().getFullYear();
-    const age = currentYear - dateOfBirth.getFullYear();
+      const currentYear = new Date().getFullYear();
+      const age = currentYear - dateOfBirth.getFullYear();
 
-    const newEmployee = {
-      photo: "https://i.pravatar.cc/150?img=11",
-      fullName: `${name} ${surname} ${fatherName}`,
-      maritalStatus,
-      gender,
-      pin,
-      serialNumber,
-      dateOfBirth,
-      age,
-      citizenship,
-      nationality,
-      education,
-      email,
-      mobileNumber,
-      corporateNumber,
-      internalNumber,
-      homePhoneNumber,
-      closeRelative,
-      closeRelativePhoneNumber,
-      company,
-      department,
-      positionClassification,
-      position,
-      workingTime,
-      weeklyWorkingHours,
-      staffCapacity,
-      workPlace,
-    };
+      const newEmployee = {
+        photo: "https://i.pravatar.cc/150?img=11",
+        fullName: `${name} ${surname} ${fatherName}`,
+        gender,
+        dateOfBirth,
+        age,
+        maritalStatus,
+        pin,
+        serialNumber,
+        company,
+        department,
+        positionClassification,
+        position,
+        citizenship,
+        nationality,
+        education,
+        email,
+        staffCapacity,
+        workPlace,
+        mobileNumber,
+        corporateNumber,
+        internalNumber,
+        homePhoneNumber,
+        closeRelative,
+        closeRelativePhoneNumber,
+        workingTime,
+        weeklyWorkingHours,
+        disability,
+        socialInsuranceNumber,
+      };
 
-    console.log(newEmployee);
-    API.post("/employees", newEmployee).then(() => {
-      navigate("/employees");
-    });
-  };
+      API.post("/employees", newEmployee).then(() => {
+        navigate("/employees");
+      });
+    },
+  });
 
   return (
-    <form onSubmit={handleFormSubmit}>
+    <form onSubmit={formik.handleSubmit}>
       <Paper variant="outlined">
         <Grid container spacing={2} sx={{ p: 2 }}>
           <Grid item xs={12} sm={6} md={4}>
             <TextField
+              fullWidth
+              required
               label="Ad"
-              fullWidth
-              required
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              name="name"
+              value={formik.values.name}
+              onChange={formik.handleChange}
             ></TextField>
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
             <TextField
+              fullWidth
+              required
               label="Soyad"
-              fullWidth
-              required
-              value={surname}
-              onChange={(e) => setSurname(e.target.value)}
+              name="surname"
+              value={formik.values.surname}
+              onChange={formik.handleChange}
             ></TextField>
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
             <TextField
-              label="Ata"
               fullWidth
               required
-              value={fatherName}
-              onChange={(e) => setFatherName(e.target.value)}
+              label="Ata"
+              name="fatherName"
+              value={formik.values.fatherName}
+              onChange={formik.handleChange}
             ></TextField>
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
             <RadioGroup
-              id="gender"
+              required
               title="Cinsi"
-              value={gender}
-              onChange={(e) => setGender(e.target.value)}
+              name="gender"
+              value={formik.values.gender}
+              onChange={formik.handleChange}
               options={[
                 { label: "Qadın", value: "Qadın" },
                 { label: "Kişi", value: "Kişi" },
               ]}
-              required
             />
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
             <InputDate
+              required
               label="Doğum tarixi"
-              value={dateOfBirth}
-              onChange={(newValue) => setDateOfBirth(newValue)}
+              name="dateOfBirth"
+              value={formik.values.dateOfBirth}
+              onChange={(newValue) =>
+                formik.setFieldValue("dateOfBirth", newValue)
+              }
             />
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
             <TextField
-              label="Yaş"
+              required
               fullWidth
-              value={age}
-              onChange={(e) => setAge(e.target.value)}
+              label="Yaş"
+              name="age"
+              value={formik.values.age}
+              onChange={formik.handleChange}
             ></TextField>
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
             <RadioGroup
-              id="marital-status"
+              required
               title="Ailə vəziyyəti"
-              value={maritalStatus}
-              onChange={(e) => setMaritalStatus(e.target.value)}
+              name="maritalStatus"
+              value={formik.values.maritalStatus}
+              onChange={formik.handleChange}
               options={[
                 { label: "Evli", value: "Evli" },
                 { label: "Subay", value: "Subay" },
@@ -162,36 +206,44 @@ const NewEmployeeForm = () => {
 
           <Grid item xs={12} sm={6} md={4}>
             <TextField
+              required
+              fullWidth
               label="FIN"
-              fullWidth
-              value={pin}
-              onChange={(e) => setPin(e.target.value)}
+              name="pin"
+              value={formik.values.pin}
+              onChange={formik.handleChange}
             ></TextField>
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
             <TextField
+              required
+              fullWidth
               label="Şəxsiyyət vəsiqənin seriya nömrəsi"
-              fullWidth
-              value={serialNumber}
-              onChange={(e) => setSerialNumber(e.target.value)}
+              name="serialNumber"
+              value={formik.values.serialNumber}
+              onChange={formik.handleChange}
             ></TextField>
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
             <TextField
-              label="Şirkət"
+              required
               fullWidth
-              value={company}
-              onChange={(e) => setCompany(e.target.value)}
+              label="Şirkət"
+              name="company"
+              value={formik.values.company}
+              onChange={formik.handleChange}
             ></TextField>
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
             <Select
+              required
               label="Şöbə"
-              value={department}
-              onChange={setDepartment}
+              name="department"
+              value={formik.values.department}
+              onChange={formik.handleChange}
               options={[
                 "Rəqəmsal idarəetmə",
                 "HR",
@@ -204,10 +256,11 @@ const NewEmployeeForm = () => {
 
           <Grid item xs={12} sm={6} md={4}>
             <RadioGroup
-              id="position-classification"
+              required
               title="Vəzifə təsnifatı"
-              value={positionClassification}
-              onChange={(e) => setPositionClassification(e.target.value)}
+              name="positionClassification"
+              value={formik.values.positionClassification}
+              onChange={formik.handleChange}
               options={[
                 { label: "Fəhlə", value: "Fəhlə" },
                 { label: "Qulluqçu", value: "Qulluqçu" },
@@ -217,55 +270,67 @@ const NewEmployeeForm = () => {
 
           <Grid item xs={12} sm={6} md={4}>
             <Select
+              required
               label="Vəzifə"
-              value={position}
-              onChange={setPosition}
+              name="position"
+              value={formik.values.position}
+              onChange={formik.handleChange}
               options={["Aparıcı", "Vəzifə 1", "Vəzifə 2", "Vəzifə 3"]}
             />
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
             <TextField
-              label="Vətəndaşlıq"
+              required
               fullWidth
-              value={citizenship}
-              onChange={(e) => setCitizenship(e.target.value)}
+              label="Vətəndaşlıq"
+              name="citizenship"
+              value={formik.values.citizenship}
+              onChange={formik.handleChange}
             ></TextField>
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
             <TextField
-              label="Milliyyəti"
+              required
               fullWidth
-              value={nationality}
-              onChange={(e) => setNationality(e.target.value)}
+              label="Milliyyəti"
+              name="nationality"
+              value={formik.values.nationality}
+              onChange={formik.handleChange}
             ></TextField>
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
             <Select
+              required
               label="Təhsil"
-              value={education}
-              onChange={setEducation}
+              name="education"
+              value={formik.values.education}
+              onChange={formik.handleChange}
               options={["Orta", "Ali"]}
             />
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
             <TextField
-              label="E-ünvan"
+              required
               fullWidth
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              type="email"
+              label="E-ünvan"
+              name="email"
+              value={formik.values.email}
+              onChange={formik.handleChange}
             ></TextField>
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
             <RadioGroup
-              id="staff-capacity"
+              required
               title="Ştat tutumu"
-              value={staffCapacity}
-              onChange={(e) => setStaffCapacity(e.target.value)}
+              name="staffCapacity"
+              value={formik.values.staffCapacity}
+              onChange={formik.handleChange}
               options={[
                 { label: "Tam", value: "Tam" },
                 { label: "Natamam", value: "Natamam" },
@@ -275,10 +340,11 @@ const NewEmployeeForm = () => {
 
           <Grid item xs={12} sm={6} md={4}>
             <RadioGroup
-              id="workplace"
+              required
               title="Iş yeri"
-              value={workPlace}
-              onChange={(e) => setWorkPlace(e.target.value)}
+              name="workPlace"
+              value={formik.values.workPlace}
+              onChange={formik.handleChange}
               options={[
                 { label: "Əsas", value: "Əsas" },
                 { label: "Əlavə", value: "Əlavə" },
@@ -288,86 +354,104 @@ const NewEmployeeForm = () => {
 
           <Grid item xs={12} sm={6} md={4}>
             <TextField
+              required
+              fullWidth
               label="Mobil nömrə"
-              fullWidth
-              value={mobileNumber}
-              onChange={(e) => setMobileNumber(e.target.value)}
+              name="mobileNumber"
+              value={formik.values.mobileNumber}
+              onChange={formik.handleChange}
               helperText="+994 00 000 00 00"
             ></TextField>
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
             <TextField
+              required
+              fullWidth
               label="Korporativ nömrə"
-              fullWidth
-              value={corporateNumber}
-              onChange={(e) => setCorporateNumber(e.target.value)}
+              name="corporateNumber"
+              value={formik.values.corporateNumber}
+              onChange={formik.handleChange}
               helperText="+994 00 000 00 00"
             ></TextField>
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
             <TextField
-              label="Daxili nömrə"
+              required
               fullWidth
-              value={internalNumber}
-              onChange={(e) => setInternalNumber(e.target.value)}
+              label="Daxili nömrə"
+              name="internalNumber"
+              value={formik.values.internalNumber}
+              onChange={formik.handleChange}
               helperText="00 00"
             ></TextField>
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
             <TextField
-              label="Ev telefonu"
+              required
               fullWidth
-              value={homePhoneNumber}
-              onChange={(e) => setHomePhoneNumber(e.target.value)}
+              label="Ev telefonu"
+              name="homePhoneNumber"
+              value={formik.values.homePhoneNumber}
+              onChange={formik.handleChange}
               helperText="012 000 00 00"
             ></TextField>
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
             <Select
+              required
               label="Yaxın qohumun kimliyi"
-              value={closeRelative}
-              onChange={setCloseRelative}
+              name="closeRelative"
+              value={formik.values.closeRelative}
+              onChange={formik.handleChange}
               options={["Ata", "Ana", "Qardaş", "Bacı", "Həyat yoldaşı"]}
             />
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
             <TextField
-              label="Yaxın qohum(mob)"
+              required
               fullWidth
-              value={closeRelativePhoneNumber}
-              onChange={(e) => setCloseRelativePhoneNumber(e.target.value)}
+              label="Yaxın qohum(mob)"
+              name="closeRelativePhoneNumber"
+              value={formik.values.closeRelativePhoneNumber}
+              onChange={formik.handleChange}
               helperText="+994 00 000 00 00"
             ></TextField>
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
             <Select
+              required
               label="İş vaxtı"
-              value={workingTime}
-              onChange={setWorkingTime}
+              name="workingTime"
+              value={formik.values.workingTime}
+              onChange={formik.handleChange}
               options={["09:00 - 18:00", "18:00 - 00:00", "00:00 - 09:00"]}
             />
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
             <TextField
-              label="Həftəlik iş saatı"
+              required
               fullWidth
-              value={weeklyWorkingHours}
-              onChange={(e) => setWeeklyWorkingHours(e.target.value)}
+              label="Həftəlik iş saatı"
+              name="weeklyWorkingHours"
+              value={formik.values.weeklyWorkingHours}
+              onChange={formik.handleChange}
             ></TextField>
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
             <Select
+              required
               label="Əlillik"
-              value={disability}
-              onChange={setDisability}
+              name="disability"
+              value={formik.values.disability}
+              onChange={formik.handleChange}
               options={[
                 "Yoxdur",
                 "1-ci dərəcəli",
@@ -380,10 +464,12 @@ const NewEmployeeForm = () => {
 
           <Grid item xs={12} sm={6} md={4}>
             <TextField
-              label="Sosial sığorta nömrəsi"
+              required
               fullWidth
-              value={socialInsuranceNumber}
-              onChange={(e) => setSocialInsuranceNumber(e.target.value)}
+              label="Sosial sığorta nömrəsi"
+              name="socialInsuranceNumber"
+              value={formik.values.socialInsuranceNumber}
+              onChange={formik.handleChange}
             ></TextField>
           </Grid>
         </Grid>
