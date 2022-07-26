@@ -4,7 +4,7 @@ import Select from "../Select/Select";
 import SearchPanelContainer from "./SearchPanelContainer";
 import RadioGroup from "../RadioGroup/RadioGroup";
 
-const SearchPanelEmployee = () => {
+const SearchPanelEmployee = ({ onSearchEmployee }) => {
   const formik = useFormik({
     initialValues: {
       fullName: "",
@@ -20,7 +20,7 @@ const SearchPanelEmployee = () => {
       gender: "",
     },
     onSubmit: (values) => {
-      console.log(values);
+      onSearchEmployee(values);
     },
   });
 
@@ -33,8 +33,8 @@ const SearchPanelEmployee = () => {
       <Grid container spacing={2} sx={{ p: 2 }}>
         <Grid item xs={12} sm={4}>
           <TextField
-            label="Ad Soyad Ata"
             fullWidth
+            label="Ad Soyad Ata"
             name="fullName"
             value={formik.values.fullName}
             onChange={formik.handleChange}
@@ -61,22 +61,24 @@ const SearchPanelEmployee = () => {
           <Grid container spacing={2}>
             <Grid item xs={6}>
               <TextField
+                fullWidth
                 type="number"
                 label="Yaş(dan)"
-                fullWidth
                 name="fromAge"
                 value={formik.values.fromAge}
                 onChange={formik.handleChange}
+                inputProps={{ min: 1, max: 100 }}
               ></TextField>
             </Grid>
             <Grid item xs={6}>
               <TextField
+                fullWidth
                 type="number"
                 label="Yaş(a)"
-                fullWidth
                 name="toAge"
                 value={formik.values.toAge}
                 onChange={formik.handleChange}
+                inputProps={{ min: 1, max: 100 }}
               ></TextField>
             </Grid>
           </Grid>

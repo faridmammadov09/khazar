@@ -10,7 +10,6 @@ const EmployeesTableContainer = () => {
   const [employees, setEmployees] = useState([]);
   const [openArchiveModal, setOpenArchiveModal] = useState(false);
   const [isShowArchiveAlert, setIsShowArchiveAlert] = useState(false);
-  const [filtered, setFiltered] = useState([]);
   const [selectedEmployee, setSelectedEmployee] = useState({});
 
   const isShowEmployeeSearchPanel = useSelector(
@@ -20,7 +19,6 @@ const EmployeesTableContainer = () => {
   const fetchEmployees = async () => {
     const { data } = await API.get("employees");
     setEmployees(data);
-    setFiltered(data);
   };
 
   const handleOpenArchiveModal = (employee) => {
@@ -47,6 +45,11 @@ const EmployeesTableContainer = () => {
     setIsShowArchiveAlert(false);
   };
 
+  const handleSearchEmployee = async ({ fullName }) => {
+    const { data } = await API.get(`employees?fullName_like=${fullName}`);
+    setEmployees(data);
+  };
+
   useEffect(() => {
     fetchEmployees();
   }, []);
@@ -69,11 +72,13 @@ const EmployeesTableContainer = () => {
         onArchive={handleOpenArchiveAlert}
       />
 
-      {isShowEmployeeSearchPanel && <SearchPanelEmployee />}
+      {isShowEmployeeSearchPanel && (
+        <SearchPanelEmployee onSearchEmployee={handleSearchEmployee} />
+      )}
 
       <EmployeesTable
         headerData={["A.S.A.", "Vəzifə", "Şöbə", "E-ünvan", "Korporativ nömrə"]}
-        bodyData={filtered}
+        bodyData={employees}
         handleOpenArchiveModal={handleOpenArchiveModal}
       />
     </>
