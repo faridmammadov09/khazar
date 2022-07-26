@@ -7,10 +7,12 @@ const InputPassword = ({
   label,
   value,
   onChange,
+  onBlur,
   error,
   fullWidth,
   required,
   name,
+  helperText,
 }) => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -21,9 +23,11 @@ const InputPassword = ({
       type={showPassword ? "text" : "password"}
       value={value}
       onChange={onChange}
+      onBlur={onBlur}
       error={error}
       fullWidth={fullWidth}
       required={required}
+      helperText={helperText}
       InputProps={{
         endAdornment: (
           <InputAdornment position="end">

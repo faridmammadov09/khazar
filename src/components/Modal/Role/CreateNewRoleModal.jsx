@@ -88,6 +88,7 @@ const CreateNewRoleModal = ({ open, onClose, getUserRoles }) => {
 
         <Grid item xs={12}>
           <Autocomplete
+            required
             label="Səlahiyyətlər"
             name="authorities"
             value={formik.values.authorities}

@@ -68,7 +68,6 @@ const EditRoleModal = ({ open, onClose, getUserRoles, role }) => {
           <RadioGroup
             required
             disabled
-            id="role-edit"
             title="Rol statikdir?"
             value={isStatic}
             onChange={(e) => setIsStatic(e.target.value)}
@@ -82,8 +81,8 @@ const EditRoleModal = ({ open, onClose, getUserRoles, role }) => {
         <Grid item xs={12}>
           <TextField
             required
-            label="Adı"
             fullWidth
+            label="Adı"
             value={name}
             onChange={(e) => setName(e.target.value)}
           ></TextField>
@@ -92,16 +91,17 @@ const EditRoleModal = ({ open, onClose, getUserRoles, role }) => {
         <Grid item xs={12}>
           <TextField
             required
-            label="Fərqləndirici ad"
             fullWidth
+            disabled
+            label="Fərqləndirici ad"
             value={distinctiveName}
             onChange={(e) => setDistinctiveName(e.target.value)}
-            disabled
           ></TextField>
         </Grid>
 
         <Grid item xs={12}>
           <Autocomplete
+            required
             label="Səlahiyyətlər"
             value={authorities}
             options={["APP_DELETE", "EDIT"]}
@@ -114,8 +114,8 @@ const EditRoleModal = ({ open, onClose, getUserRoles, role }) => {
         <Grid item xs={12}>
           <TextField
             required
-            label="Təsviri"
             fullWidth
+            label="Təsviri"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           ></TextField>

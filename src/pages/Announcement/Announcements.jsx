@@ -6,22 +6,20 @@ import AnnouncementTable from "../../components/Table/AnnouncementTable/Announce
 const Announcement = () => {
   const [announcements, setAnnouncements] = useState([]);
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
+  const [selectedAnnouncement, setSelectedAnnouncement] = useState({});
 
   const getAnnouncements = async () => {
     const { data } = await API.get("announcements");
     setAnnouncements(data);
   };
 
-  const handleOpenDeleteModal = () => {
+  const handleOpenDeleteAnnouncementModal = (item) => {
     setOpenDeleteModal(true);
+    setSelectedAnnouncement(item);
   };
 
   const handleCloseDeleteModal = () => {
     setOpenDeleteModal(false);
-  };
-
-  const handleDeleteAnnouncement = () => {
-    setOpenDeleteModal(true);
   };
 
   useEffect(() => {
@@ -33,6 +31,8 @@ const Announcement = () => {
       <DeleteAnnouncementModal
         open={openDeleteModal}
         onClose={handleCloseDeleteModal}
+        announcement={selectedAnnouncement}
+        getAnnouncements={getAnnouncements}
       />
 
       <AnnouncementTable
@@ -43,7 +43,7 @@ const Announcement = () => {
           "Əlavə edilmə tarixi",
         ]}
         bodyData={announcements}
-        onClickDelete={handleDeleteAnnouncement}
+        onOpenDeleteModal={handleOpenDeleteAnnouncementModal}
       />
     </>
   );

@@ -316,14 +316,6 @@
       "createdDate": "2022-06-13T14:14:51.030Z",
       "operation": "Paylaş",
       "id": 6
-    },
-    {
-      "name": "New Anno",
-      "description": "new desc",
-      "createdBy": "Fred Doe",
-      "createdDate": "2022-07-23T01:52:47.716Z",
-      "operation": "Əməliyyat 2",
-      "id": 7
     }
   ],
   "vacationBalances": [
@@ -431,7 +423,7 @@
       "roles": [
         "Admin"
       ],
-      "password": "$2a$10$Lghm51EoCr.sTVaUsnCP7e1MqpYJbRpOnypmrvbnu1kizsB/JqbGS"
+      "password": "$2a$10$wi1UQBz/46tdEGx2/F8Tr.3XCzDZVigDLiALpVHGpmMmaKzbbtmWu"
     },
     {
       "id": 2,
@@ -502,20 +494,6 @@
         "Supervisor"
       ],
       "id": 6
-    },
-    {
-      "email": "isi@xezertv.az",
-      "password": "$2a$10$kH0d8fkTvCSVYmhJBqY8HeF.Ukg2eF/vBzUaI66zzy/1B6nEzZ0j6",
-      "fullName": "İskəndər İbrahimov R.",
-      "photo": null,
-      "userName": "isi",
-      "position": null,
-      "contactNumber": null,
-      "isActive": true,
-      "roles": [
-        "azernerji_admin"
-      ],
-      "id": 7
     }
   ],
   "userRoles": [
@@ -589,16 +567,6 @@
         "EDIT"
       ],
       "id": 8
-    },
-    {
-      "name": "NEW_ROLE",
-      "isStatic": true,
-      "description": "new desc",
-      "distinctiveName": "new_role",
-      "authorities": [
-        "APP_DELETE"
-      ],
-      "id": 9
     }
   ],
   "employees": [
@@ -687,7 +655,7 @@
       "weeklyWorkingHours": 40,
       "staffCapacity": "Tam",
       "workPlace": "Əsas",
-      "isArchived": false
+      "isArchived": true
     },
     {
       "id": 4,

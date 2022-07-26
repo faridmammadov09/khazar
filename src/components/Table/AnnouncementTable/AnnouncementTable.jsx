@@ -14,7 +14,7 @@ import {
 import TableCellActions from "../TableCellActions";
 import TableHeader from "../TableHeader";
 
-const AnnouncementTable = ({ headerData, bodyData, onClickDelete }) => {
+const AnnouncementTable = ({ headerData, bodyData, onOpenDeleteModal }) => {
   const navigate = useNavigate();
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
@@ -78,7 +78,9 @@ const AnnouncementTable = ({ headerData, bodyData, onClickDelete }) => {
                     onClickLeftButton={() => handleShowAnnouncement(item.id)}
                     iconShow
                   >
-                    <MenuItem onClick={onClickDelete}>Sil</MenuItem>
+                    <MenuItem onClick={() => onOpenDeleteModal(item)}>
+                      Sil
+                    </MenuItem>
                   </TableCellActions>
                 </TableCell>
               </TableRow>

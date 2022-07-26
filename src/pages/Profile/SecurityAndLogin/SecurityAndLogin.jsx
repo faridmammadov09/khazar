@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Typography,
   Box,
@@ -16,12 +16,14 @@ import { useFormik } from "formik";
 import API from "../../../api";
 import InputPassword from "../../../components/Input/InputPassword";
 import Button from "../../../components/Button/Button";
+import { logout } from "../../../features/app/appSlice";
 
 const SecurityAndLogin = () => {
   const [isExpandedPasswordPanel, setIsExpandedPasswordPanel] = useState(false);
   const [hashedUserPassword, setHashedUserPassword] = useState("");
 
   const loggedUser = useSelector((state) => state.app.loggedUser);
+  const dispatch = useDispatch();
 
   const formik = useFormik({
     initialValues: {
@@ -37,18 +39,24 @@ const SecurityAndLogin = () => {
         hashedUserPassword
       );
 
-      if (!isCurrentPasswordValid || newPassword !== newPasswordRepeat) {
-        alert("Düzgün daxil etmədiniz");
+      if (!isCurrentPasswordValid) {
+        alert("Cari şifrəni düzgün daxil etmədiniz");
+        return;
+      } else if (newPassword !== newPasswordRepeat) {
+        alert("Yeni şifrə və təkrarı uyğun deyil");
         return;
       }
 
-      console.log(values);
-
       API.patch(`users/${loggedUser.id}`, {
         password: newPassword,
-      }).then(() => {
-        console.log("Password saved");
-      });
+      })
+        .then(() => {
+          alert("Password changed successfully!");
+          dispatch(logout());
+        })
+        .catch((err) => {
+          alert(err.response.data);
+        });
     },
   });
 
@@ -119,18 +127,21 @@ const SecurityAndLogin = () => {
             onSubmit={formik.handleSubmit}
           >
             <InputPassword
+              required
               label="Cari şifrə"
               name="currentPassword"
               value={formik.values.currentPassword}
               onChange={formik.handleChange}
             />
             <InputPassword
+              required
               label="Yeni şifrə"
               name="newPassword"
               value={formik.values.newPassword}
               onChange={formik.handleChange}
             />
             <InputPassword
+              required
               label="Yeni şifrənin təkrarı"
               name="newPasswordRepeat"
               value={formik.values.newPasswordRepeat}

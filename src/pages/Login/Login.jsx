@@ -4,18 +4,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { TextField, Stack, Box, Grid } from "@mui/material";
 import { useFormik } from "formik";
 import axios from "axios";
+import { object, string } from "yup";
 import logo from "../../assets/logo-xezertv.svg";
 import { setLoggedUser, setToken } from "../../features/app/appSlice";
 import InputPassword from "../../components/Input/InputPassword";
 import Button from "../../components/Button/Button";
 import Alert from "../../components/Alert/Alert";
 
+const validationSchema = object({
+  userName: string().required("İstifadəçi adı zəruridir!"),
+  password: string().required("Şifrə zəruridir!"),
+});
+
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [isShowAlert, setIsShowAlert] = useState(false);
-  // const [error, setError] = useState({ userName: false, password: false });
 
   const loggedUser = useSelector((state) => state.app.loggedUser);
 
@@ -25,7 +30,6 @@ const Login = () => {
       password: "",
     },
     onSubmit: (values) => {
-      console.log(values);
       const { userName, password } = values;
 
       axios
@@ -43,10 +47,10 @@ const Login = () => {
         .catch((err) => {
           if (err) {
             setIsShowAlert(true);
-            // setError({ userName: true, password: true });
           }
         });
     },
+    validationSchema,
   });
 
   useEffect(() => {
@@ -62,18 +66,6 @@ const Login = () => {
 
     setIsShowAlert(false);
   };
-
-  // useEffect(() => {
-  //   setError((state) => {
-  //     return { ...state, userName: false };
-  //   });
-  // }, [userName]);
-
-  // useEffect(() => {
-  //   setError((state) => {
-  //     return { ...state, password: false };
-  //   });
-  // }, [password]);
 
   return (
     <>
@@ -135,14 +127,18 @@ const Login = () => {
                 name="userName"
                 value={formik.values.userName}
                 onChange={formik.handleChange}
-                // error={error.userName}
+                onBlur={formik.handleBlur}
+                error={formik.touched.userName && !!formik.errors.userName}
+                helperText={formik.touched.userName && formik.errors.userName}
               ></TextField>
 
               <InputPassword
                 name="password"
                 value={formik.values.password}
                 onChange={formik.handleChange}
-                // error={error.password}
+                onBlur={formik.handleBlur}
+                error={formik.touched.password && !!formik.errors.password}
+                helperText={formik.touched.password && formik.errors.password}
               />
 
               <Button type="submit" primary>
