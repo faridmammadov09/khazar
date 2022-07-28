@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Grid } from "@mui/material";
-import API from "../../../api";
+import { getDayOffInquiry } from "../../../api";
 import FormWrapper from "../../../components/Form/FormWrapper";
 import InfoInquiryCreator from "../../../components/InfoInquiryCreator/InfoInquiryCreator";
 import List from "../../../components/List/List";
+
+const formatDate = (date) => new Date(date).toLocaleDateString();
 
 const DayOffDescriptionDepartment = () => {
   const { id } = useParams();
@@ -12,13 +14,13 @@ const DayOffDescriptionDepartment = () => {
   const [inquiryData, setInquiryData] = useState({});
 
   const listData = [
-    { title: "Day off tarixi", value: inquiryData.date },
+    { title: "Day off tarixi", value: formatDate(inquiryData.date) },
     { title: "Növü", value: inquiryData.type },
     { title: "Nəticə", value: inquiryData.result },
   ];
 
-  const getInquiry = async () => {
-    const { data } = await API.get(`dayOffs/${id}`);
+  const setDayOffInquiry = async () => {
+    const data = await getDayOffInquiry(id);
     setInquiryData(data);
   };
 
@@ -27,7 +29,7 @@ const DayOffDescriptionDepartment = () => {
   };
 
   useEffect(() => {
-    getInquiry();
+    setDayOffInquiry();
   }, []);
 
   return (
@@ -38,9 +40,9 @@ const DayOffDescriptionDepartment = () => {
 
       <Grid item xs={10}>
         <FormWrapper
-          title="Departament rəhbərin göndərməsi"
           showEditButton
           showInfoButton
+          title="Departament rəhbərin göndərməsi"
           onClickEdit={handleClickEdit}
         >
           <List data={listData} />

@@ -64,9 +64,9 @@ const GuestAccordion = ({ id, title }) => {
           <Grid item xs={12}>
             <TextField
               required
+              fullWidth
               type="text"
               label="Qeyd"
-              fullWidth
               value={note}
               onChange={(e) => setNote(e.target.value)}
             ></TextField>

@@ -21,13 +21,13 @@ const secondaryButtonStyle = {
 const Button = ({ type, onClick, children, primary, variant, startIcon }) => {
   return (
     <ButtonMui
+      disableElevation
+      disableRipple
       type={type}
       onClick={onClick}
       variant={variant}
       startIcon={startIcon}
       sx={primary ? primaryButtonStyle : secondaryButtonStyle}
-      disableElevation
-      disableRipple
     >
       {children}
     </ButtonMui>

@@ -22,7 +22,7 @@
       "photo": "https://i.pravatar.cc/150?img=12",
       "type": "Ezamiyyət",
       "date": "2022-02-13T14:07:18.394Z",
-      "status": "Təstiqləndi"
+      "status": "Təsdiqləndi"
     }
   ],
   "myQueries": [
@@ -41,7 +41,7 @@
     {
       "id": 3,
       "type": "Day off",
-      "status": "Təstiqləndi",
+      "status": "Təsdiqləndi",
       "date": "2022-02-13T14:07:18.394Z"
     },
     {
@@ -143,7 +143,7 @@
       "fullName": "Hüseyn Lətifov İ.",
       "photo": "https://i.pravatar.cc/150?img=10",
       "date": "2022-02-13T14:07:18.394Z",
-      "status": "Təstiqləndi",
+      "status": "Təsdiqləndi",
       "type": "Tam gün",
       "result": "Departament rəhbərin göndərməsi"
     },
@@ -174,7 +174,9 @@
       "substitutePerson": "Sevda Bıyık C.",
       "startDate": "2022-03-20T20:00:00.000Z",
       "expirationDate": "2022-03-24T20:00:00.000Z",
-      "result": "Departament rəhbərin göndərməsi"
+      "result": "Departament rəhbərin göndərməsi",
+      "date": "2022-02-13T14:07:18.394Z",
+      "status": "Təsdiqləndi"
     },
     {
       "id": 2,
@@ -183,7 +185,9 @@
       "substitutePerson": "Əhəd Miriyev S.",
       "startDate": "2022-03-20T20:00:00.000Z",
       "expirationDate": "2022-03-24T20:00:00.000Z",
-      "result": "Departament rəhbərin göndərməsi"
+      "result": "Departament rəhbərin göndərməsi",
+      "date": "2022-02-13T14:07:18.394Z",
+      "status": "Təsdiqləndi"
     },
     {
       "id": 3,
@@ -192,7 +196,9 @@
       "substitutePerson": "Hüseyn Lətifov İ.",
       "startDate": "2022-03-20T20:00:00.000Z",
       "expirationDate": "2022-03-24T20:00:00.000Z",
-      "result": "Departament rəhbərin göndərməsi"
+      "result": "Departament rəhbərin göndərməsi",
+      "date": "2022-02-13T14:07:18.394Z",
+      "status": "Təsdiqləndi"
     },
     {
       "fullName": "Joe Doe",
@@ -201,7 +207,9 @@
       "id": 4,
       "startDate": "2022-03-20T20:00:00.000Z",
       "expirationDate": "2022-03-24T20:00:00.000Z",
-      "result": "Departament rəhbərin göndərməsi"
+      "result": "Departament rəhbərin göndərməsi",
+      "date": "2022-02-13T14:07:18.394Z",
+      "status": "Təsdiqləndi"
     }
   ],
   "nextBirthdays": [
@@ -238,7 +246,9 @@
       "startDate": "2022-05-25T20:00:00.000Z",
       "expirationDate": "2022-06-25T20:00:00.000Z",
       "note": "Sadə qeyd",
-      "result": "Departament rəhbərin göndərməsi"
+      "result": "Departament rəhbərin göndərməsi",
+      "date": "2022-02-13T14:07:18.394Z",
+      "status": "Təsdiqləndi"
     },
     {
       "id": 2,
@@ -247,7 +257,9 @@
       "startDate": "2022-05-25T20:00:00.000Z",
       "expirationDate": "2022-06-25T20:00:00.000Z",
       "note": "Sadə qeyd",
-      "result": "Departament rəhbərin göndərməsi"
+      "result": "Departament rəhbərin göndərməsi",
+      "date": "2022-02-13T14:07:18.394Z",
+      "status": "Təsdiqləndi"
     },
     {
       "id": 3,
@@ -256,7 +268,9 @@
       "startDate": "2022-05-25T20:00:00.000Z",
       "expirationDate": "2022-06-25T20:00:00.000Z",
       "note": "Sadə qeyd",
-      "result": "Departament rəhbərin göndərməsi"
+      "result": "Departament rəhbərin göndərməsi",
+      "date": "2022-02-13T14:07:18.394Z",
+      "status": "Təsdiqləndi"
     },
     {
       "id": 4,
@@ -265,7 +279,9 @@
       "startDate": "2022-05-25T20:00:00.000Z",
       "expirationDate": "2022-06-25T20:00:00.000Z",
       "note": "Sadə qeyd",
-      "result": "Departament rəhbərin göndərməsi"
+      "result": "Departament rəhbərin göndərməsi",
+      "date": "2022-02-13T14:07:18.394Z",
+      "status": "Təsdiqləndi"
     }
   ],
   "announcements": [
@@ -421,7 +437,7 @@
       "contactNumber": "+994559990909",
       "isActive": true,
       "roles": ["Admin"],
-      "password": "$2a$10$wi1UQBz/46tdEGx2/F8Tr.3XCzDZVigDLiALpVHGpmMmaKzbbtmWu"
+      "password": "$2a$10$UpZr0wXyJVyo2aJDXnckxuEnxaU4Zh9A9M1rOiSf0Vou3Hpve0Jce"
     },
     {
       "id": 2,
@@ -571,7 +587,7 @@
       "closeRelative": "Həyat yoldaşı",
       "closeRelativePhoneNumber": null,
       "company": "Xəzər TV",
-      "department": "HR",
+      "department": "Rəqəmsal idarəetmə",
       "positionClassification": "Fəhlə",
       "position": "Radio rəhbəri",
       "workingTime": null,
@@ -629,7 +645,7 @@
       "closeRelative": "Həyat yoldaşı",
       "closeRelativePhoneNumber": null,
       "company": "Xəzər TV",
-      "department": "HR",
+      "department": "Təhlükəsizlik",
       "positionClassification": "Fəhlə",
       "position": "Aparıcı",
       "workingTime": null,
@@ -658,7 +674,7 @@
       "closeRelative": "Həyat yoldaşı",
       "closeRelativePhoneNumber": null,
       "company": "Xəzər TV",
-      "department": "HR",
+      "department": "İT",
       "positionClassification": "Fəhlə",
       "position": "Aparıcı",
       "workingTime": null,
@@ -687,7 +703,7 @@
       "closeRelative": "Həyat yoldaşı",
       "closeRelativePhoneNumber": null,
       "company": "Xəzər TV",
-      "department": "HR",
+      "department": "Satınalma",
       "positionClassification": "Fəhlə",
       "position": "Aparıcı",
       "workingTime": null,
@@ -1116,32 +1132,41 @@
     {
       "id": 1,
       "fullName": "Joe Doe",
+      "photo": "https://i.pravatar.cc/150?img=50",
       "descriptionProblem": "Mouse işləmir",
       "result": "Departament rəhbərin göndərməsi",
       "note": "Sadə qeyd",
-      "resultText": "Lorem ipsum"
+      "resultText": "Lorem ipsum",
+      "date": "2022-02-13T14:07:18.394Z",
+      "status": "Təsdiqləndi"
     }
   ],
   "purchases": [
     {
       "id": 1,
       "fullName": "Joe Doe",
+      "photo": "https://i.pravatar.cc/150?img=50",
       "note": "Sadə bir qeyd",
       "result": "Departament rəhbərin göndərməsi",
-      "resultText": "Lorem ipsum"
+      "resultText": "Lorem ipsum",
+      "date": "2022-02-13T14:07:18.394Z",
+      "status": "Təsdiqləndi"
     }
   ],
   "guests": [
     {
       "id": 1,
       "fullName": "Joe Doe",
+      "photo": "https://i.pravatar.cc/150?img=50",
       "comingPeople": ["İlqar Abbasov", "Orxan Axnazarov"],
       "transportationNotes": ["00-AS-000", "00-AS-001"],
       "arrivalDate": "2022-06-27T20:00:00.000Z",
       "meetingPerson": "Michael Doe",
       "reasonForComing": "Marketinq şöbə rəisilə iş görüşməsi",
       "note": "Sadə bir qeyd",
-      "result": "Departament rəhbərin göndərməsi"
+      "result": "Departament rəhbərin göndərməsi",
+      "date": "2022-02-13T14:07:18.394Z",
+      "status": "Təsdiqləndi"
     }
   ]
 }

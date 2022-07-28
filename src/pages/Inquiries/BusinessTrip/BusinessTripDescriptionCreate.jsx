@@ -1,29 +1,31 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Grid } from "@mui/material";
-import API from "../../../api";
+import { getBusinessTripInquiry } from "../../../api";
 import FormWrapper from "../../../components/Form/FormWrapper";
 import InfoInquiryCreator from "../../../components/InfoInquiryCreator/InfoInquiryCreator";
 import List from "../../../components/List/List";
+
+const formatDate = (date) => new Date(date).toLocaleDateString();
 
 const BusinessTripDescriptionCreate = () => {
   const { id } = useParams();
   const [inquiryData, setInquiryData] = useState({});
 
   const listData = [
-    { title: "Başlama tarixi", value: inquiryData.startDate },
-    { title: "Bitmə tarixi", value: inquiryData.expirationDate },
+    { title: "Başlama tarixi", value: formatDate(inquiryData.startDate) },
+    { title: "Bitmə tarixi", value: formatDate(inquiryData.expirationDate) },
     { title: "Qeyd", value: inquiryData.note },
     { title: "Nəticə", value: inquiryData.result },
   ];
 
-  const getInquiry = async () => {
-    const { data } = await API.get(`businessTrip/${id}`);
+  const setBusinessTripInquiry = async () => {
+    const data = await getBusinessTripInquiry(id);
     setInquiryData(data);
   };
 
   useEffect(() => {
-    getInquiry();
+    setBusinessTripInquiry();
   }, []);
 
   return (

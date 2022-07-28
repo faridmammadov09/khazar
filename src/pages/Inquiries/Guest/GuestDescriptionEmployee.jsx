@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Grid, Paper, Stack, Typography } from "@mui/material";
-import API from "../../../api";
+import { getGuestInquiry } from "../../../api";
 import FormWrapper from "../../../components/Form/FormWrapper";
 import InfoInquiryCreator from "../../../components/InfoInquiryCreator/InfoInquiryCreator";
 import List from "../../../components/List/List";
 import InquiryDetailsModal from "../../../components/Modal/InquiryDetailsModal/InquiryDetailsModal";
+
+const formatDate = (date) => new Date(date).toLocaleDateString();
 
 const GuestDescriptionEmployee = () => {
   const { id } = useParams();
@@ -16,7 +18,7 @@ const GuestDescriptionEmployee = () => {
   const listData = [
     { title: "Gələcək şəxslər", value: inquiryData.comingPeople },
     { title: "Gələcək şəxslər", value: inquiryData.transportationNotes },
-    { title: "Gəlmə tarixi", value: inquiryData.arrivalDate },
+    { title: "Gəlmə tarixi", value: formatDate(inquiryData.arrivalDate) },
     { title: "Görüşəcək şəxs", value: inquiryData.meetingPerson },
     { title: "Gəlmə səbəbi", value: inquiryData.reasonForComing },
     { title: "Sorğu ilə bağlı qeyd", value: inquiryData.note },
@@ -42,8 +44,8 @@ const GuestDescriptionEmployee = () => {
     },
   ];
 
-  const getInquiry = async () => {
-    const { data } = await API.get(`guests/${id}`);
+  const setGuestInquiry = async () => {
+    const data = await getGuestInquiry(id);
     setInquiryData(data);
   };
 
@@ -60,7 +62,7 @@ const GuestDescriptionEmployee = () => {
   };
 
   useEffect(() => {
-    getInquiry();
+    setGuestInquiry();
   }, []);
 
   return (
@@ -78,9 +80,9 @@ const GuestDescriptionEmployee = () => {
 
         <Grid item xs={10}>
           <FormWrapper
-            title="NBM əməkdaşın göndərməsi"
             showEditButton
             showInfoButton
+            title="NBM əməkdaşın göndərməsi"
             onClickEdit={handleClickEdit}
             onClickInfo={handleClickInfo}
           >

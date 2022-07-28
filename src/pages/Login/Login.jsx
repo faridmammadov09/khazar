@@ -53,12 +53,6 @@ const Login = () => {
     validationSchema,
   });
 
-  useEffect(() => {
-    if (loggedUser.fullName) {
-      navigate("/");
-    }
-  }, []);
-
   const handleCloseAlert = (event, reason) => {
     if (reason === "clickaway") {
       return;
@@ -66,6 +60,12 @@ const Login = () => {
 
     setIsShowAlert(false);
   };
+
+  useEffect(() => {
+    if (loggedUser.fullName) {
+      navigate("/");
+    }
+  });
 
   return (
     <>

@@ -71,7 +71,7 @@ const SearchPanelDayOff = () => {
             name="status"
             value={formik.values.status}
             onChange={formik.handleChange}
-            options={["Təstiqləndi", "Ləğv olundu", "Gözləmədədir"]}
+            options={["Təsdiqləndi", "Ləğv olundu", "Gözləmədədir"]}
           />
         </Grid>
       </Grid>

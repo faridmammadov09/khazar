@@ -2,13 +2,15 @@ import Button from "../../Button/Button";
 import List from "../../List/List";
 import Modal from "../Modal";
 
+const formatDate = (date) => new Date(date).toLocaleDateString();
+
 const InquiryDetailsModal = ({ open, onClose, inquiryData }) => {
   const listData = [
     { title: "A.S.A", value: inquiryData.fullName },
-    { title: "Korporativ nömrə", value: "A" },
-    { title: "Vəzifə", value: "A" },
-    { title: "Şöbə", value: "A" },
-    { title: "Yaradılma tarixi", value: inquiryData.date },
+    { title: "Korporativ nömrə", value: "Lorem ipsum" },
+    { title: "Vəzifə", value: "Lorem ipsum" },
+    { title: "Şöbə", value: "Lorem ipsum" },
+    { title: "Yaradılma tarixi", value: formatDate(inquiryData.date) },
   ];
 
   return (

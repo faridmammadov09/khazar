@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Grid, Stack, TextField } from "@mui/material";
+import { useFormik } from "formik";
 import Button from "../../../components/Button/Button";
 import FormWrapper from "../../../components/Form/FormWrapper";
 import Select from "../../../components/Select/Select";
@@ -11,21 +12,21 @@ const TABS = [{ label: "Sorğunun formalaşdırılması", path: "" }];
 
 const GuestNew = () => {
   const [currentTab, setCurrentTab] = useState("");
-  const [comingPeople, setComingPeople] = useState([]);
-  const [transportationNotes, setTransportationNotes] = useState([]);
-  const [arrivalDate, setArrivalDate] = useState("");
-  const [meetingPerson, setMeetingPerson] = useState("");
-  const [reasonForComing, setReasonForComing] = useState("");
-  const [note, setNote] = useState("");
-  const [result, setResult] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const newInquiry = {};
-
-    console.log(newInquiry);
-  };
+  const formik = useFormik({
+    initialValues: {
+      comingPeople: [],
+      transportationNotes: [],
+      arrivalDate: "",
+      meetingPerson: "",
+      reasonForComing: "",
+      note: "",
+      result: "",
+    },
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
 
   return (
     <Stack spacing={3}>
@@ -37,84 +38,99 @@ const GuestNew = () => {
 
       <Grid container sx={{ justifyContent: "center" }}>
         <Grid item xs={10}>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={formik.handleSubmit}>
             <FormWrapper title="Sorğunun formalaşdırılması">
               <Grid container spacing={2}>
                 <Grid item xs={12}>
                   <Autocomplete
                     label="Gələcək şəxs"
-                    value={comingPeople}
                     options={[
                       "İlqar Abbasov",
                       "Orxan Axnazarov",
                       "Zumrud Huseynova",
                       "Ceyhun Əhmədli",
                     ]}
+                    name="comingPeople"
+                    value={formik.values.comingPeople}
                     onChange={(event, newValue) => {
-                      setComingPeople(newValue);
+                      formik.setFieldValue("comingPeople", newValue);
                     }}
                   />
                 </Grid>
+
                 <Grid item xs={12}>
                   <Autocomplete
                     label="Nəqliyyatı ilə bağlı qeyd"
-                    value={transportationNotes}
                     options={[
                       "00-AS-000",
                       "00-AS-001",
                       "00-AS-002",
                       "00-AS-003",
                     ]}
+                    name="transportationNotes"
+                    value={formik.values.transportationNotes}
                     onChange={(event, newValue) => {
-                      setTransportationNotes(newValue);
+                      formik.setFieldValue("transportationNotes", newValue);
                     }}
                   />
                 </Grid>
+
                 <Grid item xs={6}>
                   <InputDate
                     required
                     label="Gəlmə tarixi"
-                    value={arrivalDate}
-                    onChange={(newValue) => setArrivalDate(newValue)}
+                    name="arrivalDate"
+                    value={formik.values.arrivalDate}
+                    onChange={(newValue) =>
+                      formik.setFieldValue("arrivalDate", newValue)
+                    }
                   />
                 </Grid>
+
                 <Grid item xs={6}>
                   <TextField
                     required
+                    fullWidth
                     type="text"
                     label="Görüşəcək şəxs"
-                    fullWidth
-                    value={meetingPerson}
-                    onChange={(e) => setMeetingPerson(e.target.value)}
+                    name="meetingPerson"
+                    value={formik.values.meetingPerson}
+                    onChange={formik.handleChange}
                   ></TextField>
                 </Grid>
+
                 <Grid item xs={12}>
                   <TextField
                     required
+                    fullWidth
                     type="text"
                     label="Gəlmə səbəbi"
-                    fullWidth
-                    value={reasonForComing}
-                    onChange={(e) => setReasonForComing(e.target.value)}
+                    name="reasonForComing"
+                    value={formik.values.reasonForComing}
+                    onChange={formik.handleChange}
                   ></TextField>
                 </Grid>
+
                 <Grid item xs={12}>
                   <TextField
                     required
+                    fullWidth
                     type="text"
                     label="Sorğu ilə bağlı qeyd"
-                    fullWidth
-                    value={note}
-                    onChange={(e) => setNote(e.target.value)}
+                    name="note"
+                    value={formik.values.note}
+                    onChange={formik.handleChange}
                   ></TextField>
                 </Grid>
+
                 <Grid item xs={12}>
                   <Select
                     required
                     label="Nəticə"
-                    value={result}
-                    onChange={(value) => setResult(value)}
                     options={["Departament rəhbərin göndərməsi"]}
+                    name="result"
+                    value={formik.values.result}
+                    onChange={formik.handleChange}
                   />
                 </Grid>
               </Grid>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Grid, Stack, TextField } from "@mui/material";
+import { useFormik } from "formik";
 import Button from "../../../components/Button/Button";
 import FormWrapper from "../../../components/Form/FormWrapper";
 import Select from "../../../components/Select/Select";
@@ -9,16 +10,16 @@ const TABS = [{ label: "Sorğunun formalaşdırılması", path: "" }];
 
 const PurchasingNew = () => {
   const [currentTab, setCurrentTab] = useState("");
-  const [descriptionProblem, setDescriptionProblem] = useState("");
-  const [result, setResult] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const newInquiry = {};
-
-    console.log(newInquiry);
-  };
+  const formik = useFormik({
+    initialValues: {
+      descriptionProblem: "",
+      result: "",
+    },
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
 
   return (
     <Stack spacing={3}>
@@ -30,26 +31,29 @@ const PurchasingNew = () => {
 
       <Grid container sx={{ justifyContent: "center" }}>
         <Grid item xs={10}>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={formik.handleSubmit}>
             <FormWrapper title="Sorğunun formalaşdırılması">
               <Grid container spacing={2}>
                 <Grid item xs={12}>
                   <TextField
                     required
+                    fullWidth
                     type="text"
                     label="Problemin təsviri"
-                    fullWidth
-                    value={descriptionProblem}
-                    onChange={(e) => setDescriptionProblem(e.target.value)}
+                    name="descriptionProblem"
+                    value={formik.values.descriptionProblem}
+                    onChange={formik.handleChange}
                   ></TextField>
                 </Grid>
+
                 <Grid item xs={12}>
                   <Select
                     required
                     label="Nəticə"
-                    value={result}
-                    onChange={(value) => setResult(value)}
                     options={["Departament rəhbərin göndərməsi"]}
+                    name="result"
+                    value={formik.values.result}
+                    onChange={formik.handleChange}
                   />
                 </Grid>
               </Grid>

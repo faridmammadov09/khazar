@@ -19,8 +19,8 @@ const Select = ({
       <InputLabel>{label}</InputLabel>
 
       <SelectMui
-        label={label}
         fullWidth
+        label={label}
         name={name}
         value={value}
         onChange={onChange}

@@ -15,6 +15,7 @@ const EmployeeInfoItem = ({ title, data }) => {
       >
         <Typography variant="subtitle2">{title}</Typography>
       </Grid>
+
       <Grid
         item
         xs={8}

@@ -39,12 +39,14 @@ const Home = () => {
       onRefreshData: () => fetchData("latestQueries", setLatestQueries),
       headerData: ["Adı", "Tipi", "Tarixi", "Statusu"],
       bodyData: latestQueries,
+      filteredKeys: ["fullName", "photo", "type", "date", "status"],
     },
     {
       title: "Mənim sorğularım",
       onRefreshData: () => fetchData("myQueries", setMyQueries),
       headerData: ["Tipi", "Status", "Tarixi"],
       bodyData: myQueries,
+      filteredKeys: ["type", "status", "date"],
     },
     {
       title: "Əməkdaşlar haqqında son məlumat",
@@ -52,6 +54,7 @@ const Home = () => {
         fetchData("latestInfoAboutEmployees", setLatestInfoAboutEmployees),
       headerData: ["Adı", "Vəzifə", "Status"],
       bodyData: latestInfoAboutEmployees,
+      filteredKeys: ["fullName", "photo", "position", "status"],
     },
     {
       title: "Qarşıdan gələn ildönümü",
@@ -59,42 +62,49 @@ const Home = () => {
         fetchData("upcomingAnniversary", setUpcomingAnniversary),
       headerData: ["Adı", "İl", "Tarixi"],
       bodyData: upcomingAnniversary,
+      filteredKeys: ["fullName", "photo", "year", "date"],
     },
     {
       title: "Bu gün ki Day off-lar",
       onRefreshData: () => fetchData("todaysDayOffs", setTodaysDayOffs),
       headerData: ["Adı", "Tipi"],
       bodyData: todaysDayOffs,
+      filteredKeys: ["fullName", "photo", "type"],
     },
     {
       title: "Məzuniyyət məlumatı",
       onRefreshData: () => fetchData("vacationInfo", setVacationInfo),
       headerData: ["Adı", "Tarixi", "Əvəzedici şəxs"],
       bodyData: vacationInfo,
+      filteredKeys: ["fullName", "photo", "date", "substitutePerson"],
     },
     {
       title: "Növbəti ad günləri",
       onRefreshData: () => fetchData("nextBirthdays", setNextBirthdays),
       headerData: ["Adı", "Tarixi"],
       bodyData: nextBirthdays,
+      filteredKeys: ["fullName", "photo", "date"],
     },
     {
       title: "Ezamiyyət",
       onRefreshData: () => fetchData("businessTrip", setBusinessTrip),
       headerData: ["Adı", "Tarixi"],
       bodyData: businessTrip,
+      filteredKeys: ["fullName", "photo", "date"],
     },
     {
       title: "Elanlar",
       onRefreshData: () => fetchData("announcements", setAnnouncements),
       headerData: ["Adı", "Təsviri", "Yaradan şəxs", "Yaradılma tarixi"],
       bodyData: announcements,
+      filteredKeys: ["name", "description", "createdBy", "createdDate"],
     },
     {
       title: "Məzuniyyət balansı",
       onRefreshData: () => fetchData("vacationBalances", setVacationBalance),
       headerData: ["İş ili", "Əsas", "Əlavə", "İstifadə edilmiş", "Qalıq"],
       bodyData: vacationBalance,
+      filteredKeys: ["yearOfWork", "main", "addition", "used", "remainder"],
     },
   ];
 
@@ -106,7 +116,11 @@ const Home = () => {
           title={table.title}
           onRefreshData={table.onRefreshData}
         >
-          <Table headerData={table.headerData} bodyData={table.bodyData} />
+          <Table
+            headerData={table.headerData}
+            bodyData={table.bodyData}
+            filteredKeys={table.filteredKeys}
+          />
         </TableWrapper>
       ))}
     </Stack>

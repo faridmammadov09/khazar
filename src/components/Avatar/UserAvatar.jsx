@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import { Link as RouterLink } from "react-router-dom";
 import { Button, Link, Stack, Typography } from "@mui/material";
-
 import StringAvatar from "./StringAvatar";
 
 const UserAvatar = () => {

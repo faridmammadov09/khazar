@@ -64,14 +64,14 @@ const SecurityAndLogin = () => {
     setIsExpandedPasswordPanel((prevState) => !prevState);
   };
 
-  const getUserPassword = async () => {
-    const { data } = await API.get(`users/${loggedUser.id}`);
-    setHashedUserPassword(data.password);
-  };
-
   useEffect(() => {
+    const getUserPassword = async () => {
+      const { data } = await API.get(`users/${loggedUser.id}`);
+      setHashedUserPassword(data.password);
+    };
+
     getUserPassword();
-  }, []);
+  }, [loggedUser.id]);
 
   return (
     <Paper variant="outlined">

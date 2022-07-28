@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Grid } from "@mui/material";
-import API from "../../../api";
+import { getGuestInquiry } from "../../../api";
 import FormWrapper from "../../../components/Form/FormWrapper";
 import InfoInquiryCreator from "../../../components/InfoInquiryCreator/InfoInquiryCreator";
 import List from "../../../components/List/List";
+
+const formatDate = (date) => new Date(date).toLocaleDateString();
 
 const GuestDescriptionDepartment = () => {
   const { id } = useParams();
@@ -14,14 +16,14 @@ const GuestDescriptionDepartment = () => {
   const listData = [
     { title: "Gələcək şəxslər", value: inquiryData.comingPeople },
     { title: "Gələcək şəxslər", value: inquiryData.transportationNotes },
-    { title: "Gəlmə tarixi", value: inquiryData.arrivalDate },
+    { title: "Gəlmə tarixi", value: formatDate(inquiryData.arrivalDate) },
     { title: "Gəlmə səbəbi", value: inquiryData.reasonForComing },
     { title: "Qeyd", value: inquiryData.note },
     { title: "Nəticə", value: inquiryData.result },
   ];
 
-  const getInquiry = async () => {
-    const { data } = await API.get(`guests/${id}`);
+  const setGuestInquiry = async () => {
+    const data = await getGuestInquiry(id);
     setInquiryData(data);
   };
 
@@ -30,7 +32,7 @@ const GuestDescriptionDepartment = () => {
   };
 
   useEffect(() => {
-    getInquiry();
+    setGuestInquiry();
   }, []);
 
   return (
@@ -41,9 +43,9 @@ const GuestDescriptionDepartment = () => {
 
       <Grid item xs={10}>
         <FormWrapper
-          title="Departament rəhbərin göndərməsi"
           showEditButton
           showInfoButton
+          title="Departament rəhbərin göndərməsi"
           onClickEdit={handleClickEdit}
         >
           <List data={listData} />

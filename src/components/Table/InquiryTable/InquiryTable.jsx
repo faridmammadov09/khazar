@@ -16,7 +16,9 @@ import AvatarContainer from "../../Avatar/AvatarContainer";
 import TableCellActions from "../TableCellActions";
 import TableHeader from "../TableHeader";
 
-const DayOffTable = ({ headerData, bodyData }) => {
+const formatDate = (date) => new Date(date).toLocaleDateString();
+
+const InquiryTable = ({ bodyData }) => {
   const navigate = useNavigate();
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -42,7 +44,10 @@ const DayOffTable = ({ headerData, bodyData }) => {
     <Paper variant="outlined">
       <TableContainer component={Paper} elevation={0}>
         <Table aria-label="users table">
-          <TableHeader headerData={headerData} additionalCell />
+          <TableHeader
+            additionalCell
+            headerData={["Ad Soyad Ata", "Tarix", "Status"]}
+          />
 
           <TableBody>
             {paginatedData.map((item) => {
@@ -55,6 +60,12 @@ const DayOffTable = ({ headerData, bodyData }) => {
                   </TableCell>
 
                   {keys.map((key) => {
+                    if (key === "date") {
+                      return (
+                        <TableCell key={key}>{formatDate(item[key])}</TableCell>
+                      );
+                    }
+
                     return <TableCell key={key}>{item[key] || "—"}</TableCell>;
                   })}
 
@@ -92,4 +103,4 @@ const DayOffTable = ({ headerData, bodyData }) => {
   );
 };
 
-export default DayOffTable;
+export default InquiryTable;

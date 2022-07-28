@@ -1,28 +1,30 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Grid } from "@mui/material";
-import API from "../../../api";
+import { getDayOffInquiry } from "../../../api";
 import FormWrapper from "../../../components/Form/FormWrapper";
 import InfoInquiryCreator from "../../../components/InfoInquiryCreator/InfoInquiryCreator";
 import List from "../../../components/List/List";
+
+const formatDate = (date) => new Date(date).toLocaleDateString();
 
 const DayOffDescriptionCreate = () => {
   const { id } = useParams();
   const [inquiryData, setInquiryData] = useState({});
 
   const listData = [
-    { title: "Day off tarixi", value: inquiryData.date },
+    { title: "Day off tarixi", value: formatDate(inquiryData.date) },
     { title: "Növü", value: inquiryData.type },
     { title: "Nəticə", value: inquiryData.result },
   ];
 
-  const getInquiry = async () => {
-    const { data } = await API.get(`dayOffs/${id}`);
+  const setDayOffInquiry = async () => {
+    const data = await getDayOffInquiry(id);
     setInquiryData(data);
   };
 
   useEffect(() => {
-    getInquiry();
+    setDayOffInquiry();
   }, []);
 
   return (

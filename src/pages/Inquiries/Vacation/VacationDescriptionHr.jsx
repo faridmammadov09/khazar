@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Grid } from "@mui/material";
-import API from "../../../api";
+import { getVacationInquiry } from "../../../api";
 import FormWrapper from "../../../components/Form/FormWrapper";
 import InfoInquiryCreator from "../../../components/InfoInquiryCreator/InfoInquiryCreator";
 import List from "../../../components/List/List";
 import InquiryDetailsModal from "../../../components/Modal/InquiryDetailsModal/InquiryDetailsModal";
+
+const formatDate = (date) => new Date(date).toLocaleDateString();
 
 const VacationDescriptionHr = () => {
   const { id } = useParams();
@@ -14,14 +16,14 @@ const VacationDescriptionHr = () => {
   const [openShowDetailsModal, setOpenShowDetailsModal] = useState(false);
 
   const listData = [
-    { title: "Başlama tarixi", value: inquiryData.startDate },
-    { title: "Bitmə tarixi", value: inquiryData.expirationDate },
+    { title: "Başlama tarixi", value: formatDate(inquiryData.startDate) },
+    { title: "Bitmə tarixi", value: formatDate(inquiryData.expirationDate) },
     { title: "Skan edilmiş sənəd", value: "" },
     { title: "Nəticə", value: inquiryData.result },
   ];
 
-  const getInquiry = async () => {
-    const { data } = await API.get(`vacationInfo/${id}`);
+  const setVacationInquiry = async () => {
+    const data = await getVacationInquiry(id);
     setInquiryData(data);
   };
 
@@ -38,7 +40,7 @@ const VacationDescriptionHr = () => {
   };
 
   useEffect(() => {
-    getInquiry();
+    setVacationInquiry();
   }, []);
 
   return (
@@ -56,10 +58,10 @@ const VacationDescriptionHr = () => {
 
         <Grid item xs={10}>
           <FormWrapper
-            title="HR göndərməsi"
             showEditButton
             showInfoButton
             showDownloadButton
+            title="HR göndərməsi"
             onClickEdit={handleClickEdit}
             onClickInfo={handleClickInfo}
           >

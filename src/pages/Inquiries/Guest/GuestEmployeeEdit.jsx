@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Grid, Stack, TextField, Typography } from "@mui/material";
-import API from "../../../api";
+import { useFormik } from "formik";
+import { getGuestInquiry } from "../../../api";
 import FormWrapper from "../../../components/Form/FormWrapper";
 import InfoInquiryCreator from "../../../components/InfoInquiryCreator/InfoInquiryCreator";
 import InputDate from "../../../components/Input/InputDate";
@@ -12,13 +13,21 @@ import GuestAccordion from "../../../components/Accordion/GuestAccordion";
 
 const GuestEmployeeEdit = () => {
   const { id } = useParams();
-  const [fullName, setFullName] = useState("");
-  const [comingPeople, setComingPeople] = useState([]);
-  const [transportationNotes, setTransportationNotes] = useState([]);
-  const [arrivalDate, setArrivalDate] = useState("");
-  const [reasonForComing, setReasonForComing] = useState("");
-  const [note, setNote] = useState("");
-  const [result, setResult] = useState("");
+
+  const formik = useFormik({
+    initialValues: {
+      fullName: "",
+      comingPeople: [],
+      transportationNotes: [],
+      arrivalDate: "",
+      reasonForComing: "",
+      note: "",
+      result: "",
+    },
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
 
   const fillInputs = ({
     fullName,
@@ -28,91 +37,100 @@ const GuestEmployeeEdit = () => {
     reasonForComing,
     note,
   }) => {
-    setFullName(fullName);
-    setComingPeople(comingPeople);
-    setTransportationNotes(transportationNotes);
-    setArrivalDate(arrivalDate);
-    setReasonForComing(reasonForComing);
-    setNote(note);
+    formik.setFieldValue("fullName", fullName);
+    formik.setFieldValue("comingPeople", comingPeople);
+    formik.setFieldValue("transportationNotes", transportationNotes);
+    formik.setFieldValue("arrivalDate", arrivalDate);
+    formik.setFieldValue("reasonForComing", reasonForComing);
+    formik.setFieldValue("note", note);
   };
 
-  const getInquiry = async () => {
-    const { data } = await API.get(`guests/${id}`);
+  const setGuestInquiry = async () => {
+    const data = await getGuestInquiry(id);
     fillInputs(data);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Submitted");
-  };
-
   useEffect(() => {
-    getInquiry();
+    setGuestInquiry();
   }, []);
 
   return (
     <Grid container sx={{ justifyContent: "center" }} spacing={2}>
       <Grid item xs={10}>
-        <InfoInquiryCreator name={fullName} />
+        <InfoInquiryCreator name={formik.values.fullName} />
       </Grid>
 
       <Grid item xs={10}>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={formik.handleSubmit}>
           <FormWrapper title="NBM əməkdaşın göndərməsi" showInfoButton>
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <Autocomplete
+                  required
                   label="Gələcək şəxs"
-                  value={comingPeople}
                   options={[
                     "İlqar Abbasov",
                     "Orxan Axnazarov",
                     "Zumrud Huseynova",
                     "Ceyhun Əhmədli",
                   ]}
+                  name="comingPeople"
+                  value={formik.values.comingPeople}
                   onChange={(event, newValue) => {
-                    setComingPeople(newValue);
+                    formik.setFieldValue("comingPeople", newValue);
                   }}
                 />
               </Grid>
+
               <Grid item xs={12}>
                 <Autocomplete
+                  required
                   label="Nəqliyyatı ilə bağlı qeyd"
-                  value={transportationNotes}
                   options={["00-AS-000", "00-AS-001", "00-AS-002", "00-AS-003"]}
+                  name="transportationNotes"
+                  value={formik.values.transportationNotes}
                   onChange={(event, newValue) => {
-                    setTransportationNotes(newValue);
+                    formik.setFieldValue("transportationNotes", newValue);
                   }}
                 />
               </Grid>
+
               <Grid item xs={12}>
                 <InputDate
                   required
                   label="Gəlmə tarixi"
-                  value={arrivalDate}
-                  onChange={(newValue) => setArrivalDate(newValue)}
+                  name="arrivalDate"
+                  value={formik.values.arrivalDate}
+                  onChange={(newValue) => {
+                    formik.setFieldValue(newValue);
+                  }}
                 />
               </Grid>
+
               <Grid item xs={12}>
                 <TextField
                   required
+                  fullWidth
                   type="text"
                   label="Gəlmə səbəbi"
-                  fullWidth
-                  value={reasonForComing}
-                  onChange={(e) => setReasonForComing(e.target.value)}
+                  name="reasonForComing"
+                  value={formik.values.reasonForComing}
+                  onChange={formik.handleChange}
                 ></TextField>
               </Grid>
+
               <Grid item xs={12}>
                 <TextField
                   required
+                  fullWidth
                   type="text"
                   label="Qeyd"
-                  fullWidth
-                  value={note}
-                  onChange={(e) => setNote(e.target.value)}
+                  name="note"
+                  value={formik.values.note}
+                  onChange={formik.handleChange}
                 ></TextField>
               </Grid>
+
               <Grid item xs={12}>
                 <Typography
                   variant="subtitle1"
@@ -121,17 +139,19 @@ const GuestEmployeeEdit = () => {
                   Qonaqlar
                 </Typography>
 
-                <GuestAccordion id="guest-1" title="Orxan Axnazarov" />
+                {/* <GuestAccordion id="guest-1" title="Orxan Axnazarov" />
                 <GuestAccordion id="guest-2" title="İlqar Abbasov" />
-                <GuestAccordion id="guest-3" title="Zümrüd Huseynova" />
+                <GuestAccordion id="guest-3" title="Zümrüd Huseynova" /> */}
               </Grid>
+
               <Grid item xs={12}>
                 <Select
                   required
                   label="Nəticə"
-                  value={result}
-                  onChange={(value) => setResult(value)}
-                  options={["Təstiqləndi"]}
+                  options={["Təsdiqləndi"]}
+                  name="result"
+                  value={formik.values.result}
+                  onChange={formik.handleChange}
                 />
               </Grid>
             </Grid>

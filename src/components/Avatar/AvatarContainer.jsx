@@ -1,5 +1,4 @@
 import { Avatar, Stack, Typography } from "@mui/material";
-import React from "react";
 
 const AvatarContainer = ({ photo, name }) => {
   return (

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Grid } from "@mui/material";
-import API from "../../../api";
+import { getPurchasingInquiry } from "../../../api";
 import FormWrapper from "../../../components/Form/FormWrapper";
 import InfoInquiryCreator from "../../../components/InfoInquiryCreator/InfoInquiryCreator";
 import List from "../../../components/List/List";
@@ -19,8 +19,8 @@ const PurchasingDescriptionPurchase = () => {
     { title: "Nəticə", value: inquiryData.result },
   ];
 
-  const getInquiry = async () => {
-    const { data } = await API.get(`purchases/${id}`);
+  const setPurchasingInquiry = async () => {
+    const data = await getPurchasingInquiry(id);
     setInquiryData(data);
   };
 
@@ -37,7 +37,7 @@ const PurchasingDescriptionPurchase = () => {
   };
 
   useEffect(() => {
-    getInquiry();
+    setPurchasingInquiry();
   }, []);
 
   return (
@@ -55,9 +55,9 @@ const PurchasingDescriptionPurchase = () => {
 
         <Grid item xs={10}>
           <FormWrapper
-            title="Satınalma göndərməsi"
             showEditButton
             showInfoButton
+            title="Satınalma göndərməsi"
             onClickEdit={handleClickEdit}
             onClickInfo={handleClickInfo}
           >

@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Grid } from "@mui/material";
-import API from "../../../api";
+import { getBusinessTripInquiry } from "../../../api";
 import FormWrapper from "../../../components/Form/FormWrapper";
 import InfoInquiryCreator from "../../../components/InfoInquiryCreator/InfoInquiryCreator";
 import List from "../../../components/List/List";
 import InquiryDetailsModal from "../../../components/Modal/InquiryDetailsModal/InquiryDetailsModal";
+
+const formatDate = (date) => new Date(date).toLocaleDateString();
 
 const BusinessTripDescriptionHr = () => {
   const { id } = useParams();
@@ -14,15 +16,15 @@ const BusinessTripDescriptionHr = () => {
   const [openShowDetailsModal, setOpenShowDetailsModal] = useState(false);
 
   const listData = [
-    { title: "Başlama tarixi", value: inquiryData.startDate },
-    { title: "Bitmə tarixi", value: inquiryData.expirationDate },
+    { title: "Başlama tarixi", value: formatDate(inquiryData.startDate) },
+    { title: "Bitmə tarixi", value: formatDate(inquiryData.expirationDate) },
     { title: "Skan edilmiş sənəd", value: "" },
     { title: "Qeyd", value: inquiryData.note },
     { title: "Nəticə", value: inquiryData.result },
   ];
 
-  const getInquiry = async () => {
-    const { data } = await API.get(`businessTrip/${id}`);
+  const setBusinessTripInquiry = async () => {
+    const data = await getBusinessTripInquiry(id);
     setInquiryData(data);
   };
 
@@ -39,7 +41,7 @@ const BusinessTripDescriptionHr = () => {
   };
 
   useEffect(() => {
-    getInquiry();
+    setBusinessTripInquiry();
   }, []);
 
   return (
@@ -57,9 +59,9 @@ const BusinessTripDescriptionHr = () => {
 
         <Grid item xs={10}>
           <FormWrapper
-            title="HR göndərməsi"
             showEditButton
             showInfoButton
+            title="HR göndərməsi"
             onClickEdit={handleClickEdit}
             onClickInfo={handleClickInfo}
           >

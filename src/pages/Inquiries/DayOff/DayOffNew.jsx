@@ -37,6 +37,7 @@ const DayOffNew = () => {
             <FormWrapper title="Sorğunun formalaşdırılması">
               <Stack spacing={2}>
                 <InputDate
+                  required
                   label="Day off tarixi"
                   name="dayOffDate"
                   value={formik.values.dayOffDate}
@@ -46,6 +47,7 @@ const DayOffNew = () => {
                 />
 
                 <Select
+                  required
                   label="Növü"
                   name="type"
                   value={formik.values.type}
@@ -54,6 +56,7 @@ const DayOffNew = () => {
                 />
 
                 <Select
+                  required
                   label="Nəticə"
                   name="result"
                   value={formik.values.result}

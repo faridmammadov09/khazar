@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Grid, Stack, TextField } from "@mui/material";
-import API from "../../../api";
+import { useFormik } from "formik";
+import { getBusinessTripInquiry } from "../../../api";
 import FormWrapper from "../../../components/Form/FormWrapper";
 import InfoInquiryCreator from "../../../components/InfoInquiryCreator/InfoInquiryCreator";
 import InputDate from "../../../components/Input/InputDate";
@@ -10,87 +11,103 @@ import Button from "../../../components/Button/Button";
 
 const BusinessTripHrEdit = () => {
   const { id } = useParams();
-  const [fullName, setFullName] = useState("");
-  const [startDate, setStartDate] = useState("");
-  const [expirationDate, setExpirationDate] = useState("");
-  const [scannedDocument, setScannedDocument] = useState("");
-  const [note, setNote] = useState("");
-  const [result, setResult] = useState("");
+
+  const formik = useFormik({
+    initialValues: {
+      fullName: "",
+      startDate: "",
+      expirationDate: "",
+      scannedDocument: "",
+      note: "",
+      result: "",
+    },
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
 
   const fillInputs = ({ fullName, startDate, expirationDate, note }) => {
-    setFullName(fullName);
-    setStartDate(startDate);
-    setExpirationDate(expirationDate);
-    setNote(note);
+    formik.setFieldValue("fullName", fullName);
+    formik.setFieldValue("startDate", startDate);
+    formik.setFieldValue("expirationDate", expirationDate);
+    formik.setFieldValue("note", note);
   };
 
-  const getInquiry = async () => {
-    const { data } = await API.get(`businessTrip/${id}`);
+  const setBusinessTripInquiry = async () => {
+    const data = await getBusinessTripInquiry(id);
     fillInputs(data);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Submitted");
-  };
-
   useEffect(() => {
-    getInquiry();
+    setBusinessTripInquiry();
   }, []);
 
   return (
     <Grid container sx={{ justifyContent: "center" }} spacing={2}>
       <Grid item xs={10}>
-        <InfoInquiryCreator name={fullName} />
+        <InfoInquiryCreator name={formik.values.fullName} />
       </Grid>
 
       <Grid item xs={10}>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={formik.handleSubmit}>
           <FormWrapper title="HR göndərməsi" showInfoButton>
             <Grid container spacing={2}>
               <Grid item xs={6}>
                 <InputDate
                   disabled
                   label="Başlama tarixi"
-                  value={startDate}
-                  onChange={(newValue) => setStartDate(newValue)}
+                  name="startDate"
+                  value={formik.values.startDate}
+                  onChange={(newValue) =>
+                    formik.setFieldValue("startDate", newValue)
+                  }
                 />
               </Grid>
+
               <Grid item xs={6}>
                 <InputDate
                   disabled
                   label="Bitmə tarixi"
-                  value={expirationDate}
-                  onChange={(newValue) => setExpirationDate(newValue)}
+                  name="expirationDate"
+                  value={formik.values.expirationDate}
+                  onChange={(newValue) =>
+                    formik.setFieldValue("expirationDate", newValue)
+                  }
                 />
               </Grid>
+
               <Grid item xs={12}>
                 <TextField
                   disabled
+                  fullWidth
                   type="text"
                   label="Skan edilmiş sənəd"
-                  fullWidth
-                  value={scannedDocument}
-                  onChange={(e) => setScannedDocument(e.target.value)}
+                  name="scannedDocument"
+                  value={formik.values.scannedDocument}
+                  onChange={formik.handleChange}
                 ></TextField>
               </Grid>
+
               <Grid item xs={12}>
                 <TextField
                   disabled
+                  fullWidth
                   type="text"
                   label="Qeyd"
-                  fullWidth
-                  value={note}
-                  onChange={(e) => setNote(e.target.value)}
+                  name="note"
+                  value={formik.values.note}
+                  onChange={formik.handleChange}
                 ></TextField>
               </Grid>
+
               <Grid item xs={12}>
                 <Select
                   required
                   label="Nəticə"
-                  value={result}
-                  onChange={(value) => setResult(value)}
-                  options={["Təstiqləndi"]}
+                  options={["Təsdiqləndi"]}
+                  name="result"
+                  value={formik.values.result}
+                  onChange={formik.handleChange}
                 />
               </Grid>
             </Grid>

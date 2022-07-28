@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Grid, Stack, TextField } from "@mui/material";
-import API from "../../../api";
+import { useFormik } from "formik";
+import { getVacationInquiry } from "../../../api";
 import FormWrapper from "../../../components/Form/FormWrapper";
 import InfoInquiryCreator from "../../../components/InfoInquiryCreator/InfoInquiryCreator";
 import InputDate from "../../../components/Input/InputDate";
@@ -10,75 +11,88 @@ import Button from "../../../components/Button/Button";
 
 const VacationHrEdit = () => {
   const { id } = useParams();
-  const [fullName, setFullName] = useState("");
-  const [startDate, setStartDate] = useState("");
-  const [expirationDate, setExpirationDate] = useState("");
-  const [scannedDocument, setScannedDocument] = useState("");
-  const [result, setResult] = useState("");
 
-  const fillInputs = ({ fullName, startDate, expirationDate }) => {
-    setFullName(fullName);
-    setStartDate(startDate);
-    setExpirationDate(expirationDate);
-  };
-
-  const getInquiry = async () => {
-    const { data } = await API.get(`vacationInfo/${id}`);
-    fillInputs(data);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Submitted");
-  };
+  const formik = useFormik({
+    initialValues: {
+      fullName: "",
+      startDate: "",
+      expirationDate: "",
+      scannedDocument: "",
+      result: "",
+    },
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
 
   useEffect(() => {
-    getInquiry();
-  }, []);
+    const fillInputs = async () => {
+      const { fullName, startDate, expirationDate } = await getVacationInquiry(
+        id
+      );
+
+      formik.setFieldValue("fullName", fullName);
+      formik.setFieldValue("startDate", startDate);
+      formik.setFieldValue("expirationDate", expirationDate);
+    };
+
+    fillInputs();
+  }, [id]);
 
   return (
     <Grid container sx={{ justifyContent: "center" }} spacing={2}>
       <Grid item xs={10}>
-        <InfoInquiryCreator name={fullName} />
+        <InfoInquiryCreator name={formik.values.fullName} />
       </Grid>
 
       <Grid item xs={10}>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={formik.handleSubmit}>
           <FormWrapper title="HR göndərməsi" showInfoButton showDownloadButton>
             <Grid container spacing={2}>
               <Grid item xs={6}>
                 <InputDate
                   disabled
                   label="Başlama tarixi"
-                  value={startDate}
-                  onChange={(newValue) => setStartDate(newValue)}
+                  name="startDate"
+                  value={formik.values.startDate}
+                  onChange={(newValue) => {
+                    formik.setFieldValue("startDate", newValue);
+                  }}
                 />
               </Grid>
+
               <Grid item xs={6}>
                 <InputDate
                   disabled
                   label="Bitmə tarixi"
-                  value={expirationDate}
-                  onChange={(newValue) => setExpirationDate(newValue)}
+                  name="expirationDate"
+                  value={formik.values.expirationDate}
+                  onChange={(newValue) => {
+                    formik.setFieldValue("expirationDate", newValue);
+                  }}
                 />
               </Grid>
+
               <Grid item xs={12}>
                 <TextField
                   disabled
+                  fullWidth
                   type="text"
                   label="Skan edilmiş sənəd"
-                  fullWidth
-                  value={scannedDocument}
-                  onChange={(e) => setScannedDocument(e.target.value)}
+                  name="scannedDocument"
+                  value={formik.values.scannedDocument}
+                  onChange={formik.handleChange}
                 ></TextField>
               </Grid>
+
               <Grid item xs={12}>
                 <Select
                   required
                   label="Nəticə"
-                  value={result}
-                  onChange={(value) => setResult(value)}
-                  options={["Təstiqləndi"]}
+                  options={["Təsdiqləndi"]}
+                  name="result"
+                  value={formik.values.result}
+                  onChange={formik.handleChange}
                 />
               </Grid>
             </Grid>

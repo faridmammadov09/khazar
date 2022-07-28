@@ -11,21 +11,9 @@ const TableRow = ({ item }) => {
       }}
     >
       {Object.keys(item).map((i, index) => {
-        const filteredKeys = [
-          "id",
-          "fullName",
-          "employeeId",
-          "operation",
-          "startDate",
-          "result",
-          "note",
-        ];
+        if (i === "photo") return;
 
-        if (filteredKeys.includes(i)) {
-          return;
-        }
-
-        if (i === "photo") {
+        if (i === "fullName") {
           return (
             <TableCell key={index}>
               <AvatarContainer photo={item.photo} name={item.fullName} />

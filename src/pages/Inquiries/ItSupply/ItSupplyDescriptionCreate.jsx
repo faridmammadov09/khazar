@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Grid } from "@mui/material";
-import API from "../../../api";
+import { getSupplyInquiry } from "../../../api";
 import FormWrapper from "../../../components/Form/FormWrapper";
 import InfoInquiryCreator from "../../../components/InfoInquiryCreator/InfoInquiryCreator";
 import List from "../../../components/List/List";
@@ -15,13 +15,13 @@ const ItSupplyDescriptionCreate = () => {
     { title: "Nəticə", value: inquiryData.result },
   ];
 
-  const getInquiry = async () => {
-    const { data } = await API.get(`itSupplies/${id}`);
+  const setSupplyInquiry = async () => {
+    const data = await getSupplyInquiry(id);
     setInquiryData(data);
   };
 
   useEffect(() => {
-    getInquiry();
+    setSupplyInquiry();
   }, []);
 
   return (

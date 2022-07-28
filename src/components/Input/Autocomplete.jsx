@@ -11,8 +11,8 @@ const Autocomplete = ({
 }) => {
   return (
     <AutocompleteMui
-      name={name}
       multiple
+      name={name}
       value={value}
       options={options}
       onChange={onChange}

@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Grid } from "@mui/material";
-import API from "../../../api";
+import { getDayOffInquiry } from "../../../api";
 import FormWrapper from "../../../components/Form/FormWrapper";
 import InfoInquiryCreator from "../../../components/InfoInquiryCreator/InfoInquiryCreator";
 import List from "../../../components/List/List";
 import InquiryDetailsModal from "../../../components/Modal/InquiryDetailsModal/InquiryDetailsModal";
+
+const formatDate = (date) => new Date(date).toLocaleDateString();
 
 const DayOffDescriptionHr = () => {
   const { id } = useParams();
@@ -14,13 +16,13 @@ const DayOffDescriptionHr = () => {
   const [openShowDetailsModal, setOpenShowDetailsModal] = useState(false);
 
   const listData = [
-    { title: "Day off tarixi", value: inquiryData.date },
+    { title: "Day off tarixi", value: formatDate(inquiryData.date) },
     { title: "Növü", value: inquiryData.type },
     { title: "Nəticə", value: inquiryData.result },
   ];
 
-  const getInquiry = async () => {
-    const { data } = await API.get(`dayOffs/${id}`);
+  const setDayOffInquiry = async () => {
+    const data = await getDayOffInquiry(id);
     setInquiryData(data);
   };
 
@@ -37,7 +39,7 @@ const DayOffDescriptionHr = () => {
   };
 
   useEffect(() => {
-    getInquiry();
+    setDayOffInquiry();
   }, []);
 
   return (
@@ -55,9 +57,9 @@ const DayOffDescriptionHr = () => {
 
         <Grid item xs={10}>
           <FormWrapper
-            title="HR göndərməsi"
             showEditButton
             showInfoButton
+            title="HR göndərməsi"
             onClickEdit={handleClickEdit}
             onClickInfo={handleClickInfo}
           >

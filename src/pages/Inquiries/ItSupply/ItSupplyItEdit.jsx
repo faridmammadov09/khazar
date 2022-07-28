@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Grid, Stack, TextField } from "@mui/material";
-import API from "../../../api";
+import { useFormik } from "formik";
+import { getSupplyInquiry } from "../../../api";
 import FormWrapper from "../../../components/Form/FormWrapper";
 import InfoInquiryCreator from "../../../components/InfoInquiryCreator/InfoInquiryCreator";
 import Select from "../../../components/Select/Select";
@@ -9,68 +10,76 @@ import Button from "../../../components/Button/Button";
 
 const ItSupplyItEdit = () => {
   const { id } = useParams();
-  const [fullName, setFullName] = useState("");
-  const [note, setNote] = useState("");
-  const [resultText, setResultText] = useState("");
-  const [result, setResult] = useState("");
+
+  const formik = useFormik({
+    initialValues: {
+      fullName: "",
+      note: "",
+      resultText: "",
+      result: "",
+    },
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
 
   const fillInputs = ({ fullName, note, resultText }) => {
-    setFullName(fullName);
-    setNote(note);
-    setResultText(resultText);
+    formik.setFieldValue("fullName", fullName);
+    formik.setFieldValue("note", note);
+    formik.setFieldValue("resultText", resultText);
   };
 
-  const getInquiry = async () => {
-    const { data } = await API.get(`itSupplies/${id}`);
+  const setSupplyInquiry = async () => {
+    const data = await getSupplyInquiry(id);
     fillInputs(data);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Submitted");
-  };
-
   useEffect(() => {
-    getInquiry();
+    setSupplyInquiry();
   }, []);
 
   return (
     <Grid container sx={{ justifyContent: "center" }} spacing={2}>
       <Grid item xs={10}>
-        <InfoInquiryCreator name={fullName} />
+        <InfoInquiryCreator name={formik.values.fullName} />
       </Grid>
 
       <Grid item xs={10}>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={formik.handleSubmit}>
           <FormWrapper title="HR göndərməsi" showInfoButton>
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
                   disabled
+                  fullWidth
                   type="text"
                   label="Qeyd"
-                  fullWidth
-                  value={note}
-                  onChange={(e) => setNote(e.target.value)}
+                  name="note"
+                  value={formik.values.note}
+                  onChange={formik.handleChange}
                 ></TextField>
               </Grid>
+
               <Grid item xs={12}>
                 <TextField
                   disabled
+                  fullWidth
                   type="text"
                   label="Nəticə mətni"
-                  fullWidth
-                  value={resultText}
-                  onChange={(e) => setResultText(e.target.value)}
+                  name="resultText"
+                  value={formik.values.resultText}
+                  onChange={formik.handleChange}
                 ></TextField>
               </Grid>
+
               <Grid item xs={12}>
                 <Select
                   required
                   label="Nəticə"
-                  value={result}
-                  onChange={(value) => setResult(value)}
-                  options={["Təstiqləndi"]}
+                  options={["Təsdiqləndi"]}
+                  name="result"
+                  value={formik.values.result}
+                  onChange={formik.handleChange}
                 />
               </Grid>
             </Grid>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import API from "../../api";
+import API, { getEmployees } from "../../api";
 import EmployeesTable from "../Table/EmployeesTable/EmployeesTable";
 import SearchPanelEmployee from "../SearchPanel/SearchPanelEmployee";
 import ArchiveEmployeeModal from "../Modal/Employee/ArchiveEmployeeModal";
@@ -17,7 +17,7 @@ const EmployeesTableContainer = () => {
   );
 
   const fetchEmployees = async () => {
-    const { data } = await API.get("employees");
+    const data = await getEmployees();
     setEmployees(data);
   };
 
@@ -46,7 +46,7 @@ const EmployeesTableContainer = () => {
   };
 
   const handleSearchEmployee = async ({ fullName }) => {
-    const { data } = await API.get(`employees?fullName_like=${fullName}`);
+    const data = await getEmployees(`?fullName_like=${fullName}`);
     setEmployees(data);
   };
 
