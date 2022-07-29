@@ -8,6 +8,13 @@ const AccountSettings = () => {
   const loggedUser = useSelector((state) => state.app.loggedUser);
   const dispatch = useDispatch();
 
+  const LIST_DATA = [
+    { id: 1, title: "İstifadəçi adı", value: loggedUser.userName },
+    { id: 2, title: "Elektron poçt", value: loggedUser.email },
+    { id: 3, title: "Əlaqə nömrəsi", value: loggedUser.contactNumber },
+    { id: 4, title: "İstifadəçi rolları", value: loggedUser.roles.join(", ") },
+  ];
+
   return (
     <Grid container spacing={2} height="195px">
       <Grid item xs={12} lg={4}>
@@ -36,33 +43,19 @@ const AccountSettings = () => {
 
       <Grid item xs={12} lg={8}>
         <Paper variant="outlined" sx={{ height: "100%", px: 2 }}>
-          <Stack direction="row" py={2}>
-            <Typography variant="subtitle2" width="200px">
-              İstifadəçi adı
-            </Typography>
-            <Typography>{loggedUser.userName}</Typography>
-          </Stack>
-          <Divider />
-          <Stack direction="row" py={2}>
-            <Typography variant="subtitle2" width="200px">
-              Elektron poçt
-            </Typography>
-            <Typography>{loggedUser.email}</Typography>
-          </Stack>
-          <Divider />
-          <Stack direction="row" py={2}>
-            <Typography variant="subtitle2" width="200px">
-              Əlaqə nömrəsi
-            </Typography>
-            <Typography>{loggedUser.contactNumber}</Typography>
-          </Stack>
-          <Divider />
-          <Stack direction="row" py={2}>
-            <Typography variant="subtitle2" width="200px">
-              İstifadəçi rolları
-            </Typography>
-            <Typography>{loggedUser.roles.join(", ")}</Typography>
-          </Stack>
+          {LIST_DATA.map((item, index) => {
+            return (
+              <div key={item.id}>
+                <Stack direction="row" py={2}>
+                  <Typography variant="subtitle2" width="200px">
+                    {item.title}
+                  </Typography>
+                  <Typography>{item.value}</Typography>
+                </Stack>
+                {index + 1 !== LIST_DATA.length && <Divider />}
+              </div>
+            );
+          })}
         </Paper>
       </Grid>
 

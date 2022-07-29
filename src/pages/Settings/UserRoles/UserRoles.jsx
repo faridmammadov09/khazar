@@ -9,9 +9,7 @@ import UserRolesTable from "../../../components/Table/UserRoles/UserRolesTable";
 
 const UserRoles = () => {
   const dispatch = useDispatch();
-  const isShowCreateRoleModal = useSelector(
-    (state) => state.role.isShowCreateRoleModal
-  );
+  const { isShowCreateRoleModal } = useSelector((state) => state.role);
   const [userRoles, setUserRoles] = useState([]);
   const [isShowEditRoleModal, setIsShowEditRoleModal] = useState(false);
   const [isShowDeleteRoleModal, setIsShowDeleteRoleModal] = useState(false);
@@ -53,20 +51,20 @@ const UserRoles = () => {
       <CreateNewRoleModal
         open={isShowCreateRoleModal}
         onClose={handleCloseCreateRoleModal}
-        getUserRoles={getUserRoles}
+        getUserRoles={getUserRolesData}
       />
 
       <EditRoleModal
         open={isShowEditRoleModal}
         onClose={handleCloseEditRoleModal}
-        getUserRoles={getUserRoles}
+        getUserRoles={getUserRolesData}
         role={selectedRole}
       />
 
       <DeleteRoleModal
         open={isShowDeleteRoleModal}
         onClose={handleCloseDeleteRoleModal}
-        getUserRoles={getUserRoles}
+        getUserRoles={getUserRolesData}
         role={selectedRole}
       />
 

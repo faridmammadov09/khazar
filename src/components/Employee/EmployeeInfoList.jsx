@@ -27,6 +27,8 @@ const TITLES = {
   weeklyWorkingHours: "Həftəlik iş saatı",
   staffCapacity: "Ştat tutumu",
   workPlace: "İş yeri",
+  disability: "Əlillik",
+  socialInsuranceNumber: "Sosial sığorta nömrəsi",
 };
 
 const EmployeeInfoList = ({ employee }) => {
@@ -34,7 +36,9 @@ const EmployeeInfoList = ({ employee }) => {
     <Paper variant="outlined">
       <Grid container sx={{ px: 2 }}>
         {Object.keys(employee).map((key, index) => {
-          if (key === "id" || key === "isArchived") return;
+          const filteredKeys = ["id", "isArchived", "age"];
+
+          if (filteredKeys.includes(key)) return;
 
           return (
             <EmployeeInfoItem

@@ -11,7 +11,6 @@ import {
   TablePagination,
   MenuItem,
 } from "@mui/material";
-
 import AvatarContainer from "../../Avatar/AvatarContainer";
 import TableCellActions from "../TableCellActions";
 import TableHeader from "../TableHeader";
@@ -65,8 +64,8 @@ const EmployeesTable = ({ headerData, bodyData, handleOpenArchiveModal }) => {
 
                   <TableCell>
                     <TableCellActions
-                      onClickLeftButton={() => handleShowEmployee(item.id)}
                       iconShow
+                      onClickLeftButton={() => handleShowEmployee(item.id)}
                     >
                       <MenuItem>Redaktə et</MenuItem>
                       <MenuItem onClick={() => handleOpenArchiveModal(item)}>

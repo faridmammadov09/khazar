@@ -344,6 +344,22 @@
       "createdBy": "Farid Mammadov",
       "createdDate": "2022-07-29T00:24:25.510Z",
       "id": 5
+    },
+    {
+      "name": "Yeni elan",
+      "description": "Bu bir elandır",
+      "operation": "Əməliyyat 3",
+      "createdBy": "Farid Mammadov",
+      "createdDate": "2022-07-29T17:50:01.985Z",
+      "id": 6
+    },
+    {
+      "name": "Elaan",
+      "description": "lorem lorem lorem",
+      "operation": "Əməliyyat 2",
+      "createdBy": "Leyla Leyla L.",
+      "createdDate": "2022-07-29T18:17:03.223Z",
+      "id": 7
     }
   ],
   "vacationBalances": [
@@ -505,32 +521,18 @@
       "id": 4
     },
     {
-      "email": "azerin@xezertv.az",
-      "password": "$2a$10$fSUW1yM24szBZY/qsYFdb.h73NVFuTJNXMmlIDTO/rRh1aQKtSKZm",
-      "fullName": "Azərin Məmmədli A.",
+      "email": "leyla@xezertv.az",
+      "password": "$2a$10$Ij3xZkLf2w1kTuHgBnKkieru7h1Fy1lBqpk6AFib75sxN5ffqKGBa",
+      "fullName": "Leyla Leyla L.",
       "photo": null,
-      "userName": "azerin",
+      "userName": "leyla",
       "position": null,
       "contactNumber": null,
       "isActive": true,
       "roles": [
-        "User"
+        "Admin"
       ],
       "id": 5
-    },
-    {
-      "email": "sevda@xezertv.az",
-      "password": "$2a$10$lFAkCLUaHkSj9/EhzqpVoO1DcmvfNZx4YtpJOpykF.80r1SrW8rrW",
-      "fullName": "Sevda Bıyık",
-      "photo": null,
-      "userName": "sevda",
-      "position": null,
-      "contactNumber": null,
-      "isActive": true,
-      "roles": [
-        "Supervisor"
-      ],
-      "id": 6
     }
   ],
   "userRoles": [
@@ -604,6 +606,16 @@
         "EDIT"
       ],
       "id": 8
+    },
+    {
+      "name": "Yeni rol",
+      "isStatic": false,
+      "description": "Bu bir roldur",
+      "distinctiveName": "YENI_ROL",
+      "authorities": [
+        "APP_DELETE"
+      ],
+      "id": 9
     }
   ],
   "employees": [
@@ -634,6 +646,8 @@
       "weeklyWorkingHours": 40,
       "staffCapacity": "Tam",
       "workPlace": "Əsas",
+      "disability": "Yoxdur",
+      "socialInsuranceNumber": "12345",
       "isArchived": true
     },
     {
@@ -663,6 +677,8 @@
       "weeklyWorkingHours": 40,
       "staffCapacity": "Tam",
       "workPlace": "Əsas",
+      "disability": "Yoxdur",
+      "socialInsuranceNumber": "12345",
       "isArchived": false
     },
     {
@@ -692,6 +708,8 @@
       "weeklyWorkingHours": 40,
       "staffCapacity": "Tam",
       "workPlace": "Əsas",
+      "disability": "Yoxdur",
+      "socialInsuranceNumber": "12345",
       "isArchived": true
     },
     {
@@ -721,6 +739,8 @@
       "weeklyWorkingHours": 40,
       "staffCapacity": "Tam",
       "workPlace": "Əsas",
+      "disability": "Yoxdur",
+      "socialInsuranceNumber": "12345",
       "isArchived": false
     },
     {
@@ -750,6 +770,8 @@
       "weeklyWorkingHours": 40,
       "staffCapacity": "Tam",
       "workPlace": "Əsas",
+      "disability": "Yoxdur",
+      "socialInsuranceNumber": "12345",
       "isArchived": false
     },
     {
@@ -779,6 +801,8 @@
       "weeklyWorkingHours": 40,
       "staffCapacity": "Tam",
       "workPlace": "Əsas",
+      "disability": "Yoxdur",
+      "socialInsuranceNumber": "12345",
       "isArchived": false
     },
     {
@@ -808,6 +832,8 @@
       "weeklyWorkingHours": 40,
       "staffCapacity": "Tam",
       "workPlace": "Əsas",
+      "disability": "Yoxdur",
+      "socialInsuranceNumber": "12345",
       "isArchived": false
     },
     {
@@ -837,6 +863,8 @@
       "weeklyWorkingHours": 40,
       "staffCapacity": "Tam",
       "workPlace": "Əsas",
+      "disability": "Yoxdur",
+      "socialInsuranceNumber": "12345",
       "isArchived": false
     },
     {
@@ -866,6 +894,8 @@
       "weeklyWorkingHours": 40,
       "staffCapacity": "Tam",
       "workPlace": "Əsas",
+      "disability": "Yoxdur",
+      "socialInsuranceNumber": "12345",
       "isArchived": false
     },
     {
@@ -895,7 +925,73 @@
       "weeklyWorkingHours": 40,
       "staffCapacity": "Tam",
       "workPlace": "Əsas",
+      "disability": "Yoxdur",
+      "socialInsuranceNumber": "12345",
       "isArchived": false
+    },
+    {
+      "photo": "",
+      "fullName": "Joe Doe",
+      "gender": "Kişi",
+      "dateOfBirth": "1980-07-29T17:46:33.000Z",
+      "age": "42",
+      "maritalStatus": "Subay",
+      "pin": "1357",
+      "serialNumber": "1357",
+      "company": "ABC",
+      "department": "Təhlükəsizlik",
+      "positionClassification": "Qulluqçu",
+      "position": "Vəzifə 1",
+      "citizenship": "ABC",
+      "nationality": "ABC",
+      "education": "Ali",
+      "email": "abc@gmail.com",
+      "staffCapacity": "Tam",
+      "workPlace": "Əsas",
+      "mobileNumber": "1234567",
+      "corporateNumber": "1234567",
+      "internalNumber": "1234567",
+      "homePhoneNumber": "1234567",
+      "closeRelative": "Qardaş",
+      "closeRelativePhoneNumber": "1234567",
+      "workingTime": "09:00 - 18:00",
+      "weeklyWorkingHours": "1234567",
+      "disability": "Yoxdur",
+      "socialInsuranceNumber": "1234567",
+      "isArchived": false,
+      "id": 11
+    },
+    {
+      "photo": "",
+      "fullName": "Leyla Leyla L.",
+      "gender": "Qadın",
+      "dateOfBirth": "1997-07-29T17:12:37.045Z",
+      "age": "25",
+      "maritalStatus": "Subay",
+      "pin": "12345",
+      "serialNumber": "12345",
+      "company": "Lorem",
+      "department": "İT",
+      "positionClassification": "Qulluqçu",
+      "position": "Vəzifə 3",
+      "citizenship": "Azərbaycan",
+      "nationality": "Azərbaycanlı",
+      "education": "Ali",
+      "email": "leyla@gmail.com",
+      "staffCapacity": "Tam",
+      "workPlace": "Əlavə",
+      "mobileNumber": "12345",
+      "corporateNumber": "12345",
+      "internalNumber": "12345",
+      "homePhoneNumber": "12345",
+      "closeRelative": "Ana",
+      "closeRelativePhoneNumber": "12345",
+      "workingTime": "09:00 - 18:00",
+      "weeklyWorkingHours": "40",
+      "disability": "Yoxdur",
+      "socialInsuranceNumber": "12345",
+      "isArchived": false,
+      "id": 12
     }
   ],
   "contracts": [
@@ -1048,6 +1144,16 @@
       "duration": "Müddətli",
       "employeeId": 6,
       "id": 20
+    },
+    {
+      "conclusionDate": "2022-07-09T20:00:00.000Z",
+      "expirationDate": "2022-07-09T20:00:00.000Z",
+      "type": "Type 1",
+      "number": 12345,
+      "employmentRecordBookNumber": 12345,
+      "duration": "Müddətli",
+      "employeeId": 12,
+      "id": 21
     }
   ],
   "commands": [

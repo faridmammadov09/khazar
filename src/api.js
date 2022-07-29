@@ -10,7 +10,9 @@ export const fetchData = async (name, setFn) => {
 };
 
 export const getEmployees = async (id = "", query = "") => {
-  const { data } = await API.get(`employees/${id}${query}`);
+  const { data } = await API.get(
+    `employees/${id}${query}?_sort=id&_order=desc`
+  );
   return data;
 };
 
@@ -50,17 +52,17 @@ export const getPurchasingInquiry = async (id = "") => {
 };
 
 export const getAnnouncement = async (id = "") => {
-  const { data } = await API.get(`announcements/${id}`);
+  const { data } = await API.get(`announcements/${id}?_sort=id&_order=desc`);
   return data;
 };
 
 export const getUsers = async () => {
-  const { data } = await API.get("users");
+  const { data } = await API.get("users?_sort=id&_order=desc");
   return data;
 };
 
 export const getUserRoles = async () => {
-  const { data } = await API.get("userRoles");
+  const { data } = await API.get("userRoles?_sort=id&_order=desc");
   return data;
 };
 

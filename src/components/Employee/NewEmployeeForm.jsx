@@ -49,6 +49,7 @@ const NewEmployeeForm = () => {
         fatherName,
         gender,
         dateOfBirth,
+        age,
         maritalStatus,
         pin,
         serialNumber,
@@ -74,12 +75,9 @@ const NewEmployeeForm = () => {
         socialInsuranceNumber,
       } = values;
 
-      const currentYear = new Date().getFullYear();
-      const age = currentYear - dateOfBirth.getFullYear();
-
       const newEmployee = {
-        photo: "https://i.pravatar.cc/150?img=11",
-        fullName: `${name} ${surname} ${fatherName}`,
+        photo: "",
+        fullName: `${name} ${surname} ${fatherName[0]}.`,
         gender,
         dateOfBirth,
         age,
@@ -106,6 +104,7 @@ const NewEmployeeForm = () => {
         weeklyWorkingHours,
         disability,
         socialInsuranceNumber,
+        isArchived: false,
       };
 
       API.post("/employees", newEmployee).then(() => {

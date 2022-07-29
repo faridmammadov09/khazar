@@ -1,5 +1,7 @@
 import { Avatar, Grid, Typography } from "@mui/material";
 
+const formatDate = (date) => new Date(date).toLocaleDateString();
+
 const EmployeeInfoItem = ({ title, data }) => {
   return (
     <>
@@ -28,7 +30,9 @@ const EmployeeInfoItem = ({ title, data }) => {
         {title === "Foto şəkil" ? (
           <Avatar src={data} sx={{ width: 160, height: 160 }}></Avatar>
         ) : (
-          <Typography variant="subtitle2">{data}</Typography>
+          <Typography variant="subtitle2">
+            {title !== "Doğum tarixi" ? data : formatDate(data)}
+          </Typography>
         )}
       </Grid>
     </>

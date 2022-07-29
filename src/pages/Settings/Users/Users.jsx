@@ -22,12 +22,8 @@ const Users = () => {
   const [isShowEditModal, setIsShowEditModal] = useState(false);
   const [isShowUpdateModal, setIsShowUpdateModal] = useState(false);
   const [selectedUser, setSelectedUser] = useState({});
-  const isShowCreateModal = useSelector(
-    (state) => state.user.isShowCreateUserModal
-  );
-  const isShowSearchUserPanel = useSelector(
-    (state) => state.user.isShowSearchUserPanel
-  );
+  const { isShowCreateUserModal } = useSelector((state) => state.user);
+  const { isShowSearchUserPanel } = useSelector((state) => state.user);
 
   const handleCloseCreateModal = () => {
     dispatch(setShowCreateUserModal(false));
@@ -75,15 +71,15 @@ const Users = () => {
   return (
     <>
       <CreateNewUserModal
-        open={isShowCreateModal}
+        open={isShowCreateUserModal}
         onClose={handleCloseCreateModal}
-        getUsers={getUsers}
+        getUsers={getUsersData}
       />
 
       <EditUserModal
         open={isShowEditModal}
         onClose={handleCloseEditModal}
-        getUsers={getUsers}
+        getUsers={getUsersData}
         user={selectedUser}
       />
 

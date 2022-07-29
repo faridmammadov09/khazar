@@ -18,15 +18,24 @@ const Home = () => {
 
   const fetchAllData = () => {
     fetchData("latestQueries?_sort=id&_order=desc&_limit=5", setLatestQueries);
-    fetchData("myQueries", setMyQueries);
-    fetchData("latestInfoAboutEmployees", setLatestInfoAboutEmployees);
-    fetchData("upcomingAnniversary", setUpcomingAnniversary);
-    fetchData("todaysDayOffs", setTodaysDayOffs);
-    fetchData("vacationInfo", setVacationInfo);
-    fetchData("nextBirthdays", setNextBirthdays);
-    fetchData("businessTrip", setBusinessTrip);
-    fetchData("announcements", setAnnouncements);
-    fetchData("vacationBalances", setVacationBalance);
+    fetchData("myQueries?_sort=id&_order=desc&_limit=5", setMyQueries);
+    fetchData(
+      "latestInfoAboutEmployees?_sort=id&_order=desc&_limit=5",
+      setLatestInfoAboutEmployees
+    );
+    fetchData(
+      "upcomingAnniversary?_sort=id&_order=desc&_limit=5",
+      setUpcomingAnniversary
+    );
+    fetchData("todaysDayOffs?_sort=id&_order=desc&_limit=5", setTodaysDayOffs);
+    fetchData("vacationInfo?_sort=id&_order=desc&_limit=5", setVacationInfo);
+    fetchData("nextBirthdays?_sort=id&_order=desc&_limit=5", setNextBirthdays);
+    fetchData("businessTrip?_sort=id&_order=desc&_limit=5", setBusinessTrip);
+    fetchData("announcements?_sort=id&_order=desc&_limit=5", setAnnouncements);
+    fetchData(
+      "vacationBalances?_sort=id&_order=desc&_limit=5",
+      setVacationBalance
+    );
   };
 
   useEffect(() => {
