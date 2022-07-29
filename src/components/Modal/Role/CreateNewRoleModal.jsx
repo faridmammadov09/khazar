@@ -16,7 +16,6 @@ const CreateNewRoleModal = ({ open, onClose, getUserRoles }) => {
       description: "",
     },
     onSubmit: (values) => {
-      console.log(values);
       const { name, isRoleStatic, description, distinctiveName, authorities } =
         values;
 

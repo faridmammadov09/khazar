@@ -17,8 +17,7 @@ const SearchPanelUser = ({ onSearchUser }) => {
       position: "",
       roles: "",
     },
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit: () => {
       onSearchUser();
     },
   });
@@ -32,8 +31,8 @@ const SearchPanelUser = ({ onSearchUser }) => {
       <Grid container spacing={2} sx={{ p: 2 }}>
         <Grid item xs={12} sm={6} md={3}>
           <TextField
-            label="Ad Soyad"
             fullWidth
+            label="Ad Soyad"
             name="fullName"
             value={formik.values.fullName}
             onChange={formik.handleChange}
@@ -41,8 +40,8 @@ const SearchPanelUser = ({ onSearchUser }) => {
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
           <TextField
-            label="İstifadəçi adı"
             fullWidth
+            label="İstifadəçi adı"
             name="userName"
             value={formik.values.userName}
             onChange={formik.handleChange}
@@ -50,8 +49,8 @@ const SearchPanelUser = ({ onSearchUser }) => {
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
           <TextField
-            label="Vəzifə"
             fullWidth
+            label="Vəzifə"
             name="position"
             value={formik.values.position}
             onChange={formik.handleChange}
@@ -62,8 +61,8 @@ const SearchPanelUser = ({ onSearchUser }) => {
             <InputLabel id="role-select-label">Rollar</InputLabel>
 
             <Select
-              label="Rollar"
               fullWidth
+              label="Rollar"
               labelId="role-select-label"
               name="roles"
               value={formik.values.roles}

@@ -11,7 +11,6 @@ import {
   TablePagination,
   MenuItem,
 } from "@mui/material";
-
 import AvatarContainer from "../../Avatar/AvatarContainer";
 import TableCellActions from "../TableCellActions";
 import TableHeader from "../TableHeader";
@@ -71,8 +70,8 @@ const InquiryTable = ({ bodyData, onOpenDeleteModal }) => {
 
                   <TableCell>
                     <TableCellActions
-                      onClickLeftButton={() => handleShowDayOffInquiry(item.id)}
                       iconShow
+                      onClickLeftButton={() => handleShowDayOffInquiry(item.id)}
                     >
                       <MenuItem onClick={() => onOpenDeleteModal(item)}>
                         Sil

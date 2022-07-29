@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Grid, Paper, Stack, TextField } from "@mui/material";
+import API from "../../api";
 import Button from "../../components/Button/Button";
 import InputDate from "../../components/Input/InputDate";
 import List from "../../components/List/List";
-import API from "../../api";
 
 const EmployeeSalary = () => {
   const { employeeId } = useParams();
@@ -13,30 +13,35 @@ const EmployeeSalary = () => {
   const [generalWorkExperience, setGeneralWorkExperience] = useState("");
   const [salaryGross, setSalaryGross] = useState("");
   const [salaryNet, setSalaryNet] = useState("");
-  const [salaryData, setSalaryData] = useState(null);
+  const [salaryData, setSalaryData] = useState([]);
 
   const getSalary = async () => {
     try {
-      const { data } = await API.get(`salaries/${employeeId}`);
+      const { data } = await API.get(`salaries?employeeId=${employeeId}`);
+      let salaryObj = {};
 
-      const {
-        previousWorkExperience,
-        startDate,
-        generalWorkExperience,
-        salaryGross,
-        salaryNet,
-      } = data;
+      if (data.length > 0) {
+        salaryObj = data[0];
 
-      setSalaryData([
-        {
-          title: '"Xəzər TV" MMC-yə qədərki iş stajı',
-          value: previousWorkExperience,
-        },
-        { title: '"Xəzər TV" MMC-də olan iş stajı', value: startDate },
-        { title: "Ümumi iş stajı", value: generalWorkExperience },
-        { title: "Əmək haqqı gross(AZN)", value: salaryGross },
-        { title: "Əmək Haqqı net(AZN)", value: salaryNet },
-      ]);
+        const {
+          previousWorkExperience,
+          startDate,
+          generalWorkExperience,
+          salaryGross,
+          salaryNet,
+        } = salaryObj;
+
+        setSalaryData([
+          {
+            title: '"Xəzər TV" MMC-yə qədərki iş stajı',
+            value: previousWorkExperience,
+          },
+          { title: '"Xəzər TV" MMC-də olan iş stajı', value: startDate },
+          { title: "Ümumi iş stajı", value: generalWorkExperience },
+          { title: "Əmək haqqı gross(AZN)", value: salaryGross },
+          { title: "Əmək Haqqı net(AZN)", value: salaryNet },
+        ]);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -51,6 +56,7 @@ const EmployeeSalary = () => {
       generalWorkExperience,
       salaryGross: +salaryGross,
       salaryNet: +salaryNet,
+      employeeId,
     };
 
     console.log(newData);
@@ -65,7 +71,7 @@ const EmployeeSalary = () => {
 
   return (
     <>
-      {salaryData ? (
+      {salaryData.length > 0 ? (
         <List data={salaryData} />
       ) : (
         <form onSubmit={handleFormSubmit}>
@@ -73,9 +79,9 @@ const EmployeeSalary = () => {
             <Grid container spacing={2} sx={{ p: 2 }}>
               <Grid item xs={4}>
                 <TextField
-                  label="Əvvəlki iş stajı"
-                  fullWidth
                   required
+                  fullWidth
+                  label="Əvvəlki iş stajı"
                   value={previousWorkExperience}
                   onChange={(e) => setPreviousWorkExperience(e.target.value)}
                 ></TextField>
@@ -90,29 +96,29 @@ const EmployeeSalary = () => {
               </Grid>
               <Grid item xs={4}>
                 <TextField
-                  label="Ümumi iş stajı"
-                  fullWidth
                   required
+                  fullWidth
+                  label="Ümumi iş stajı"
                   value={generalWorkExperience}
                   onChange={(e) => setGeneralWorkExperience(e.target.value)}
                 ></TextField>
               </Grid>
               <Grid item xs={4}>
                 <TextField
+                  required
+                  fullWidth
                   type="number"
                   label="Əmək haqqı gross(AZN)"
-                  fullWidth
-                  required
                   value={salaryGross}
                   onChange={(e) => setSalaryGross(e.target.value)}
                 ></TextField>
               </Grid>
               <Grid item xs={4}>
                 <TextField
+                  required
+                  fullWidth
                   type="number"
                   label="Əmək Haqqı net(AZN)"
-                  fullWidth
-                  required
                   value={salaryNet}
                   onChange={(e) => setSalaryNet(e.target.value)}
                 ></TextField>

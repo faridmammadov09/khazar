@@ -4,7 +4,7 @@ import { Button, Link, Stack, Typography } from "@mui/material";
 import StringAvatar from "./StringAvatar";
 
 const UserAvatar = () => {
-  const fullName = useSelector((state) => state.app.loggedUser.fullName);
+  const { fullName } = useSelector((state) => state.app.loggedUser);
 
   return (
     <Stack
@@ -21,8 +21,8 @@ const UserAvatar = () => {
         underline="none"
       >
         <Button
-          variant="text"
           disableRipple
+          variant="text"
           sx={{ gap: 1, color: "inherit", textTransform: "none" }}
         >
           <StringAvatar string={fullName} />

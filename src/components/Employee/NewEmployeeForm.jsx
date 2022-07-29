@@ -43,8 +43,6 @@ const NewEmployeeForm = () => {
       socialInsuranceNumber: "",
     },
     onSubmit: (values) => {
-      console.log(values);
-
       const {
         name,
         surname,

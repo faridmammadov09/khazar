@@ -4,7 +4,7 @@ import AddIcon from "@mui/icons-material/Add";
 import Button from "../../Button/Button";
 
 const TableTop = ({ title, onClickAdd }) => {
-  const loggedUser = useSelector((state) => state.app.loggedUser);
+  const { loggedUser } = useSelector((state) => state.app);
 
   return (
     <Stack
@@ -23,7 +23,7 @@ const TableTop = ({ title, onClickAdd }) => {
       <Typography fontWeight="500">{title}</Typography>
 
       {loggedUser.roles.includes("Admin") && (
-        <Button startIcon={<AddIcon />} primary onClick={onClickAdd}>
+        <Button primary startIcon={<AddIcon />} onClick={onClickAdd}>
           Əlavə et
         </Button>
       )}

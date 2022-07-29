@@ -2,7 +2,9 @@ import { Typography } from "@mui/material";
 import Button from "../../Button/Button";
 import Modal from "../Modal";
 
-const ArchiveEmployeeModal = ({ open, onClose, onArchive, name }) => {
+const ArchiveEmployeeModal = ({ open, onClose, onArchive, employee }) => {
+  const { fullName, isArchived } = employee;
+
   return (
     <Modal
       title="Əməkdaşın arxivlənməsi"
@@ -12,13 +14,15 @@ const ArchiveEmployeeModal = ({ open, onClose, onArchive, name }) => {
         <>
           <Button onClick={onClose}>İmtina et</Button>
           <Button onClick={onArchive} primary>
-            Arxiv et
+            {isArchived ? "Arxivdən çıxar" : "Arxiv et"}
           </Button>
         </>
       }
     >
       <Typography>
-        <b>“{name}”</b> haqqında məlumatları arxivləməyə əminsiniz?
+        <b>“{fullName}”</b> haqqında məlumatları{" "}
+        {isArchived ? "arxivdən çıxarmaq istədiyinizə" : "arxivləməyə"}{" "}
+        əminsiniz?
       </Typography>
     </Modal>
   );

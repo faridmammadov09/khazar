@@ -8,11 +8,11 @@ import {
 const Modal = ({ title, children, open, onClose, actionButtons, onSubmit }) => {
   return (
     <Dialog
+      fullWidth
       open={open}
       onClose={onClose}
       aria-labelledby="dialog-title"
       aria-describedby="dialog-description"
-      fullWidth
     >
       <DialogTitle id="dialog-title">{title}</DialogTitle>
 

@@ -17,7 +17,7 @@ const Home = () => {
   const [vacationBalance, setVacationBalance] = useState([]);
 
   const fetchAllData = () => {
-    fetchData("latestQueries", setLatestQueries);
+    fetchData("latestQueries?_sort=id&_order=desc&_limit=5", setLatestQueries);
     fetchData("myQueries", setMyQueries);
     fetchData("latestInfoAboutEmployees", setLatestInfoAboutEmployees);
     fetchData("upcomingAnniversary", setUpcomingAnniversary);

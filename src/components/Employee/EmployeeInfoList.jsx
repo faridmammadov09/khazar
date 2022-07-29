@@ -1,7 +1,7 @@
 import { Grid, Paper } from "@mui/material";
 import EmployeeInfoItem from "./EmployeeInfoItem";
 
-const titles = {
+const TITLES = {
   photo: "Foto şəkil",
   fullName: "Ad Soyad Ata",
   maritalStatus: "Ailə vəziyyəti",
@@ -39,7 +39,7 @@ const EmployeeInfoList = ({ employee }) => {
           return (
             <EmployeeInfoItem
               key={index}
-              title={titles[key]}
+              title={TITLES[key]}
               data={employee[key] ? employee[key] : "—"}
             />
           );

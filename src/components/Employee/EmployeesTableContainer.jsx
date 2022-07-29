@@ -12,9 +12,7 @@ const EmployeesTableContainer = () => {
   const [isShowArchiveAlert, setIsShowArchiveAlert] = useState(false);
   const [selectedEmployee, setSelectedEmployee] = useState({});
 
-  const isShowEmployeeSearchPanel = useSelector(
-    (state) => state.employee.isShowEmployeeSearchPanel
-  );
+  const { isShowEmployeeSearchPanel } = useSelector((state) => state.employee);
 
   const fetchEmployees = async () => {
     const data = await getEmployees();
@@ -66,7 +64,7 @@ const EmployeesTableContainer = () => {
       />
 
       <ArchiveEmployeeModal
-        name={selectedEmployee.fullName}
+        employee={selectedEmployee}
         open={openArchiveModal}
         onClose={handleCloseArchiveModal}
         onArchive={handleOpenArchiveAlert}

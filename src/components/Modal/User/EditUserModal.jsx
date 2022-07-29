@@ -25,7 +25,6 @@ const EditUserModal = ({ open, onClose, getUsers, user }) => {
       roles: [],
     },
     onSubmit: (values) => {
-      console.log(values);
       const { userName, roles } = values;
 
       API.patch(`users/${user.id}`, {

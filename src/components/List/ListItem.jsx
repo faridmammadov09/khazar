@@ -1,5 +1,7 @@
 import { Grid, ListItem as ListItemMui, ListItemText } from "@mui/material";
 
+const formatDate = (date) => new Date(date).toLocaleDateString();
+
 const ListItem = ({ item, divider }) => {
   return (
     <ListItemMui disableGutters divider={divider}>
@@ -11,7 +13,7 @@ const ListItem = ({ item, divider }) => {
         <Grid item xs>
           <ListItemText>
             {item.title === '"Xəzər TV" MMC-də olan iş stajı'
-              ? new Date(item.value).toLocaleDateString()
+              ? formatDate(item.value)
               : item.value}
           </ListItemText>
         </Grid>

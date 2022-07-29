@@ -19,7 +19,7 @@ const paths = [
 
 const HeaderButtons = ({ onOpenCreateModal, onToggleSearchPanel }) => {
   const location = useLocation();
-  const loggedUser = useSelector((state) => state.app.loggedUser);
+  const { loggedUser } = useSelector((state) => state.app);
 
   for (let path of paths) {
     if (location.pathname.includes(path) || location.pathname === "/") return;

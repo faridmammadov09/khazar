@@ -1099,7 +1099,8 @@
       "generalWorkExperience": "15 il",
       "salaryGross": 2000,
       "salaryNet": 1500,
-      "id": 1
+      "id": 1,
+      "employeeId": 1
     },
     {
       "previousWorkExperience": "20 il",
@@ -1107,7 +1108,8 @@
       "generalWorkExperience": "35 il",
       "salaryGross": 5000,
       "salaryNet": 4500,
-      "id": 2
+      "id": 2,
+      "employeeId": 2
     },
     {
       "previousWorkExperience": "50 il",
@@ -1115,7 +1117,26 @@
       "generalWorkExperience": "100 il",
       "salaryGross": 10000,
       "salaryNet": 5000,
-      "id": 3
+      "id": 3,
+      "employeeId": 3
+    },
+    {
+      "previousWorkExperience": "2",
+      "startDate": "2022-07-28T20:00:00.000Z",
+      "generalWorkExperience": "5",
+      "salaryGross": 1000,
+      "salaryNet": 1200,
+      "employeeId": "4",
+      "id": 4
+    },
+    {
+      "previousWorkExperience": "1",
+      "startDate": "2022-07-17T20:00:00.000Z",
+      "generalWorkExperience": "4",
+      "salaryGross": 600,
+      "salaryNet": 1000,
+      "employeeId": "6",
+      "id": 5
     }
   ],
   "documents": [

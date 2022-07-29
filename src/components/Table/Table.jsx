@@ -4,7 +4,6 @@ import {
   Table as TableMui,
   Typography,
 } from "@mui/material";
-
 import TableHeader from "./TableHeader";
 import TableBody from "./TableBody";
 

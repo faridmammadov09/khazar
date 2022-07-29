@@ -5,7 +5,7 @@ import Layout from "./modules/layout/Layout";
 import Announcement from "./pages/Announcement/Announcement";
 import AnnouncementEdit from "./pages/Announcement/AnnouncementEdit";
 import Loading from "./components/Loading/Loading";
-import RequireAuth from "./components/RequireAuth";
+import RequireAuth from "./components/RequireAuth/RequireAuth";
 import NotFound from "./pages/NotFound/NotFound";
 import DayOff from "./pages/Inquiries/DayOff/DayOff";
 import BusinessTrip from "./pages/Inquiries/BusinessTrip/BusinessTrip";

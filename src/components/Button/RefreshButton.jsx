@@ -5,7 +5,7 @@ import RefreshIcon from "@mui/icons-material/Refresh";
 const RefreshButton = ({ onRefreshData }) => {
   const [isAnimationActive, setIsAnimationActive] = useState(false);
 
-  const refresh = () => {
+  const handleRefresh = () => {
     onRefreshData();
     setIsAnimationActive(true);
 
@@ -16,7 +16,7 @@ const RefreshButton = ({ onRefreshData }) => {
 
   return (
     <IconButton
-      onClick={refresh}
+      onClick={handleRefresh}
       sx={{
         animation: isAnimationActive && "spin 1s ease",
         "@keyframes spin": {

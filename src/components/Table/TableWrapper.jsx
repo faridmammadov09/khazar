@@ -1,5 +1,4 @@
 import { Box, Stack, Typography } from "@mui/material";
-
 import RefreshButton from "../Button/RefreshButton";
 
 const TableWrapper = ({ title, children, onRefreshData }) => {

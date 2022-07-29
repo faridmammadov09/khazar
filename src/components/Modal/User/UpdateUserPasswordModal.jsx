@@ -17,8 +17,6 @@ const UpdatePasswordModal = ({ open, onClose, user }) => {
         return;
       }
 
-      console.log(values);
-
       API.patch(`users/${user.id}`, {
         password: values.password,
       }).then(() => {
