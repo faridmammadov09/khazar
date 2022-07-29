@@ -24,8 +24,6 @@ const CreateNewContractModal = ({
       contractDuration: "",
     },
     onSubmit: (values) => {
-      console.log(values);
-
       const {
         contractDate,
         contractType,
@@ -69,13 +67,15 @@ const CreateNewContractModal = ({
     >
       <Grid container spacing="12px">
         <Grid item xs={12}>
-          {/* <InputDate
+          <InputDate
             required
             label="Tarixi"
             name="contractDate"
             value={formik.values.contractDate}
-            onChange={formik.handleChange}
-          /> */}
+            onChange={(newValue) =>
+              formik.setFieldValue("contractDate", newValue)
+            }
+          />
         </Grid>
 
         <Grid item xs={6}>

@@ -1,41 +1,48 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Grid, Stack, TextField } from "@mui/material";
-import API from "../../api";
+import { useFormik } from "formik";
+import API, { getAnnouncement } from "../../api";
 import Button from "../../components/Button/Button";
 import FormWrapper from "../../components/Form/FormWrapper";
 import Select from "../../components/Select/Select";
 import Tabs from "../../components/Tabs/Tabs";
 
-const tabs = [{ label: "Elanın redaktəsi", path: "" }];
+const TABS = [{ label: "Elanın redaktəsi", path: "" }];
 
 const AnnouncementEdit = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [currentTab, setCurrentTab] = useState("");
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [operation, setOperation] = useState("");
+
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      description: "",
+      operation: "",
+    },
+    onSubmit: (values) => {
+      const { name, description, operation } = values;
+
+      API.patch(`announcements/${id}`, {
+        name,
+        description,
+        operation,
+      }).then(() => {
+        navigate("/announcements");
+      });
+    },
+  });
 
   const fillInputs = ({ name, description, operation }) => {
-    setName(name);
-    setDescription(description);
-    setOperation(operation);
+    formik.setFieldValue("name", name);
+    formik.setFieldValue("description", description);
+    formik.setFieldValue("operation", operation);
   };
 
-  const getAnnouncement = async () => {
-    const { data } = await API.get(`announcements/${id}`);
+  const setAnnouncementData = async () => {
+    const data = await getAnnouncement(id);
     fillInputs(data);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    API.patch(`announcements/${id}`, {
-      name,
-      description,
-      operation,
-    });
   };
 
   const handleTerminate = () => {
@@ -43,48 +50,52 @@ const AnnouncementEdit = () => {
   };
 
   useEffect(() => {
-    getAnnouncement();
+    setAnnouncementData();
   }, []);
 
   return (
     <Stack spacing={3}>
       <Tabs
-        tabs={tabs}
+        tabs={TABS}
         currentTab={currentTab}
         onChangeCurrentTab={(event, newValue) => setCurrentTab(newValue)}
       />
 
       <Grid container sx={{ justifyContent: "center" }}>
         <Grid item xs={12} sm={10}>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={formik.handleSubmit}>
             <FormWrapper title="Elanın redaktəsi">
               <Stack spacing={2}>
                 <TextField
-                  label="Adı"
                   required
                   fullWidth
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  label="Adı"
+                  name="name"
+                  value={formik.values.name}
+                  onChange={formik.handleChange}
                 ></TextField>
 
                 <TextField
-                  label="Təsviri"
                   required
                   fullWidth
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
+                  label="Təsviri"
+                  name="description"
+                  value={formik.values.description}
+                  onChange={formik.handleChange}
                 ></TextField>
 
                 <Select
+                  required
                   label="Əməliyyatlar"
-                  value={operation}
-                  onChange={(value) => setOperation(value)}
                   options={[
                     "Paylaş",
                     "Əməliyyat 1",
                     "Əməliyyat 2",
                     "Əməliyyat 3",
                   ]}
+                  name="operation"
+                  value={formik.values.operation}
+                  onChange={formik.handleChange}
                 />
               </Stack>
             </FormWrapper>

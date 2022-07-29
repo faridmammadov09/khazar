@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import API from "../../api";
+import { getAnnouncement } from "../../api";
 import DeleteAnnouncementModal from "../../components/Modal/Announcement/DeleteAnnouncementModal";
 import AnnouncementTable from "../../components/Table/AnnouncementTable/AnnouncementTable";
 
@@ -9,7 +9,7 @@ const Announcement = () => {
   const [selectedAnnouncement, setSelectedAnnouncement] = useState({});
 
   const getAnnouncements = async () => {
-    const { data } = await API.get("announcements");
+    const data = await getAnnouncement();
     setAnnouncements(data);
   };
 

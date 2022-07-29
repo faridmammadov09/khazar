@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { Grid, Stack, TextField } from "@mui/material";
 import { useFormik } from "formik";
+import API from "../../../api";
 import Button from "../../../components/Button/Button";
 import FormWrapper from "../../../components/Form/FormWrapper";
 import Select from "../../../components/Select/Select";
@@ -11,13 +14,34 @@ const TABS = [{ label: "Sorğunun formalaşdırılması", path: "" }];
 const PurchasingNew = () => {
   const [currentTab, setCurrentTab] = useState("");
 
+  const { fullName, photo } = useSelector((state) => state.app.loggedUser);
+
+  const navigate = useNavigate();
+
   const formik = useFormik({
     initialValues: {
       descriptionProblem: "",
       result: "",
     },
     onSubmit: (values) => {
-      console.log(values);
+      const { descriptionProblem, result } = values;
+
+      API.post("purchases", {
+        fullName,
+        photo,
+        note: "Note",
+        descriptionProblem,
+        result,
+        resultText: "Result text",
+        date: new Date(),
+        status: "Gözləmədədir",
+      })
+        .then(() => {
+          navigate("/inquiries/purchasing");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
   });
 

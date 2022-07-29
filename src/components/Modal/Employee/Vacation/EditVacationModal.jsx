@@ -68,9 +68,9 @@ const EditVacationModal = ({ open, onClose, onGetVacations, vacation }) => {
 
         <Grid item xs={6}>
           <TextField
-            label="Əsas"
             required
             fullWidth
+            label="Əsas"
             value={main}
             onChange={(e) => setMain(e.target.value)}
           ></TextField>
@@ -78,9 +78,9 @@ const EditVacationModal = ({ open, onClose, onGetVacations, vacation }) => {
 
         <Grid item xs={6}>
           <TextField
-            label="Əlavə"
             required
             fullWidth
+            label="Əlavə"
             value={addition}
             onChange={(e) => setAddition(e.target.value)}
           ></TextField>
@@ -88,9 +88,9 @@ const EditVacationModal = ({ open, onClose, onGetVacations, vacation }) => {
 
         <Grid item xs={6}>
           <TextField
-            label="İstifadə edilmiş"
             required
             fullWidth
+            label="İstifadə edilmiş"
             value={used}
             onChange={(e) => setUsed(e.target.value)}
           ></TextField>
@@ -98,9 +98,9 @@ const EditVacationModal = ({ open, onClose, onGetVacations, vacation }) => {
 
         <Grid item xs={6}>
           <TextField
-            label="Qalıq"
             required
             fullWidth
+            label="Qalıq"
             value={remainder}
             onChange={(e) => setRemainder(e.target.value)}
           ></TextField>

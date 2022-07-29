@@ -17,7 +17,6 @@ const CreateNewDocumentModal = ({ open, onClose, getDocuments }) => {
       note: "",
     },
     onSubmit: (values) => {
-      console.log(values);
       const { type, uploadDocument, note } = values;
 
       const newDocument = {

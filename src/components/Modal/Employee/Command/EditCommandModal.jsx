@@ -6,7 +6,7 @@ import InputDate from "../../../Input/InputDate";
 import Select from "../../../Select/Select";
 import Modal from "../../Modal";
 
-const commandTypes = [
+const COMMAND_TYPES = [
   "İşə qəbul edilməsi barədə",
   "İşçinin mükafatlandırılması haqqında",
   "Məzuniyyətin verilməsi barədə",
@@ -73,19 +73,19 @@ const EditCommandModal = ({
       <Grid container spacing="12px">
         <Grid item xs={12}>
           <Select
+            required
             label="Tipi"
             value={commandType}
             onChange={(value) => setCommandType(value)}
-            options={commandTypes}
-            required
+            options={COMMAND_TYPES}
           />
         </Grid>
 
         <Grid item xs={6}>
           <TextField
-            label="Nömrəsi"
             required
             fullWidth
+            label="Nömrəsi"
             value={commandNumber}
             onChange={(e) => setCommandNumber(e.target.value)}
           ></TextField>

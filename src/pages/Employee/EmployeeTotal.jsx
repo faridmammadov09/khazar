@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import API from "../../api";
+import { getEmployees } from "../../api";
 import EmployeeInfoList from "../../components/Employee/EmployeeInfoList";
 
 const EmployeeTotal = () => {
@@ -8,7 +8,7 @@ const EmployeeTotal = () => {
   const [currentEmployee, setCurrentEmployee] = useState({});
 
   const getCurrentEmployee = async () => {
-    const { data } = await API.get(`employees/${employeeId}`);
+    const data = await getEmployees(employeeId);
     setCurrentEmployee(data);
   };
 

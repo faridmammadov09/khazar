@@ -11,7 +11,7 @@ const TableRow = ({ item }) => {
       }}
     >
       {Object.keys(item).map((i, index) => {
-        if (i === "photo") return;
+        if (i === "id" || i === "photo") return;
 
         if (i === "fullName") {
           return (
@@ -53,7 +53,7 @@ const TableRow = ({ item }) => {
               verticalAlign: "top",
             }}
           >
-            {item[i]}
+            {item[i] ? item[i] : "—"}
           </TableCell>
         );
       })}

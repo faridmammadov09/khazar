@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { Grid, Stack } from "@mui/material";
 import { useFormik } from "formik";
+import API from "../../../api";
 import Button from "../../../components/Button/Button";
 import FormWrapper from "../../../components/Form/FormWrapper";
 import InputDate from "../../../components/Input/InputDate";
@@ -12,6 +15,10 @@ const TABS = [{ label: "Sorğunun formalaşdırılması", path: "" }];
 const VacationNew = () => {
   const [currentTab, setCurrentTab] = useState("");
 
+  const { fullName, photo } = useSelector((state) => state.app.loggedUser);
+
+  const navigate = useNavigate();
+
   const formik = useFormik({
     initialValues: {
       startDate: "",
@@ -19,7 +26,24 @@ const VacationNew = () => {
       result: "",
     },
     onSubmit: (values) => {
-      console.log(values);
+      const { startDate, expirationDate, result } = values;
+
+      API.post("vacationInfo", {
+        fullName,
+        photo,
+        substitutePerson: "",
+        startDate,
+        expirationDate,
+        result,
+        date: new Date(),
+        status: "Gözləmədədir",
+      })
+        .then(() => {
+          navigate("/inquiries/vacation");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
   });
 

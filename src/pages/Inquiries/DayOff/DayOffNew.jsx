@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { Grid, Stack } from "@mui/material";
 import { useFormik } from "formik";
+import API from "../../../api";
 import Button from "../../../components/Button/Button";
 import FormWrapper from "../../../components/Form/FormWrapper";
 import InputDate from "../../../components/Input/InputDate";
@@ -11,6 +14,9 @@ const TABS = [{ label: "Sorğunun formalaşdırılması", path: "" }];
 
 const DayOffNew = () => {
   const [currentTab, setCurrentTab] = useState("");
+  const { fullName, photo } = useSelector((state) => state.app.loggedUser);
+
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -19,7 +25,22 @@ const DayOffNew = () => {
       result: "",
     },
     onSubmit: (values) => {
-      console.log(values);
+      const { dayOffDate, type, result } = values;
+
+      API.post("dayOffs", {
+        fullName,
+        photo,
+        date: dayOffDate,
+        status: "Gözləmədədir",
+        type,
+        result,
+      })
+        .then(() => {
+          navigate("/inquiries/day-off");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
   });
 

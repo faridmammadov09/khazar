@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { Grid, Stack, TextField } from "@mui/material";
 import { useFormik } from "formik";
 import API from "../../api";
@@ -12,6 +14,10 @@ const TABS = [{ label: "Elanın formalaşdırılması", path: "" }];
 const AnnouncementNew = () => {
   const [currentTab, setCurrentTab] = useState("");
 
+  const navigate = useNavigate();
+
+  const { fullName } = useSelector((state) => state.app.loggedUser);
+
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -24,16 +30,21 @@ const AnnouncementNew = () => {
       const newAnnouncement = {
         name,
         description,
-        createdBy: "Fred Doe",
-        createdDate: new Date(),
         operation,
+        createdBy: fullName,
+        createdDate: new Date(),
       };
 
       API.post("announcements", newAnnouncement).then(() => {
         formik.resetForm();
+        navigate("/announcements");
       });
     },
   });
+
+  const handleTerminate = () => {
+    navigate("/announcements");
+  };
 
   return (
     <Stack spacing={3}>
@@ -49,34 +60,35 @@ const AnnouncementNew = () => {
             <FormWrapper title="Elanın formalaşdırılması">
               <Stack spacing={2}>
                 <TextField
-                  label="Adı"
                   required
                   fullWidth
+                  label="Adı"
                   name="name"
                   value={formik.values.name}
                   onChange={formik.handleChange}
                 ></TextField>
 
                 <TextField
-                  label="Təsviri"
                   required
                   fullWidth
+                  label="Təsviri"
                   name="description"
                   value={formik.values.description}
                   onChange={formik.handleChange}
                 ></TextField>
 
                 <Select
+                  required
                   label="Əməliyyatlar"
-                  name="operation"
-                  value={formik.values.operation}
-                  onChange={formik.handleChange}
                   options={[
                     "Paylaş",
                     "Əməliyyat 1",
                     "Əməliyyat 2",
                     "Əməliyyat 3",
                   ]}
+                  name="operation"
+                  value={formik.values.operation}
+                  onChange={formik.handleChange}
                 />
               </Stack>
             </FormWrapper>
@@ -88,7 +100,9 @@ const AnnouncementNew = () => {
               sx={{ py: 2 }}
             >
               <Button type="submit">Yadda saxla</Button>
-              <Button primary>Sonlandır</Button>
+              <Button primary onClick={handleTerminate}>
+                Sonlandır
+              </Button>
             </Stack>
           </form>
         </Grid>

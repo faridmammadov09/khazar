@@ -159,11 +159,20 @@
     {
       "id": 3,
       "fullName": "Əhəd Miriyev S.",
-      "photo": "https://i.pravatar.cc/150?img=12",
+      "photo": "https://i.pravatar.cc/150?img=13",
       "date": "2022-02-13T14:07:18.394Z",
       "status": "Gözləmədədir",
       "type": "Tam gün",
       "result": "Departament rəhbərin göndərməsi"
+    },
+    {
+      "fullName": "Farid Mammadov",
+      "photo": "https://i.pravatar.cc/150?img=12",
+      "date": "2022-07-28T20:00:00.000Z",
+      "status": "Gözləmədədir",
+      "type": "Tam gün",
+      "result": "Departament rəhbərin göndərməsi",
+      "id": 4
     }
   ],
   "vacationInfo": [
@@ -192,7 +201,7 @@
     {
       "id": 3,
       "fullName": "Əhəd Miriyev S.",
-      "photo": "https://i.pravatar.cc/150?img=12",
+      "photo": "https://i.pravatar.cc/150?img=14",
       "substitutePerson": "Hüseyn Lətifov İ.",
       "startDate": "2022-03-20T20:00:00.000Z",
       "expirationDate": "2022-03-24T20:00:00.000Z",
@@ -210,6 +219,17 @@
       "result": "Departament rəhbərin göndərməsi",
       "date": "2022-02-13T14:07:18.394Z",
       "status": "Təsdiqləndi"
+    },
+    {
+      "fullName": "Farid Mammadov",
+      "photo": "https://i.pravatar.cc/150?img=12",
+      "substitutePerson": "",
+      "startDate": "2022-07-28T20:00:00.000Z",
+      "expirationDate": "2022-07-30T20:00:00.000Z",
+      "result": "Departament rəhbərin göndərməsi",
+      "date": "2022-07-29T00:09:35.050Z",
+      "status": "Gözləmədədir",
+      "id": 5
     }
   ],
   "nextBirthdays": [
@@ -251,20 +271,9 @@
       "status": "Təsdiqləndi"
     },
     {
-      "id": 2,
-      "fullName": "Sevda Bıyık C.",
-      "photo": "https://i.pravatar.cc/150?img=11",
-      "startDate": "2022-05-25T20:00:00.000Z",
-      "expirationDate": "2022-06-25T20:00:00.000Z",
-      "note": "Sadə qeyd",
-      "result": "Departament rəhbərin göndərməsi",
-      "date": "2022-02-13T14:07:18.394Z",
-      "status": "Təsdiqləndi"
-    },
-    {
       "id": 3,
       "fullName": "Əhəd Miriyev S.",
-      "photo": "https://i.pravatar.cc/150?img=12",
+      "photo": "https://i.pravatar.cc/150?img=14",
       "startDate": "2022-05-25T20:00:00.000Z",
       "expirationDate": "2022-06-25T20:00:00.000Z",
       "note": "Sadə qeyd",
@@ -282,6 +291,17 @@
       "result": "Departament rəhbərin göndərməsi",
       "date": "2022-02-13T14:07:18.394Z",
       "status": "Təsdiqləndi"
+    },
+    {
+      "fullName": "Farid Mammadov",
+      "photo": "https://i.pravatar.cc/150?img=12",
+      "startDate": "2022-07-04T20:00:00.000Z",
+      "expirationDate": "2022-07-19T20:00:00.000Z",
+      "note": "Sadə bir qeyd",
+      "result": "Departament rəhbərin göndərməsi",
+      "date": "2022-07-28T23:13:48.288Z",
+      "status": "Gözləmədədir",
+      "id": 5
     }
   ],
   "announcements": [
@@ -318,20 +338,12 @@
       "id": 4
     },
     {
-      "name": "Mohteshem bir elan adi",
-      "description": "Super elan tesvir",
-      "createdBy": "Fred Doe",
-      "createdDate": "2022-06-13T14:07:18.394Z",
-      "operation": "Əməliyyat 3",
-      "id": 5
-    },
-    {
-      "name": "Elan test",
-      "description": "Elan tesvir",
-      "createdBy": "Fred Doe",
-      "createdDate": "2022-06-13T14:14:51.030Z",
+      "name": "Lorem ipsum",
+      "description": "Dolor sit amet",
       "operation": "Paylaş",
-      "id": 6
+      "createdBy": "Farid Mammadov",
+      "createdDate": "2022-07-29T00:24:25.510Z",
+      "id": 5
     }
   ],
   "vacationBalances": [
@@ -424,6 +436,15 @@
       "remainder": "40",
       "employeeId": 2,
       "id": 10
+    },
+    {
+      "yearOfWork": "2022-07-28T20:00:00.000Z",
+      "main": "10",
+      "addition": "20",
+      "used": "30",
+      "remainder": "40",
+      "employeeId": 6,
+      "id": 11
     }
   ],
   "users": [
@@ -436,7 +457,9 @@
       "position": "CEO",
       "contactNumber": "+994559990909",
       "isActive": true,
-      "roles": ["Admin"],
+      "roles": [
+        "Admin"
+      ],
       "password": "$2a$10$UpZr0wXyJVyo2aJDXnckxuEnxaU4Zh9A9M1rOiSf0Vou3Hpve0Jce"
     },
     {
@@ -448,7 +471,9 @@
       "position": "COO",
       "contactNumber": "+994505550505",
       "isActive": true,
-      "roles": ["Editor"],
+      "roles": [
+        "Editor"
+      ],
       "password": "$2a$10$LAFs./wlZ5L4CSbhfvBI1u8KclM3ytI6cwQFBhkKDP/TaHRGJXlfe"
     },
     {
@@ -460,7 +485,9 @@
       "position": "CFO",
       "contactNumber": "+994503330303",
       "isActive": true,
-      "roles": ["User"],
+      "roles": [
+        "User"
+      ],
       "password": "$2a$10$LAFs./wlZ5L4CSbhfvBI1u8KclM3ytI6cwQFBhkKDP/TaHRGJXlfe"
     },
     {
@@ -472,7 +499,9 @@
       "position": "Aparıcı",
       "contactNumber": "+994556660606",
       "isActive": true,
-      "roles": ["Editor"],
+      "roles": [
+        "Editor"
+      ],
       "id": 4
     },
     {
@@ -484,7 +513,9 @@
       "position": null,
       "contactNumber": null,
       "isActive": true,
-      "roles": ["User"],
+      "roles": [
+        "User"
+      ],
       "id": 5
     },
     {
@@ -496,7 +527,9 @@
       "position": null,
       "contactNumber": null,
       "isActive": true,
-      "roles": ["Supervisor"],
+      "roles": [
+        "Supervisor"
+      ],
       "id": 6
     }
   ],
@@ -507,7 +540,10 @@
       "isStatic": true,
       "description": "Lorem ipsum dolor lorem ipsum dolor",
       "distinctiveName": "",
-      "authorities": ["APP_DELETE", "EDIT"]
+      "authorities": [
+        "APP_DELETE",
+        "EDIT"
+      ]
     },
     {
       "id": 2,
@@ -515,7 +551,9 @@
       "isStatic": false,
       "description": "Lorem ipsum dolor lorem ipsum dolor",
       "distinctiveName": "",
-      "authorities": ["EDIT"]
+      "authorities": [
+        "EDIT"
+      ]
     },
     {
       "id": 3,
@@ -562,7 +600,9 @@
       "isStatic": false,
       "description": "Bla bla bla",
       "distinctiveName": "editor",
-      "authorities": ["EDIT"],
+      "authorities": [
+        "EDIT"
+      ],
       "id": 8
     }
   ],
@@ -970,16 +1010,6 @@
       "id": 15
     },
     {
-      "conclusionDate": "2022-06-27T20:00:00.000Z",
-      "expirationDate": "2022-06-27T20:00:00.000Z",
-      "type": "Type 1",
-      "number": "3334",
-      "employmentRecordBookNumber": "3334",
-      "duration": "Müddətli",
-      "employeeId": 6,
-      "id": 16
-    },
-    {
       "conclusionDate": "2022-05-31T20:00:00.000Z",
       "expirationDate": "2022-05-31T20:00:00.000Z",
       "type": "Type 1",
@@ -1008,6 +1038,16 @@
       "duration": "Müddətsiz",
       "employeeId": 2,
       "id": 19
+    },
+    {
+      "conclusionDate": "2022-07-19T20:00:00.000Z",
+      "expirationDate": "2022-07-19T20:00:00.000Z",
+      "type": "Type 1",
+      "number": 303,
+      "employmentRecordBookNumber": 303030303,
+      "duration": "Müddətli",
+      "employeeId": 6,
+      "id": 20
     }
   ],
   "commands": [
@@ -1083,7 +1123,9 @@
       "id": 1,
       "type": "CV",
       "name": "İlgar Abbasov.pdf",
-      "uploadDocument": ["Sənəd 1"],
+      "uploadDocument": [
+        "Sənəd 1"
+      ],
       "description": "Əla!!!",
       "employeeId": 1
     },
@@ -1091,7 +1133,9 @@
       "id": 2,
       "type": "Sertifikat",
       "name": "İlgar Abbasov’s sertificat.pdf",
-      "uploadDocument": ["Sənəd 2"],
+      "uploadDocument": [
+        "Sənəd 2"
+      ],
       "description": "Super!!",
       "employeeId": 1
     },
@@ -1099,7 +1143,9 @@
       "id": 3,
       "type": "Foto şəkil",
       "name": "İlgar Abbasov’s image.png",
-      "uploadDocument": ["Sənəd 3"],
+      "uploadDocument": [
+        "Sənəd 3"
+      ],
       "description": "Əla!!!",
       "employeeId": 1
     },
@@ -1107,14 +1153,18 @@
       "id": 4,
       "type": "Şəxsi sənəd",
       "name": "İlgar Abbasov’s sürücülük vəsiqəsi.png",
-      "uploadDocument": ["Sənəd 1"],
+      "uploadDocument": [
+        "Sənəd 1"
+      ],
       "description": "Əla!!!",
       "employeeId": 1
     },
     {
       "type": "Foto şəkil",
       "name": "Foto şəkil",
-      "uploadDocument": ["Sənəd 1"],
+      "uploadDocument": [
+        "Sənəd 1"
+      ],
       "description": "Lorem ipsum",
       "employeeId": 10,
       "id": 5
@@ -1122,7 +1172,9 @@
     {
       "type": "CV",
       "name": "CV",
-      "uploadDocument": ["Sənəd 1"],
+      "uploadDocument": [
+        "Sənəd 1"
+      ],
       "description": "Qeyd",
       "employeeId": 2,
       "id": 6
@@ -1139,6 +1191,17 @@
       "resultText": "Lorem ipsum",
       "date": "2022-02-13T14:07:18.394Z",
       "status": "Təsdiqləndi"
+    },
+    {
+      "fullName": "Farid Mammadov",
+      "photo": "https://i.pravatar.cc/150?img=12",
+      "descriptionProblem": "Bu bir problemdir",
+      "result": "Departament rəhbərin göndərməsi",
+      "note": "Note",
+      "resultText": "Result text",
+      "date": "2022-07-29T00:09:01.306Z",
+      "status": "Gözləmədədir",
+      "id": 2
     }
   ],
   "purchases": [
@@ -1147,10 +1210,22 @@
       "fullName": "Joe Doe",
       "photo": "https://i.pravatar.cc/150?img=50",
       "note": "Sadə bir qeyd",
+      "descriptionProblem": "Problem",
       "result": "Departament rəhbərin göndərməsi",
       "resultText": "Lorem ipsum",
       "date": "2022-02-13T14:07:18.394Z",
       "status": "Təsdiqləndi"
+    },
+    {
+      "fullName": "Farid Mammadov",
+      "photo": "https://i.pravatar.cc/150?img=12",
+      "note": "Note",
+      "descriptionProblem": "Bu bir problemdir",
+      "result": "Departament rəhbərin göndərməsi",
+      "resultText": "Result text",
+      "date": "2022-07-29T00:08:48.478Z",
+      "status": "Gözləmədədir",
+      "id": 2
     }
   ],
   "guests": [
@@ -1158,8 +1233,14 @@
       "id": 1,
       "fullName": "Joe Doe",
       "photo": "https://i.pravatar.cc/150?img=50",
-      "comingPeople": ["İlqar Abbasov", "Orxan Axnazarov"],
-      "transportationNotes": ["00-AS-000", "00-AS-001"],
+      "comingPeople": [
+        "İlqar Abbasov",
+        "Orxan Axnazarov"
+      ],
+      "transportationNotes": [
+        "00-AS-000",
+        "00-AS-001"
+      ],
       "arrivalDate": "2022-06-27T20:00:00.000Z",
       "meetingPerson": "Michael Doe",
       "reasonForComing": "Marketinq şöbə rəisilə iş görüşməsi",
@@ -1167,6 +1248,26 @@
       "result": "Departament rəhbərin göndərməsi",
       "date": "2022-02-13T14:07:18.394Z",
       "status": "Təsdiqləndi"
+    },
+    {
+      "fullName": "Farid Mammadov",
+      "photo": "https://i.pravatar.cc/150?img=12",
+      "comingPeople": [
+        "İlqar Abbasov",
+        "Ceyhun Əhmədli"
+      ],
+      "transportationNotes": [
+        "00-AS-000",
+        "00-AS-003"
+      ],
+      "arrivalDate": "2022-07-18T20:00:00.000Z",
+      "meetingPerson": "Joe Doe",
+      "reasonForComing": "Marketinq şöbə rəisilə iş görüşməsi",
+      "note": "Sadə bir qeyd",
+      "result": "Departament rəhbərin göndərməsi",
+      "date": "2022-07-28T23:47:18.281Z",
+      "status": "Gözləmədədir",
+      "id": 2
     }
   ]
 }

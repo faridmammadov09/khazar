@@ -5,7 +5,7 @@ import { getGuestInquiry } from "../../../api";
 import FormWrapper from "../../../components/Form/FormWrapper";
 import InfoInquiryCreator from "../../../components/InfoInquiryCreator/InfoInquiryCreator";
 import List from "../../../components/List/List";
-import InquiryDetailsModal from "../../../components/Modal/InquiryDetailsModal/InquiryDetailsModal";
+import InquiryDetailsModal from "../../../components/Modal/Inquiry/InquiryDetailsModal";
 
 const formatDate = (date) => new Date(date).toLocaleDateString();
 

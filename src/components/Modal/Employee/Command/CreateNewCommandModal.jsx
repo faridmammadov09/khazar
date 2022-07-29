@@ -7,7 +7,7 @@ import InputDate from "../../../Input/InputDate";
 import Select from "../../../Select/Select";
 import Modal from "../../Modal";
 
-const commandTypes = [
+const COMMAND_TYPES = [
   "İşə qəbul edilməsi barədə",
   "İşçinin mükafatlandırılması haqqında",
   "Məzuniyyətin verilməsi barədə",
@@ -31,7 +31,6 @@ const CreateNewCommandModal = ({ open, onClose, onFetchEmployeeCommands }) => {
       commandDate: "",
     },
     onSubmit: (values) => {
-      console.log(values);
       const { commandType, commandNumber, commandDate } = values;
 
       const newCommand = {
@@ -73,7 +72,7 @@ const CreateNewCommandModal = ({ open, onClose, onFetchEmployeeCommands }) => {
             name="commandType"
             value={formik.values.commandType}
             onChange={formik.handleChange}
-            options={commandTypes}
+            options={COMMAND_TYPES}
           />
         </Grid>
 

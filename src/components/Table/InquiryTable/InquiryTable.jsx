@@ -18,7 +18,7 @@ import TableHeader from "../TableHeader";
 
 const formatDate = (date) => new Date(date).toLocaleDateString();
 
-const InquiryTable = ({ bodyData }) => {
+const InquiryTable = ({ bodyData, onOpenDeleteModal }) => {
   const navigate = useNavigate();
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -74,8 +74,9 @@ const InquiryTable = ({ bodyData }) => {
                       onClickLeftButton={() => handleShowDayOffInquiry(item.id)}
                       iconShow
                     >
-                      <MenuItem>Redaktə et</MenuItem>
-                      <MenuItem onClick={null}>Sil</MenuItem>
+                      <MenuItem onClick={() => onOpenDeleteModal(item)}>
+                        Sil
+                      </MenuItem>
                     </TableCellActions>
                   </TableCell>
                 </TableRow>

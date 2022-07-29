@@ -83,20 +83,20 @@ const EditContractModal = ({
 
         <Grid item xs={6}>
           <Select
+            required
             label="Növü"
             value={contractType}
             onChange={(value) => setContractType(value)}
             options={["Əmək", "Type 1", "Type 2", "Type 3"]}
-            required
           />
         </Grid>
 
         <Grid item xs={6}>
           <TextField
-            type="number"
-            label="Nömrəsi"
             required
             fullWidth
+            type="number"
+            label="Nömrəsi"
             value={contractNumber}
             onChange={(e) => setContractNumber(e.target.value)}
           ></TextField>
@@ -104,10 +104,10 @@ const EditContractModal = ({
 
         <Grid item xs={6}>
           <TextField
-            type="number"
-            label="Əmək kitabçasının nömrəsi"
             required
             fullWidth
+            type="number"
+            label="Əmək kitabçasının nömrəsi"
             value={employmentRecordBookNumber}
             onChange={(e) => setEmploymentRecordBookNumber(e.target.value)}
           ></TextField>

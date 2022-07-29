@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import API from "../../../api";
+import API, { getUsers } from "../../../api";
 import { setShowCreateUserModal } from "../../../features/user/userSlice";
 import SearchPanelUser from "../../../components/SearchPanel/SearchPanelUser";
 import CreateNewUserModal from "../../../components/Modal/User/CreateNewUserModal";
@@ -33,8 +33,8 @@ const Users = () => {
     dispatch(setShowCreateUserModal(false));
   };
 
-  const getUsers = async () => {
-    const { data } = await API.get("users");
+  const getUsersData = async () => {
+    const data = await getUsers();
     setUsers(data);
   };
 
@@ -64,12 +64,12 @@ const Users = () => {
     API.patch(`users/${item.id}`, {
       isActive: !item.isActive,
     }).then(() => {
-      getUsers();
+      getUsersData();
     });
   };
 
   useEffect(() => {
-    getUsers();
+    getUsersData();
   }, []);
 
   return (

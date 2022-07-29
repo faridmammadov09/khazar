@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { Grid, Stack, TextField } from "@mui/material";
 import { useFormik } from "formik";
+import API from "../../../api";
 import Button from "../../../components/Button/Button";
 import FormWrapper from "../../../components/Form/FormWrapper";
 import Select from "../../../components/Select/Select";
@@ -13,6 +16,10 @@ const TABS = [{ label: "Sorğunun formalaşdırılması", path: "" }];
 const GuestNew = () => {
   const [currentTab, setCurrentTab] = useState("");
 
+  const { fullName, photo } = useSelector((state) => state.app.loggedUser);
+
+  const navigate = useNavigate();
+
   const formik = useFormik({
     initialValues: {
       comingPeople: [],
@@ -24,7 +31,35 @@ const GuestNew = () => {
       result: "",
     },
     onSubmit: (values) => {
-      console.log(values);
+      const {
+        comingPeople,
+        transportationNotes,
+        arrivalDate,
+        meetingPerson,
+        reasonForComing,
+        note,
+        result,
+      } = values;
+
+      API.post("guests", {
+        fullName,
+        photo,
+        comingPeople,
+        transportationNotes,
+        arrivalDate,
+        meetingPerson,
+        reasonForComing,
+        note,
+        result,
+        date: new Date(),
+        status: "Gözləmədədir",
+      })
+        .then(() => {
+          navigate("/inquiries/guest");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
   });
 
@@ -43,6 +78,7 @@ const GuestNew = () => {
               <Grid container spacing={2}>
                 <Grid item xs={12}>
                   <Autocomplete
+                    required
                     label="Gələcək şəxs"
                     options={[
                       "İlqar Abbasov",
@@ -60,6 +96,7 @@ const GuestNew = () => {
 
                 <Grid item xs={12}>
                   <Autocomplete
+                    required
                     label="Nəqliyyatı ilə bağlı qeyd"
                     options={[
                       "00-AS-000",

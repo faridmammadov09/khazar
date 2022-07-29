@@ -9,38 +9,58 @@ export const fetchData = async (name, setFn) => {
   setFn(data);
 };
 
-export const getEmployees = async (query = "") => {
-  const { data } = await API.get("employees" + query);
+export const getEmployees = async (id = "", query = "") => {
+  const { data } = await API.get(`employees/${id}${query}`);
   return data;
 };
 
-export const getDayOffInquiry = async (id) => {
+export const getVacations = async (query = "") => {
+  const { data } = await API.get("vacationBalances" + query);
+  return data;
+};
+
+export const getDayOffInquiry = async (id = "") => {
   const { data } = await API.get(`dayOffs/${id}`);
   return data;
 };
 
-export const getBusinessTripInquiry = async (id) => {
+export const getBusinessTripInquiry = async (id = "") => {
   const { data } = await API.get(`businessTrip/${id}`);
   return data;
 };
 
-export const getVacationInquiry = async (id) => {
+export const getVacationInquiry = async (id = "") => {
   const { data } = await API.get(`vacationInfo/${id}`);
   return data;
 };
 
-export const getGuestInquiry = async (id) => {
+export const getGuestInquiry = async (id = "") => {
   const { data } = await API.get(`guests/${id}`);
   return data;
 };
 
-export const getSupplyInquiry = async (id) => {
+export const getSupplyInquiry = async (id = "") => {
   const { data } = await API.get(`itSupplies/${id}`);
   return data;
 };
 
-export const getPurchasingInquiry = async (id) => {
+export const getPurchasingInquiry = async (id = "") => {
   const { data } = await API.get(`purchases/${id}`);
+  return data;
+};
+
+export const getAnnouncement = async (id = "") => {
+  const { data } = await API.get(`announcements/${id}`);
+  return data;
+};
+
+export const getUsers = async () => {
+  const { data } = await API.get("users");
+  return data;
+};
+
+export const getUserRoles = async () => {
+  const { data } = await API.get("userRoles");
   return data;
 };
 

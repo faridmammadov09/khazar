@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Grid } from "@mui/material";
-import API from "../../api";
+import { getAnnouncement } from "../../api";
 import FormWrapper from "../../components/Form/FormWrapper";
 import List from "../../components/List/List";
 
@@ -10,8 +10,8 @@ const Announcement = () => {
   const navigate = useNavigate();
   const [announcement, setAnnouncement] = useState([]);
 
-  const getAnnouncement = async () => {
-    const { data } = await API.get(`/announcements/${id}`);
+  const setAnnouncementData = async () => {
+    const data = await getAnnouncement(id);
     setAnnouncement([
       { title: "Adı", value: data.name },
       { title: "Təsviri", value: data.description },
@@ -23,7 +23,7 @@ const Announcement = () => {
   };
 
   useEffect(() => {
-    getAnnouncement();
+    setAnnouncementData();
   }, []);
 
   return (

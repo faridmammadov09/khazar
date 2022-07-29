@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import API from "../../../api";
+import { getUserRoles } from "../../../api";
 import { setShowCreateRoleModal } from "../../../features/role/roleSlice";
 import CreateNewRoleModal from "../../../components/Modal/Role/CreateNewRoleModal";
 import EditRoleModal from "../../../components/Modal/Role/EditRoleModal";
@@ -17,8 +17,8 @@ const UserRoles = () => {
   const [isShowDeleteRoleModal, setIsShowDeleteRoleModal] = useState(false);
   const [selectedRole, setSelectedRole] = useState({});
 
-  const getUserRoles = async () => {
-    const { data } = await API.get("userRoles");
+  const getUserRolesData = async () => {
+    const data = await getUserRoles();
     setUserRoles(data);
   };
 
@@ -45,7 +45,7 @@ const UserRoles = () => {
   };
 
   useEffect(() => {
-    getUserRoles();
+    getUserRolesData();
   }, []);
 
   return (

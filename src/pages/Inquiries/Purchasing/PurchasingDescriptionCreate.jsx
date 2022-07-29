@@ -11,7 +11,7 @@ const PurchasingDescriptionCreate = () => {
   const [inquiryData, setInquiryData] = useState({});
 
   const listData = [
-    { title: "Qeyd", value: inquiryData.note },
+    { title: "Problemin təsviri", value: inquiryData.descriptionProblem },
     { title: "Nəticə", value: inquiryData.result },
   ];
 

@@ -76,11 +76,11 @@ const SecurityAndLogin = () => {
   return (
     <Paper variant="outlined">
       <ButtonMui
-        onClick={handleToggleShowPanel}
-        variant="outlined"
         fullWidth
         disableElevation
         disableRipple
+        onClick={handleToggleShowPanel}
+        variant="outlined"
         sx={{
           textAlign: "left",
           color: "inherit",

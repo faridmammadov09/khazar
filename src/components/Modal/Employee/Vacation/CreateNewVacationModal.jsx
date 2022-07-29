@@ -18,7 +18,6 @@ const CreateNewVacationModal = ({ open, onClose, getVacations }) => {
       remainder: "",
     },
     onSubmit: (values) => {
-      console.log(values);
       const { workYearInterval, main, addition, used, remainder } = values;
 
       const newVacation = {

@@ -79,9 +79,9 @@ const EditDocumentModal = ({ open, onClose, getDocuments, document }) => {
 
         <Grid item xs={12}>
           <TextField
-            label="Qeyd"
             required
             fullWidth
+            label="Qeyd"
             value={note}
             onChange={(e) => setNote(e.target.value)}
           ></TextField>

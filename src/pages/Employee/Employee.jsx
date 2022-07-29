@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { Box } from "@mui/material";
 import Tabs from "../../components/Tabs/Tabs";
 
-const tabs = [
+const TABS = [
   {
     label: "Ümumi",
     path: "total",
@@ -46,7 +46,7 @@ const Employee = () => {
   return (
     <div>
       <Tabs
-        tabs={tabs}
+        tabs={TABS}
         currentTab={currentTab}
         onChangeCurrentTab={handleChangeCurrentTab}
       />
