@@ -9,7 +9,7 @@ import InputDate from "../../../components/Input/InputDate";
 import Select from "../../../components/Select/Select";
 import Button from "../../../components/Button/Button";
 import Autocomplete from "../../../components/Input/Autocomplete";
-import GuestAccordion from "../../../components/Accordion/GuestAccordion";
+// import GuestAccordion from "../../../components/Accordion/GuestAccordion";
 
 const GuestEmployeeEdit = () => {
   const { id } = useParams();
@@ -52,6 +52,7 @@ const GuestEmployeeEdit = () => {
 
   useEffect(() => {
     setGuestInquiry();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

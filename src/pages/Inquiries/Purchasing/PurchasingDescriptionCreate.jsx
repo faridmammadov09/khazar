@@ -22,6 +22,7 @@ const PurchasingDescriptionCreate = () => {
 
   useEffect(() => {
     setPurchasingInquiry();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

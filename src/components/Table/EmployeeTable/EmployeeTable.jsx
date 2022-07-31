@@ -57,7 +57,7 @@ const EmployeeTable = ({
                   key === "employeeId" ||
                   key === "uploadDocument"
                 ) {
-                  return;
+                  return null;
                 }
 
                 if (key === "name") {

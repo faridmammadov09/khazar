@@ -25,19 +25,20 @@ const VacationHrEdit = () => {
     },
   });
 
+  const fillInputs = async () => {
+    const { fullName, startDate, expirationDate } = await getVacationInquiry(
+      id
+    );
+
+    formik.setFieldValue("fullName", fullName);
+    formik.setFieldValue("startDate", startDate);
+    formik.setFieldValue("expirationDate", expirationDate);
+  };
+
   useEffect(() => {
-    const fillInputs = async () => {
-      const { fullName, startDate, expirationDate } = await getVacationInquiry(
-        id
-      );
-
-      formik.setFieldValue("fullName", fullName);
-      formik.setFieldValue("startDate", startDate);
-      formik.setFieldValue("expirationDate", expirationDate);
-    };
-
     fillInputs();
-  }, [id]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Grid container sx={{ justifyContent: "center" }} spacing={2}>

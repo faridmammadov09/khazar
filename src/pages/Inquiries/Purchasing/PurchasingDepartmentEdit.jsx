@@ -29,14 +29,15 @@ const PurchasingDepartmentEdit = () => {
     formik.setFieldValue("resultText", resultText);
   };
 
-  useEffect(() => {
-    const setPurchasingInquiry = async () => {
-      const data = await getPurchasingInquiry(id);
-      fillInputs(data);
-    };
+  const setPurchasingInquiry = async () => {
+    const data = await getPurchasingInquiry(id);
+    fillInputs(data);
+  };
 
+  useEffect(() => {
     setPurchasingInquiry();
-  }, [id]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Grid container sx={{ justifyContent: "center" }} spacing={2}>

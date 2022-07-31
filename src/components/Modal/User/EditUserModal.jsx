@@ -58,6 +58,7 @@ const EditUserModal = ({ open, onClose, getUsers, user }) => {
     if (Object.keys(user).length !== 0) {
       fillInputs(user);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   return (

@@ -33,6 +33,7 @@ const GuestDescriptionChief = () => {
 
   useEffect(() => {
     setGuestInquiry();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

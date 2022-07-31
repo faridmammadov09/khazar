@@ -38,7 +38,7 @@ const EmployeeInfoList = ({ employee }) => {
         {Object.keys(employee).map((key, index) => {
           const filteredKeys = ["id", "isArchived", "age"];
 
-          if (filteredKeys.includes(key)) return;
+          if (filteredKeys.includes(key)) return null;
 
           return (
             <EmployeeInfoItem

@@ -67,6 +67,7 @@ const EmployeeSalary = () => {
 
   useEffect(() => {
     getSalary();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

@@ -21,6 +21,7 @@ const EmployeeContract = () => {
 
   useEffect(() => {
     fetchEmployeeContracts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleOpenCreateModal = () => {

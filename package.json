@@ -29,9 +29,6 @@
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
   },
-  "browser": {
-    "crypto": false
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "GENERATE_SOURCEMAP=false react-scripts build",

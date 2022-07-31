@@ -11,7 +11,7 @@ const TableRow = ({ item }) => {
       }}
     >
       {Object.keys(item).map((i, index) => {
-        if (i === "id" || i === "photo") return;
+        if (i === "id" || i === "photo") return null;
 
         if (i === "fullName") {
           return (

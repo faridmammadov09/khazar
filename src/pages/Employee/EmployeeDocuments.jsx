@@ -21,6 +21,7 @@ const EmployeeDocuments = () => {
 
   useEffect(() => {
     getDocuments();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleOpenCreateModal = () => {

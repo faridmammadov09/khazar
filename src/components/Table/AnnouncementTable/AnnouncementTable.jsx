@@ -46,7 +46,7 @@ const AnnouncementTable = ({ headerData, bodyData, onOpenDeleteModal }) => {
             {paginatedData.map((item) => (
               <TableRow key={item.id}>
                 {Object.keys(item).map((key, index) => {
-                  if (key === "id" || key === "operation") return;
+                  if (key === "id" || key === "operation") return null;
 
                   if (key === "createdDate") {
                     const date = new Date(item[key]);
