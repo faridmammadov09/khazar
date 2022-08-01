@@ -6,6 +6,7 @@ const DropdownMenu = ({ children, anchorEl, open, onClose }) => {
       anchorEl={anchorEl}
       open={open}
       onClose={onClose}
+      onClick={onClose}
       id="dropdown-menu"
       MenuListProps={{
         "aria-labelledby": "more-button",
